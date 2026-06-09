@@ -37,6 +37,12 @@ const jobs = [
     quality: 80,
   },
   {
+    src: "src/assets/ChatGPT Image Jun 9, 2026, 02_16_03 PM.png",
+    out: "late-night-safety.webp",
+    width: 1200,
+    quality: 80,
+  },
+  {
     src: "src/assets/190fb356-ff9d-4337-82b6-8348a69cb994.png",
     out: "support-24x7.webp",
     width: 1200,

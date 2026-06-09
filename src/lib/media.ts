@@ -44,6 +44,7 @@ export const SERVICE_IMAGES = {
   seniorFallback: BRAND_IMAGES.elderlyFallback,
   events: "/images/event-packages.webp",
   eventsFallback: BRAND_IMAGES.packagesFallback,
+  lateNight: "/images/late-night-safety.webp",
 } as const
 
 export const FEATURE_IMAGES = {

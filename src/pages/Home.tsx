@@ -12,6 +12,7 @@ import {
   Users,
   Briefcase,
   Calendar,
+  Moon,
 } from "lucide-react"
 import { GradientCard } from "@/components/ui/gradient-card"
 import { DownloadButtons } from "@/components/ui/download-buttons"
@@ -153,6 +154,14 @@ const services = [
     tone: "emerald" as const,
     imageUrl: SERVICE_IMAGES.events,
     imageFallback: SERVICE_IMAGES.eventsFallback,
+  },
+  {
+    icon: Moon,
+    title: "Late Night Safety Rides",
+    description:
+      "Secure transportation for women returning home after work, events, classes, or travel, available whenever you need a safe ride.",
+    tone: "violet" as const,
+    imageUrl: SERVICE_IMAGES.lateNight,
   },
 ]
 
