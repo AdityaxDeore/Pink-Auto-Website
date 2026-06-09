@@ -552,7 +552,7 @@ export function CinematicHero({
     window.addEventListener("scroll", markUserScroll, { passive: true })
 
     const isMobile = window.innerWidth < 768
-    const scrollDistance = isMobile ? 2800 : 3400
+    const scrollDistance = isMobile ? 2000 : 2500
     let ctx: gsap.Context | undefined
 
     const setupScrollScene = () => {
@@ -582,7 +582,7 @@ export function CinematicHero({
             end: `+=${scrollDistance}`,
             pin: true,
             pinSpacing: true,
-            scrub: 0.65,
+            scrub: 0.4,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
@@ -614,16 +614,16 @@ export function CinematicHero({
               filter: "blur(8px)",
               autoAlpha: 0.12,
               ease: "power2.inOut",
-              duration: 1.15,
+              duration: 0.8,
               force3D: true,
             },
             0
           )
-          .to(mainCard, { y: 0, ease: "power3.inOut", duration: 1.2, force3D: true }, 0)
+          .to(mainCard, { y: 0, ease: "power3.inOut", duration: 0.85, force3D: true }, 0)
           .to(
             mainCard,
-            { width: "100%", height: "100%", borderRadius: "0px", ease: "power3.inOut", duration: 1 },
-            0.08
+            { width: "100%", height: "100%", borderRadius: "0px", ease: "power3.inOut", duration: 0.7 },
+            0.05
           )
           .fromTo(
             mockupWrapper,
@@ -645,20 +645,20 @@ export function CinematicHero({
               autoAlpha: 1,
               scale: 1,
               ease: "expo.out",
-              duration: 1.35,
+              duration: 0.95,
               force3D: true,
             },
-            "-=0.55"
+            "-=0.4"
           )
-          .fromTo(cardLeft, { x: -32, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "power4.out", duration: 0.9 }, "-=0.85")
+          .fromTo(cardLeft, { x: -32, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "power4.out", duration: 0.6 }, "-=0.6")
           .fromTo(
             cardRight,
             { x: 32, autoAlpha: 0, scale: 0.9 },
-            { x: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 0.9 },
+            { x: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 0.6 },
             "<"
           )
-          .to({}, { duration: 0.9 })
-          .to({}, { duration: 0.75 })
+          .to({}, { duration: 0.35 })
+          .to({}, { duration: 0.3 })
           .set(heroText, { autoAlpha: 0 })
           .set(ctaWrapper, { autoAlpha: 1 })
           .to({}, { duration: 0.55 })
