@@ -380,6 +380,13 @@ const INJECTED_STYLES = `
       0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
       50% { transform: translateX(-50%) translateY(6px); opacity: 1; }
   }
+
+  @media (max-width: 767px) {
+      .film-grain,
+      .card-sheen {
+          display: none;
+      }
+  }
 `
 
 export interface CinematicHeroProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -498,12 +505,12 @@ export function CinematicHero({
 
         tiltTweenRef.current?.kill()
         tiltTweenRef.current = gsap.to(tiltEl, {
-          rotationY: xVal * 7,
-          rotationX: -yVal * 5,
+          rotationY: xVal * 4,
+          rotationX: -yVal * 3,
           transformPerspective: 1200,
           transformOrigin: "center center",
           transformStyle: "preserve-3d",
-          duration: 0.45,
+          duration: 0.28,
           ease: "power2.out",
           overwrite: true,
         })
@@ -549,7 +556,7 @@ export function CinematicHero({
     window.addEventListener("scroll", markUserScroll, { passive: true })
 
     const isMobile = window.innerWidth < 768
-    const scrollDistance = isMobile ? 2000 : 2500
+    const scrollDistance = isMobile ? 1050 : 1650
     let ctx: gsap.Context | undefined
 
     const setupScrollScene = () => {
@@ -567,9 +574,11 @@ export function CinematicHero({
 
         gsap.set(mainCard, { y: window.innerHeight + 200, autoAlpha: 1, visibility: "visible" })
         gsap.set([cardLeft, cardRight, mockupWrapper], { autoAlpha: 0 })
-        gsap.set(ctaWrapper, { autoAlpha: 0, scale: 0.98 })
+        gsap.set(ctaWrapper, { autoAlpha: 0 })
 
-        gsap.set(mockupWrapper, { transformPerspective: 1000, transformStyle: "preserve-3d" })
+        if (!isMobile) {
+          gsap.set(mockupWrapper, { transformPerspective: 1000, transformStyle: "preserve-3d" })
+        }
 
         const scrollTl = gsap.timeline({
           scrollTrigger: {
@@ -579,8 +588,9 @@ export function CinematicHero({
             end: `+=${scrollDistance}`,
             pin: true,
             pinSpacing: true,
-            scrub: 0.4,
-            anticipatePin: 1,
+            scrub: isMobile ? true : 0.1,
+            anticipatePin: 0,
+            fastScrollEnd: true,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
               scrollProgressRef.current = self.progress
@@ -589,12 +599,12 @@ export function CinematicHero({
                 gsap.to(mockupTiltRef.current, {
                   rotationX: 0,
                   rotationY: 0,
-                  duration: 0.35,
+                  duration: 0.2,
                   ease: "power2.out",
                   overwrite: true,
                 })
               }
-              if (self.progress >= 0.985 && userScrolledRef.current) {
+              if (self.progress >= 0.9 && userScrolledRef.current) {
                 completeIntro()
               }
             },
@@ -603,71 +613,63 @@ export function CinematicHero({
 
         scrollTriggerRef.current = scrollTl.scrollTrigger ?? null
 
-        scrollTl
-          .to(
-            [heroText, gridBg].filter(Boolean),
-            {
-              scale: 1.08,
-              filter: "blur(8px)",
-              autoAlpha: 0.12,
-              ease: "power2.inOut",
-              duration: 0.8,
-              force3D: true,
-            },
-            0
-          )
-          .to(mainCard, { y: 0, ease: "power3.inOut", duration: 0.85, force3D: true }, 0)
-          .to(
-            mainCard,
-            { width: "100%", height: "100%", borderRadius: "0px", ease: "power3.inOut", duration: 0.7 },
-            0.05
-          )
-          .fromTo(
-            mockupWrapper,
-            {
-              y: 180,
-              z: -280,
-              rotationX: 36,
-              rotationY: -18,
+        const phoneFrom = isMobile
+          ? { y: 40, autoAlpha: 0 }
+          : {
+              y: 90,
+              z: -100,
+              rotationX: 12,
+              rotationY: -6,
               autoAlpha: 0,
-              scale: 0.76,
+              scale: 0.92,
               transformPerspective: 1000,
               transformOrigin: "center center",
-            },
-            {
+            }
+
+        const phoneTo = isMobile
+          ? { y: 0, autoAlpha: 1, ease: "none", duration: 0.42 }
+          : {
               y: 0,
               z: 0,
               rotationX: 0,
               rotationY: 0,
               autoAlpha: 1,
               scale: 1,
-              ease: "expo.out",
-              duration: 0.95,
-              force3D: true,
-            },
-            "-=0.4"
+              ease: "none",
+              duration: 0.5,
+            }
+
+        scrollTl
+          .to(heroText, { autoAlpha: 0, y: isMobile ? -16 : -28, ease: "none", duration: 0.42 }, 0)
+          .to(gridBg, { autoAlpha: 0, ease: "none", duration: 0.38 }, 0)
+          .to(mainCard, { y: 0, ease: "none", duration: 0.48 }, 0)
+          .to(
+            mainCard,
+            { width: "100%", height: "100%", borderRadius: "0px", ease: "none", duration: 0.42 },
+            0.06
           )
-          .fromTo(cardLeft, { x: -32, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "power4.out", duration: 0.6 }, "-=0.6")
+          .fromTo(mockupWrapper, phoneFrom, phoneTo, "-=0.22")
+          .fromTo(
+            cardLeft,
+            { autoAlpha: 0, x: isMobile ? 0 : -12 },
+            { autoAlpha: 1, x: 0, ease: "none", duration: 0.32 },
+            "-=0.18"
+          )
           .fromTo(
             cardRight,
-            { x: 32, autoAlpha: 0, scale: 0.9 },
-            { x: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 0.6 },
+            { autoAlpha: 0, x: isMobile ? 0 : 12 },
+            { autoAlpha: 1, x: 0, ease: "none", duration: 0.32 },
             "<"
           )
-          .to({}, { duration: 0.35 })
-          .to({}, { duration: 0.3 })
+          .to({}, { duration: isMobile ? 0.08 : 0.14 })
           .set(heroText, { autoAlpha: 0 })
           .set(ctaWrapper, { autoAlpha: 1 })
-          .to({}, { duration: 0.55 })
           .to([mockupWrapper, cardLeft, cardRight], {
-            scale: 0.93,
-            y: -22,
-            z: -110,
             autoAlpha: 0,
-            ease: "power3.in",
-            duration: 0.75,
-            stagger: 0.04,
-            force3D: true,
+            y: isMobile ? -10 : -14,
+            ease: "none",
+            duration: 0.36,
+            stagger: 0.015,
           })
           .to(
             mainCard,
@@ -675,13 +677,13 @@ export function CinematicHero({
               width: isMobile ? "92vw" : "85vw",
               height: isMobile ? "92vh" : "85vh",
               borderRadius: isMobile ? "32px" : "40px",
-              ease: "expo.inOut",
-              duration: 1.05,
+              ease: "none",
+              duration: 0.5,
             },
             "pullback"
           )
-          .to(ctaWrapper, { scale: 1, autoAlpha: 1, ease: "expo.inOut", duration: 1.05 }, "pullback")
-          .to(mainCard, { y: -window.innerHeight - 300, ease: "power3.in", duration: 1 })
+          .to(ctaWrapper, { autoAlpha: 1, ease: "none", duration: 0.36 }, "pullback")
+          .to(mainCard, { y: -window.innerHeight - 300, ease: "none", duration: 0.58 })
       }, container)
 
       ScrollTrigger.refresh()
