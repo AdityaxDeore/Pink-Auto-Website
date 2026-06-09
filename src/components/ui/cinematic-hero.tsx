@@ -552,7 +552,7 @@ export function CinematicHero({
     window.addEventListener("scroll", markUserScroll, { passive: true })
 
     const isMobile = window.innerWidth < 768
-    const scrollDistance = isMobile ? 2400 : 3000
+    const scrollDistance = isMobile ? 2800 : 3400
     let ctx: gsap.Context | undefined
 
     const setupScrollScene = () => {
@@ -568,11 +568,7 @@ export function CinematicHero({
         const gridBg = container.querySelector<HTMLElement>(".bg-grid-theme")
         if (!heroText || !mainCard || !mockupWrapper || !cardLeft || !cardRight || !ctaWrapper) return
 
-        gsap.set(mainCard, {
-          y: Math.min(window.innerHeight * 0.36, 300),
-          autoAlpha: 1,
-          visibility: "visible",
-        })
+        gsap.set(mainCard, { y: window.innerHeight + 200, autoAlpha: 1, visibility: "visible" })
         gsap.set([cardLeft, cardRight, mockupWrapper], { autoAlpha: 0 })
         gsap.set(ctaWrapper, { autoAlpha: 0, scale: 0.98 })
 
@@ -586,7 +582,7 @@ export function CinematicHero({
             end: `+=${scrollDistance}`,
             pin: true,
             pinSpacing: true,
-            scrub: 0.55,
+            scrub: 0.65,
             anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
@@ -612,46 +608,33 @@ export function CinematicHero({
 
         scrollTl
           .to(
-            heroText,
+            [heroText, gridBg].filter(Boolean),
             {
-              y: -48,
-              scale: 1.03,
-              filter: "blur(5px)",
-              autoAlpha: 0,
+              scale: 1.08,
+              filter: "blur(8px)",
+              autoAlpha: 0.12,
               ease: "power2.inOut",
-              duration: 0.75,
+              duration: 1.15,
               force3D: true,
             },
             0
           )
-          .to(
-            gridBg,
-            {
-              scale: 1.04,
-              filter: "blur(6px)",
-              autoAlpha: 0,
-              ease: "power2.inOut",
-              duration: 0.8,
-              force3D: true,
-            },
-            0
-          )
-          .to(mainCard, { y: 0, ease: "power3.out", duration: 0.95, force3D: true }, 0)
+          .to(mainCard, { y: 0, ease: "power3.inOut", duration: 1.2, force3D: true }, 0)
           .to(
             mainCard,
-            { width: "100%", height: "100%", borderRadius: "0px", ease: "power3.inOut", duration: 0.85 },
-            0.04
+            { width: "100%", height: "100%", borderRadius: "0px", ease: "power3.inOut", duration: 1 },
+            0.08
           )
           .fromTo(
             mockupWrapper,
             {
-              y: 100,
-              z: -180,
-              rotationX: 18,
-              rotationY: -8,
+              y: 180,
+              z: -280,
+              rotationX: 36,
+              rotationY: -18,
               autoAlpha: 0,
-              scale: 0.88,
-              transformPerspective: 1200,
+              scale: 0.76,
+              transformPerspective: 1000,
               transformOrigin: "center center",
             },
             {
@@ -661,19 +644,20 @@ export function CinematicHero({
               rotationY: 0,
               autoAlpha: 1,
               scale: 1,
-              ease: "power3.out",
-              duration: 0.95,
+              ease: "expo.out",
+              duration: 1.35,
               force3D: true,
             },
-            0.12
+            "-=0.55"
           )
-          .fromTo(cardLeft, { x: -28, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "power4.out", duration: 0.75 }, 0.22)
+          .fromTo(cardLeft, { x: -32, autoAlpha: 0 }, { x: 0, autoAlpha: 1, ease: "power4.out", duration: 0.9 }, "-=0.85")
           .fromTo(
             cardRight,
-            { x: 28, autoAlpha: 0, scale: 0.92 },
-            { x: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 0.75 },
-            0.22
+            { x: 32, autoAlpha: 0, scale: 0.9 },
+            { x: 0, autoAlpha: 1, scale: 1, ease: "expo.out", duration: 0.9 },
+            "<"
           )
+          .to({}, { duration: 0.9 })
           .to({}, { duration: 0.75 })
           .set(heroText, { autoAlpha: 0 })
           .set(ctaWrapper, { autoAlpha: 1 })
@@ -766,11 +750,11 @@ export function CinematicHero({
         <h1 className="text-days text-silver-matte text-4xl sm:text-5xl md:text-7xl lg:text-[6rem] font-extrabold tracking-tighter mb-0 leading-[1.2] pb-2 overflow-visible">
           <span className="inline-block pb-1">{tagline2}</span>
         </h1>
-        <p className="mt-6 sm:mt-8 text-sm sm:text-base text-muted-foreground max-w-md px-2">
+        <p className="mt-8 sm:mt-10 md:mt-12 text-sm sm:text-base text-muted-foreground max-w-md px-2">
           Women-driven autos &amp; standard rides · Kolhapur
         </p>
 
-        <div className="mt-7 sm:mt-9 lg:mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none px-4 sm:px-0 pointer-events-auto">
+        <div className="mt-10 sm:mt-14 lg:mt-16 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none px-4 sm:px-0 pointer-events-auto">
           <a
             href="#download"
             aria-label="Download Pink Auto on the App Store"
