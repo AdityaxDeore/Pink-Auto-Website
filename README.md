@@ -13,7 +13,7 @@
 
 *Women-driven autos · GPS tracking · SOS support · 24×7 help*
 
-[Live preview](#getting-started) · [Report issue](https://github.com/Pink-Auto/Website/issues)
+[Live site](https://pink-auto.github.io/Website/) · [Report issue](https://github.com/Pink-Auto/Website/issues)
 
 </div>
 
@@ -170,15 +170,16 @@ export const SITE = {
 |---------|-------------|
 | `npm run dev` | Start dev server |
 | `npm run build` | Type-check + production build |
+| `npm run build:pages` | Production build for GitHub Pages (`/Website/` base) |
 | `npm run preview` | Preview production build |
 | `npm run optimize-images` | Compress assets to WebP |
 | `npm run lint` | Run ESLint |
 
 ---
 
-## Deployment (Vercel)
+## Deployment
 
-This site is a **Vite SPA** with a **scroll-pinned GSAP intro** followed by the main landing page. It is ready for Vercel.
+This site is a **Vite SPA** with a **scroll-pinned GSAP intro** followed by the main landing page.
 
 ### Flow on production
 
@@ -186,31 +187,32 @@ This site is a **Vite SPA** with a **scroll-pinned GSAP intro** followed by the 
 2. **Enter site** — skip button or scroll to ~98% completes intro
 3. **Main site** — navbar, sections, maps, and CTAs mount with scroll reset to top
 
-### Deploy to Vercel
+### GitHub Pages (recommended)
 
-**Option A — GitHub (recommended)**
+**Live URL:** [https://pink-auto.github.io/Website/](https://pink-auto.github.io/Website/)
 
-1. Push to [Pink-Auto/Website](https://github.com/Pink-Auto/Website)
-2. Import the repo at [vercel.com/new](https://vercel.com/new)
-3. Vercel auto-detects Vite — no env vars required
-4. Deploy
+Pushes to `main` deploy automatically via [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
 
-**Option B — CLI**
+**One-time repo setup:**
+
+1. Open **Settings → Pages** on [Pink-Auto/Website](https://github.com/Pink-Auto/Website)
+2. Under **Build and deployment**, set **Source** to **GitHub Actions**
+3. Push to `main` (or run the workflow manually under **Actions**)
+
+**Local Pages build preview:**
 
 ```bash
-npm i -g vercel
-vercel login
-vercel --prod
+npm run build:pages
+npm run preview
 ```
 
-### Build settings (auto-detected)
+The Pages build uses base path `/Website/` (repo name). A `404.html` copy of `index.html` is generated for client-side routing.
 
-| Setting | Value |
-|---------|--------|
-| Build command | `npm run build` |
-| Output directory | `dist` |
-| Install command | `npm install` |
-| Node.js | 18.x or 20.x |
+### Vercel (optional)
+
+1. Import the repo at [vercel.com/new](https://vercel.com/new)
+2. Build command: `npm run build` (not `build:pages` — Vercel uses `/` base)
+3. Output directory: `dist`
 
 `vercel.json` includes SPA rewrites and cache headers for `/assets` and `/images`.
 

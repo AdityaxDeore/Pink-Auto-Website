@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
+    "build:pages": "tsc -b && vite build --mode ghpages && node scripts/gh-pages-postbuild.mjs",
     "optimize-images": "node scripts/optimize-images.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
