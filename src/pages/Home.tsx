@@ -229,7 +229,23 @@ export default function Home() {
   }, [])
 
   useEffect(() => {
+    if (!introDone) return
+
     window.scrollTo(0, 0)
+    document.body.style.removeProperty("overflow")
+    document.documentElement.style.removeProperty("overflow")
+
+    const hash = window.location.hash
+    if (!hash) return
+
+    const scrollToHash = () => {
+      const target = document.querySelector(hash)
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" })
+      }
+    }
+
+    requestAnimationFrame(() => requestAnimationFrame(scrollToHash))
   }, [introDone])
 
   return (

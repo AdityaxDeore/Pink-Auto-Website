@@ -2,8 +2,9 @@ import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ArrowRight } from "lucide-react"
-import appScreenshot from "@/assets/9154d593-9098-40f7-b4be-a36ed307631c.png"
 import { cn } from "@/lib/utils"
+
+const APP_SCREENSHOT = "/images/app-screen.webp"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
@@ -435,9 +436,19 @@ export function CinematicHero({
     setShowSkip(false)
     setShowScrollHint(false)
     document.body.classList.remove("intro-active")
-    scrollTriggerRef.current?.kill()
-    ScrollTrigger.getById("hero-scroll")?.kill()
-    onComplete?.()
+    document.body.style.removeProperty("overflow")
+    document.documentElement.style.removeProperty("overflow")
+
+    const st = ScrollTrigger.getById("hero-scroll") ?? scrollTriggerRef.current
+    st?.kill(true)
+    scrollTriggerRef.current = null
+    window.scrollTo(0, 0)
+
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0)
+      ScrollTrigger.refresh()
+      onComplete?.()
+    })
   }, [onComplete])
 
   const skipToMain = useCallback(() => {
@@ -516,6 +527,11 @@ export function CinematicHero({
   useLayoutEffect(() => {
     const container = containerRef.current
     if (!container) return
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      completeIntro()
+      return
+    }
 
     disposedRef.current = false
     userScrolledRef.current = false
@@ -888,7 +904,7 @@ export function CinematicHero({
                 <div className="phone-backplate" aria-hidden="true" />
                 <div className="phone-device w-full h-full overflow-hidden rounded-[2.75rem] ring-[3px] ring-zinc-900">
                   <img
-                    src={appScreenshot}
+                    src={APP_SCREENSHOT}
                     alt="Pink Auto app"
                     className="block h-full w-full object-cover object-center"
                     width={853}

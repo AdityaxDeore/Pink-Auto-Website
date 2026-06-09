@@ -176,16 +176,43 @@ export const SITE = {
 
 ---
 
-## Deployment
+## Deployment (Vercel)
 
-Build the `dist/` folder and deploy to any static host (Vercel, Netlify, GitHub Pages, Cloudflare Pages, etc.):
+This site is a **Vite SPA** with a **scroll-pinned GSAP intro** followed by the main landing page. It is ready for Vercel.
+
+### Flow on production
+
+1. **Intro** — cinematic scroll scene (GSAP ScrollTrigger pin)
+2. **Enter site** — skip button or scroll to ~98% completes intro
+3. **Main site** — navbar, sections, maps, and CTAs mount with scroll reset to top
+
+### Deploy to Vercel
+
+**Option A — GitHub (recommended)**
+
+1. Push to [Pink-Auto/Website](https://github.com/Pink-Auto/Website)
+2. Import the repo at [vercel.com/new](https://vercel.com/new)
+3. Vercel auto-detects Vite — no env vars required
+4. Deploy
+
+**Option B — CLI**
 
 ```bash
-npm run build
-# Upload dist/ to your host
+npm i -g vercel
+vercel login
+vercel --prod
 ```
 
-For SPA routing, configure your host to serve `index.html` for all routes.
+### Build settings (auto-detected)
+
+| Setting | Value |
+|---------|--------|
+| Build command | `npm run build` |
+| Output directory | `dist` |
+| Install command | `npm install` |
+| Node.js | 18.x or 20.x |
+
+`vercel.json` includes SPA rewrites and cache headers for `/assets` and `/images`.
 
 ---
 
