@@ -33,7 +33,7 @@ import {
   SERVICE_IMAGES,
   STORY_IMAGES,
 } from "@/lib/media"
-import { cn } from "@/lib/utils"
+import { assetUrl, cn } from "@/lib/utils"
 
 const CinematicHero = lazy(() =>
   import("@/components/ui/cinematic-hero").then((m) => ({ default: m.CinematicHero }))
@@ -610,7 +610,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-2 gap-5 lg:gap-6">
               <SurfaceCard padding="lg">
                 <div className="flex items-center gap-3 mb-6">
-                  <img src="/logo.png" alt="Pink Auto" className="w-12 h-12 rounded-xl object-contain" />
+                  <img src={assetUrl("/logo.png")} alt="Pink Auto" className="w-12 h-12 rounded-xl object-contain" />
                   <h3 className="text-xl font-semibold text-slate-900">Pink Auto · Kolhapur</h3>
                 </div>
                 <ul className="space-y-4 text-base text-slate-600">

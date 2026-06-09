@@ -2,9 +2,9 @@ import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { ArrowRight } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { assetUrl, cn } from "@/lib/utils"
 
-const APP_SCREENSHOT = "/images/app-screen.webp"
+const APP_SCREENSHOT = assetUrl("/images/app-screen.webp")
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)

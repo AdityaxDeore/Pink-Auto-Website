@@ -1,31 +1,24 @@
-const CHATGPT_WOMEN_PRIMARY =
-  "https://chatgpt.com/backend-api/estuary/content?id=file_00000000643072098eec1d1e1074c3f0"
+import { assetUrl } from "@/lib/utils"
 
-const CHATGPT_ELDERLY =
-  "https://chatgpt.com/backend-api/estuary/content?id=file_00000000a26471faa862a555972d70ce"
-
-const CHATGPT_PACKAGES =
-  "https://chatgpt.com/backend-api/estuary/content?id=file_00000000266c71faab3b8fbbaf368504"
-
-/** Optimized WebP assets in /public/images — run `npm run optimize-images` after source PNG changes */
+/** Optimized WebP/JPG assets in /public/images — run `npm run optimize-images` after source PNG changes */
 
 export const BRAND_IMAGES = {
-  womenPrimary: CHATGPT_WOMEN_PRIMARY,
-  womenPrimaryFallback: "/images/rickshaw-pink.jpg",
-  firstPin: "/images/hero-alt.jpg",
-  chatgptAlt: "/images/chatgpt-alt.jpg",
-  chatgptAltFallback: "/images/pin-1.jpg",
-  pin1: "/images/pin-1.jpg",
-  pin2: "/images/pin-2.jpg",
-  rickshawPink: "/images/rickshaw-pink.jpg",
-  schoolCollege: "/images/school-college.jpg",
-  dailyRides: "/images/daily-rides.jpg",
-  elderly: CHATGPT_ELDERLY,
-  elderlyFallback: "/images/pin-2.jpg",
-  packages: CHATGPT_PACKAGES,
-  packagesFallback: "/images/pin-1.jpg",
-  bingRickshaw: "/images/rickshaw-pink.jpg",
-  bingOffice: "/images/office-commute.jpg",
+  womenPrimary: assetUrl("/images/women-rides.webp"),
+  womenPrimaryFallback: assetUrl("/images/rickshaw-pink.jpg"),
+  firstPin: assetUrl("/images/hero-alt.jpg"),
+  chatgptAlt: assetUrl("/images/hero-alt.jpg"),
+  chatgptAltFallback: assetUrl("/images/pin-1.jpg"),
+  pin1: assetUrl("/images/pin-1.jpg"),
+  pin2: assetUrl("/images/pin-2.jpg"),
+  rickshawPink: assetUrl("/images/rickshaw-pink.jpg"),
+  schoolCollege: assetUrl("/images/school-college.jpg"),
+  dailyRides: assetUrl("/images/daily-rides.jpg"),
+  elderly: assetUrl("/images/senior-transport.webp"),
+  elderlyFallback: assetUrl("/images/pin-2.jpg"),
+  packages: assetUrl("/images/event-packages.webp"),
+  packagesFallback: assetUrl("/images/pin-1.jpg"),
+  bingRickshaw: assetUrl("/images/rickshaw-pink.jpg"),
+  bingOffice: assetUrl("/images/office-commute.jpg"),
 } as const
 
 export const STORY_IMAGES = {
@@ -37,14 +30,14 @@ export const STORY_IMAGES = {
 export const SERVICE_IMAGES = {
   daily: BRAND_IMAGES.dailyRides,
   school: BRAND_IMAGES.schoolCollege,
-  office: "/images/office-commute-card.webp",
-  womenOnly: "/images/women-rides.webp",
+  office: assetUrl("/images/office-commute-card.webp"),
+  womenOnly: assetUrl("/images/women-rides.webp"),
   womenOnlyFallback: BRAND_IMAGES.womenPrimaryFallback,
-  senior: "/images/senior-transport.webp",
+  senior: assetUrl("/images/senior-transport.webp"),
   seniorFallback: BRAND_IMAGES.elderlyFallback,
-  events: "/images/event-packages.webp",
+  events: assetUrl("/images/event-packages.webp"),
   eventsFallback: BRAND_IMAGES.packagesFallback,
-  lateNight: "/images/late-night-safety.webp",
+  lateNight: assetUrl("/images/late-night-safety.webp"),
 } as const
 
 export const FEATURE_IMAGES = {
@@ -53,13 +46,13 @@ export const FEATURE_IMAGES = {
   standardRides: BRAND_IMAGES.chatgptAlt,
   standardRidesFallback: BRAND_IMAGES.chatgptAltFallback,
   liveSafety: BRAND_IMAGES.pin2,
-  support: "/images/support-24x7.webp",
+  support: assetUrl("/images/support-24x7.webp"),
   supportFallback: BRAND_IMAGES.pin2,
 } as const
 
 export const DRIVER_IMAGE = BRAND_IMAGES.chatgptAlt
 export const DRIVER_IMAGE_FALLBACK = BRAND_IMAGES.chatgptAltFallback
-export const HERO_VISUAL_IMAGE = "/images/hero-visual.webp"
+export const HERO_VISUAL_IMAGE = assetUrl("/images/hero-visual.webp")
 export const HERO_IMAGE = BRAND_IMAGES.womenPrimary
 export const HERO_IMAGE_FALLBACK = BRAND_IMAGES.womenPrimaryFallback
 export const ABOUT_IMAGE = BRAND_IMAGES.firstPin
