@@ -191,13 +191,13 @@ This site is a **Vite SPA** with a **scroll-pinned GSAP intro** followed by the 
 
 **Live URL:** [https://adityaxdeore.github.io/Pink-Auto-Website/](https://adityaxdeore.github.io/Pink-Auto-Website/)
 
-Pushes to `main` deploy automatically via [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
+Pushes to `master` deploy automatically via [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
 
 **One-time repo setup:**
 
 1. Open **Settings → Pages** on [AdityaxDeore/Pink-Auto-Website](https://github.com/AdityaxDeore/Pink-Auto-Website)
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**
-3. Push to `main` (or run the workflow manually under **Actions**)
+3. Push to `master` (or run the workflow manually under **Actions**)
 
 **Local Pages build preview:**
 
