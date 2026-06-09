@@ -13,7 +13,7 @@
 
 *Women-driven autos · GPS tracking · SOS support · 24×7 help*
 
-[Live site](https://pink-auto.github.io/Website/) · [Report issue](https://github.com/Pink-Auto/Website/issues)
+[Live site](https://adityaxdeore.github.io/Pink-Auto-Website/) · [Report issue](https://github.com/AdityaxDeore/Pink-Auto-Website/issues)
 
 </div>
 
@@ -98,8 +98,8 @@
 ### Install & run
 
 ```bash
-git clone https://github.com/Pink-Auto/Website.git
-cd Website
+git clone https://github.com/AdityaxDeore/Pink-Auto-Website.git
+cd Pink-Auto-Website
 npm install
 npm run dev
 ```
@@ -170,7 +170,7 @@ export const SITE = {
 |---------|-------------|
 | `npm run dev` | Start dev server |
 | `npm run build` | Type-check + production build |
-| `npm run build:pages` | Production build for GitHub Pages (`/Website/` base) |
+| `npm run build:pages` | Production build for GitHub Pages (`/Pink-Auto-Website/` base) |
 | `npm run preview` | Preview production build |
 | `npm run optimize-images` | Compress assets to WebP |
 | `npm run lint` | Run ESLint |
@@ -189,13 +189,13 @@ This site is a **Vite SPA** with a **scroll-pinned GSAP intro** followed by the 
 
 ### GitHub Pages (recommended)
 
-**Live URL:** [https://pink-auto.github.io/Website/](https://pink-auto.github.io/Website/)
+**Live URL:** [https://adityaxdeore.github.io/Pink-Auto-Website/](https://adityaxdeore.github.io/Pink-Auto-Website/)
 
 Pushes to `main` deploy automatically via [`.github/workflows/deploy-pages.yml`](.github/workflows/deploy-pages.yml).
 
 **One-time repo setup:**
 
-1. Open **Settings → Pages** on [Pink-Auto/Website](https://github.com/Pink-Auto/Website)
+1. Open **Settings → Pages** on [AdityaxDeore/Pink-Auto-Website](https://github.com/AdityaxDeore/Pink-Auto-Website)
 2. Under **Build and deployment**, set **Source** to **GitHub Actions**
 3. Push to `main` (or run the workflow manually under **Actions**)
 
@@ -206,7 +206,7 @@ npm run build:pages
 npm run preview
 ```
 
-The Pages build uses base path `/Website/` (repo name). A `404.html` copy of `index.html` is generated for client-side routing.
+The Pages build uses base path `/Pink-Auto-Website/` (repo name). A `404.html` copy of `index.html` is generated for client-side routing.
 
 ### Vercel (optional)
 

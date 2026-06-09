@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig(({ mode }) => ({
-  base: mode === 'ghpages' ? '/Website/' : '/',
+  base: mode === 'ghpages' ? '/Pink-Auto-Website/' : '/',
   plugins: [
     react(),
     tailwindcss(),
