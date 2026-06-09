@@ -427,14 +427,12 @@ export function CinematicHero({
   const disposedRef = useRef(false)
   const userScrolledRef = useRef(false)
   const [showSkip, setShowSkip] = useState(true)
-  const [showScrollHint, setShowScrollHint] = useState(true)
 
 
   const completeIntro = useCallback(() => {
     if (completedRef.current) return
     completedRef.current = true
     setShowSkip(false)
-    setShowScrollHint(false)
     document.body.classList.remove("intro-active")
     document.body.style.removeProperty("overflow")
     document.documentElement.style.removeProperty("overflow")
@@ -545,7 +543,6 @@ export function CinematicHero({
     const markUserScroll = () => {
       if (window.scrollY > 20) {
         userScrolledRef.current = true
-        setShowScrollHint(false)
       }
     }
 
@@ -717,7 +714,7 @@ export function CinematicHero({
       {...props}
     >
       <style dangerouslySetInnerHTML={{ __html: INJECTED_STYLES }} />
-      {showScrollHint && (
+      {showSkip && (
         <div className="scroll-hint" aria-hidden="true">
           <span>Scroll</span>
           <span className="scroll-hint-chevron" />
