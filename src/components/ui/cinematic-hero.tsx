@@ -413,7 +413,7 @@ export function CinematicHero({
     </>
   ),
   ctaHeading = "Ready to ride?",
-  ctaDescription = "Women-driven autos & standard bookings in Kolhapur.",
+  ctaDescription = "Safe, reliable women-driven autos and standard bookings.",
   onComplete,
   className,
   ...props
@@ -556,7 +556,7 @@ export function CinematicHero({
     window.addEventListener("scroll", markUserScroll, { passive: true })
 
     const isMobile = window.innerWidth < 768
-    const scrollDistance = isMobile ? 1050 : 1650
+    const scrollDistance = isMobile ? 1400 : 2200
     let ctx: gsap.Context | undefined
 
     const setupScrollScene = () => {
@@ -604,7 +604,7 @@ export function CinematicHero({
                   overwrite: true,
                 })
               }
-              if (self.progress >= 0.9 && userScrolledRef.current) {
+              if (self.progress >= 0.97 && userScrolledRef.current) {
                 completeIntro()
               }
             },
@@ -684,6 +684,7 @@ export function CinematicHero({
           )
           .to(ctaWrapper, { autoAlpha: 1, ease: "none", duration: 0.36 }, "pullback")
           .to(mainCard, { y: -window.innerHeight - 300, ease: "none", duration: 0.58 })
+          .to({}, { duration: isMobile ? 0.45 : 0.65 })
       }, container)
 
       ScrollTrigger.refresh()
@@ -750,7 +751,7 @@ export function CinematicHero({
           <span className="inline-block pb-1">{tagline2}</span>
         </h1>
         <p className="mt-8 sm:mt-10 md:mt-12 text-sm sm:text-base text-muted-foreground max-w-md px-2">
-          Women-driven autos &amp; standard rides · Kolhapur
+          Women-driven autos &amp; standard rides
         </p>
 
         <div className="mt-10 sm:mt-14 lg:mt-16 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none px-4 sm:px-0 pointer-events-auto">
@@ -790,7 +791,7 @@ export function CinematicHero({
       >
         <div className="cta-panel relative rounded-[2rem] sm:rounded-[2.5rem] px-6 sm:px-12 py-10 sm:py-14 max-w-2xl w-full mx-4">
           <p className="text-xs sm:text-sm font-semibold uppercase tracking-widest text-slate-500 mb-3">
-            Kolhapur · Maharashtra
+            Safe · Reliable
           </p>
           <h2 className="text-brand-display text-3xl sm:text-4xl md:text-5xl mb-3 tracking-tight px-1">
             {ctaHeading}
@@ -851,7 +852,7 @@ export function CinematicHero({
               className="card-left-text gsap-reveal order-2 lg:order-none lg:col-start-1 flex flex-col justify-center text-center lg:text-left z-20 w-full lg:pr-2"
             >
               <p className="lg:hidden text-[11px] font-semibold uppercase tracking-[0.16em] text-rose-500 mb-2">
-                Kolhapur · Maharashtra
+                Safe · Reliable
               </p>
               <h3
                 className="text-slate-900 text-xl sm:text-2xl lg:text-[1.75rem] xl:text-3xl font-bold mb-2.5 sm:mb-3 tracking-tight text-balance"
@@ -906,7 +907,7 @@ export function CinematicHero({
               className="card-right-text gsap-reveal order-3 lg:order-none lg:col-start-3 flex flex-col justify-center items-center lg:items-end z-20 w-full lg:pl-2"
             >
               <p className="hidden lg:block text-[11px] font-semibold uppercase tracking-[0.16em] text-rose-500 mb-3 lg:text-right">
-                Kolhapur · Maharashtra
+                Safe · Reliable
               </p>
               <h2 className="text-brand-display text-3xl sm:text-4xl lg:text-[4.25rem] xl:text-[5rem] text-center lg:text-right leading-[1.05]">
                 {brandName === "Pink Auto" ? (

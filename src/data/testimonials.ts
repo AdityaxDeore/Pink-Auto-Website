@@ -15,13 +15,13 @@ export type Testimonial = {
 const rawTestimonials = [
   {
     name: "Priya Patil",
-    role: "Engineering Student, Kolhapur",
+    role: "Engineering Student",
     text: "As a student, I often return home after evening practicals. My parents were always worried about my commute. Since I started using Pink Auto, they can relax knowing I'm travelling with verified drivers and live tracking.",
   },
   {
     name: "Snehal Jadhav",
     role: "Working Professional",
-    text: "I travel across Kolhapur every day for work. Pink Auto has been reliable, punctual, and most importantly, safe. It's refreshing to see a service built specifically around women's needs.",
+    text: "I commute every day for work. Pink Auto has been reliable, punctual, and most importantly, safe. It's refreshing to see a service built specifically around women's needs.",
   },
   {
     name: "Madhuri Kulkarni",

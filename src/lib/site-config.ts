@@ -5,17 +5,17 @@ export const SITE = {
     "Driven by Women, Trusted by Families",
     "Comfort · Safety · Empowerment",
   ],
-  location: "Kolhapur, Maharashtra",
+  location: "Maharashtra",
   phone: "+91 98765 43210",
   whatsapp: "919876543210",
   email: "hello@pinkauto.in",
-  address: "Rajarampuri, Kolhapur, Maharashtra 416008",
+  address: "Rajarampuri, Maharashtra 416008",
   coords: { lat: 16.704987, lng: 74.243252 },
   serviceRadiusKm: 8,
 } as const
 
 export const WHATSAPP_BOOK_URL = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-  "Hi Pink Auto, I'd like to book a ride in Kolhapur."
+  "Hi Pink Auto, I'd like to book a ride."
 )}`
 
 export const WHATSAPP_DRIVER_URL = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(

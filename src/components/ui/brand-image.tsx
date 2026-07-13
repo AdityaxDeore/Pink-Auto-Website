@@ -26,7 +26,7 @@ export function BrandImage({
       alt={alt}
       loading={loading}
       decoding="async"
-      fetchPriority={fetchPriority}
+      fetchpriority={fetchPriority}
       className={cn(className)}
       onError={() => {
         if (fallback && current !== fallback) setCurrent(fallback)

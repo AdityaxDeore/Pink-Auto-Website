@@ -96,7 +96,7 @@ export default function Hero() {
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-pink-50 text-pink-700 text-xs sm:text-sm font-medium mb-5 sm:mb-6 max-w-full">
                 <span className="shrink-0">📍</span>
-                <span>Launching in Kolhapur, Maharashtra</span>
+                <span>Launching across Maharashtra</span>
               </div>
 
               {/* Headline */}
@@ -164,7 +164,7 @@ export default function Hero() {
                         </div>
                         <span className="font-semibold text-xs sm:text-sm">Pink Auto</span>
                       </div>
-                      <div className="text-[9px] sm:text-[10px] text-slate-500">Kolhapur</div>
+                      <div className="text-[9px] sm:text-[10px] text-slate-500">Maharashtra</div>
                     </div>
 
                     {/* App Content */}

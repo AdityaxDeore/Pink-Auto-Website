@@ -22,9 +22,9 @@ export const BRAND_IMAGES = {
 } as const
 
 export const STORY_IMAGES = {
-  womenEmpowerment: BRAND_IMAGES.bingRickshaw,
-  communityImpact: BRAND_IMAGES.bingOffice,
-  safeCity: BRAND_IMAGES.pin2,
+  womenEmpowerment: assetUrl("/images/chatgpt-10-09-29-1.png"),
+  communityImpact: assetUrl("/images/chatgpt-10-09-22.png"),
+  safeCity: assetUrl("/images/chatgpt-10-09-25.png"),
 } as const
 
 export const SERVICE_IMAGES = {
@@ -55,7 +55,7 @@ export const DRIVER_IMAGE_FALLBACK = BRAND_IMAGES.chatgptAltFallback
 export const HERO_VISUAL_IMAGE = assetUrl("/images/hero-visual.webp")
 export const HERO_IMAGE = BRAND_IMAGES.womenPrimary
 export const HERO_IMAGE_FALLBACK = BRAND_IMAGES.womenPrimaryFallback
-export const ABOUT_IMAGE = BRAND_IMAGES.firstPin
+export const ABOUT_IMAGE = assetUrl("/images/chatgpt-10-09-27.png")
 
 const PORTRAIT_POOL = [
   BRAND_IMAGES.firstPin,

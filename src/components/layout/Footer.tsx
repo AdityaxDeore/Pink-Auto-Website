@@ -20,7 +20,7 @@ export default function Footer() {
               <Logo className="w-9 h-9 rounded-[10px]" showWordmark wordmarkClassName="font-semibold text-[15px]" />
             </div>
             <p className="text-[14px] text-slate-500 leading-[1.7] max-w-xs">
-              Women-focused auto service in Kolhapur — safe rides, verified drivers, and 24×7 support.
+              Women-focused auto service — safe rides, verified drivers, and 24×7 support.
             </p>
           </div>
 
@@ -69,7 +69,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-slate-200/70 flex flex-col sm:flex-row items-center justify-between gap-3 text-[13px] text-slate-400">
           <p>© {new Date().getFullYear()} Pink Auto. All rights reserved.</p>
-          <p>Safe rides for women · Kolhapur, Maharashtra</p>
+          <p>Safe rides for women · Maharashtra</p>
         </div>
       </div>
     </footer>

@@ -150,7 +150,7 @@ export function TestimonialsMarquee({ className }: { className?: string }) {
           headingId="testimonials-heading"
           eyebrow="Testimonials"
           title="Trusted by women & families"
-          description="Real stories from students, parents, and professionals across Kolhapur who ride with Pink Auto every day."
+          description="Real stories from students, parents, and professionals who ride with Pink Auto every day."
           className="mb-12 sm:mb-14"
         />
 
@@ -173,7 +173,7 @@ export function TestimonialsMarquee({ className }: { className?: string }) {
         )}
 
         <p className="text-center text-sm text-slate-500 mt-8 font-medium">
-          <span className="text-teal-600 font-semibold">{testimonials.length}</span> voices from the Kolhapur community
+          <span className="text-teal-600 font-semibold">{testimonials.length}</span> voices from our community
         </p>
       </motion.div>
     </section>

@@ -4,7 +4,7 @@
 
 # Pink Auto · Website
 
-**Safe, reliable auto rides for women, students & families in Kolhapur**
+**Safe, reliable auto rides for women, students & families**
 
 [![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)](https://react.dev/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -21,13 +21,13 @@
 
 <br />
 
-<img src="public/images/hero-visual.webp" alt="Pink Auto — safe rides for women in Kolhapur" width="100%" />
+<img src="public/images/hero-visual.webp" alt="Pink Auto — safe rides for women" width="100%" />
 
 <br />
 
 ## About
 
-**Pink Auto** is the marketing website for a women-focused transportation service in **Kolhapur, Maharashtra**. The site introduces the brand, services, safety features, coverage map, driver onboarding, and contact options — with a cinematic scroll intro, mobile-first layouts, and WhatsApp booking flows.
+**Pink Auto** is the marketing website for a women-focused transportation service in **Maharashtra**. The site introduces the brand, services, safety features, coverage map, driver onboarding, and contact options — with a cinematic scroll intro, mobile-first layouts, and WhatsApp booking flows.
 
 > *Driven by Women, Trusted by Families*  
 > *Comfort · Safety · Empowerment*
@@ -40,7 +40,7 @@
 |--------|-------------|
 | **Cinematic intro** | GSAP scroll scene with 3D phone mockup and app screenshot |
 | **Women-first services** | Dedicated ride types, safety section, and driver recruitment |
-| **Live map** | OpenStreetMap coverage for Kolhapur service areas |
+| **Live map** | OpenStreetMap coverage for active service areas |
 | **Mobile UX** | Auto-scrolling service cards with manual swipe on phone |
 | **Performance** | WebP images, lazy-loaded sections, manual vendor chunks |
 | **WhatsApp CTAs** | One-tap book & driver registration links |
@@ -154,7 +154,7 @@ Edit brand copy and contact details in `src/lib/site-config.ts`:
 export const SITE = {
   name: "Pink Auto",
   tagline: "Safe & Reliable Auto Service for Women",
-  location: "Kolhapur, Maharashtra",
+  location: "Maharashtra",
   phone: "+91 98765 43210",
   whatsapp: "919876543210",
   email: "hello@pinkauto.in",
@@ -222,7 +222,7 @@ The Pages build uses base path `/Pink-Auto-Website/` (repo name). A `404.html` c
 
 | | |
 |---|---|
-| **Location** | Rajarampuri, Kolhapur, Maharashtra 416008 |
+| **Location** | Rajarampuri, Maharashtra 416008 |
 | **Phone** | +91 98765 43210 |
 | **Email** | hello@pinkauto.in |
 | **WhatsApp** | Book or driver enquiries via on-site buttons |
@@ -231,7 +231,7 @@ The Pages build uses base path `/Pink-Auto-Website/` (repo name). A `404.html` c
 
 <div align="center">
 
-**Pink Auto** · Kolhapur, Maharashtra
+**Pink Auto** · Maharashtra
 
 *Empowering women on every ride*
 

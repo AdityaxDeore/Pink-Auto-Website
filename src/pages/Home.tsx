@@ -63,7 +63,7 @@ const featureCards = [
     badgeText: "Everyday rides",
     badgeColor: "#64748B",
     title: "Standard Rides",
-    description: "Book regular autos anytime through the same app — quick, affordable trips across Kolhapur.",
+    description: "Book regular autos anytime through the same app — quick, affordable trips across the city.",
     ctaText: "Book a ride",
     ctaHref: "#download",
     imageUrl: FEATURE_IMAGES.standardRides,
@@ -117,7 +117,7 @@ const services = [
     icon: MapPin,
     title: "Daily Local Rides",
     description:
-      "Quick and affordable rides across Kolhapur for shopping, appointments, errands, and everyday travel.",
+      "Quick and affordable rides across the city for shopping, appointments, errands, and everyday travel.",
     tone: "rose" as const,
     imageUrl: SERVICE_IMAGES.daily,
   },
@@ -183,7 +183,7 @@ const storyCards = [
   {
     title: "Safe City Movement",
     description:
-      "Building a more connected and secure mobility ecosystem for women, students, and families in Kolhapur.",
+      "Building a more connected and secure mobility ecosystem for women, students, and families.",
     imageUrl: STORY_IMAGES.safeCity,
     tone: "violet" as const,
   },
@@ -231,11 +231,27 @@ function PrimaryButton({
 }
 
 export default function Home() {
-  const [introDone, setIntroDone] = useState(false)
+  const [introDone, setIntroDone] = useState(() => {
+    if (typeof window !== "undefined") {
+      return window.innerWidth < 768
+    }
+    return false
+  })
 
   const handleIntroComplete = useCallback(() => {
     setIntroDone(true)
   }, [])
+
+  useEffect(() => {
+    if (introDone) return
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIntroDone(true)
+      }
+    }
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [introDone])
 
   useEffect(() => {
     if (!introDone) return
@@ -289,7 +305,7 @@ export default function Home() {
                 src={HERO_VISUAL_IMAGE}
                 alt=""
                 loading="eager"
-                fetchPriority="high"
+                fetchpriority="high"
                 decoding="async"
                 className="absolute inset-0 h-full w-full object-cover object-[72%_28%] sm:object-[76%_32%] lg:object-[88%_30%]"
               />
@@ -356,8 +372,17 @@ export default function Home() {
         </section>
 
         {/* About */}
-        <section id="about" className={cn(sectionPad, sectionAnchor, "bg-white border-b border-slate-100")}>
-          <div className="max-w-[1080px] mx-auto">
+        <section
+          id="about"
+          className={cn(sectionPad, sectionAnchor, "relative overflow-hidden border-b border-slate-100 bg-white")}
+        >
+          <div
+            className="absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none"
+            style={{ backgroundImage: `url(${assetUrl("/images/chatgpt-10-09-22.png")})` }}
+            aria-hidden="true"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80 pointer-events-none" aria-hidden="true" />
+          <div className="relative max-w-[1080px] mx-auto z-10">
             <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
               <AboutVisual className="order-2 lg:order-1" />
               <div className="order-1 lg:order-2 space-y-6">
@@ -369,8 +394,7 @@ export default function Home() {
                   description={
                     <>
                       <span className="hl hl-rose">Pink Auto</span> is a{" "}
-                      <span className="hl hl-rose">women-focused</span> transportation service in{" "}
-                      <span className="hl hl-mint">Kolhapur</span> — offering{" "}
+                      <span className="hl hl-rose">women-focused</span> transportation service — offering{" "}
                       <span className="hl hl-amber">safe</span>,{" "}
                       <span className="hl hl-amber">reliable</span>, and{" "}
                       <span className="hl hl-amber">comfortable</span> auto-rickshaw rides while creating{" "}
@@ -394,7 +418,7 @@ export default function Home() {
                   </p>
                   <p className="text-sm text-slate-500 leading-relaxed">
                     Our mission is comfort, safety, and empowerment — supporting women commuters, working professionals,
-                    parents, senior citizens, and corporate partners across Kolhapur.
+                    parents, senior citizens, and corporate partners across the region.
                   </p>
                 </div>
               </div>
@@ -404,7 +428,7 @@ export default function Home() {
               <SectionHeading
                 align="left"
                 size="default"
-                eyebrow="Built for Kolhapur"
+                eyebrow="Built for Safety"
                 title="A movement for safer mobility"
                 description="Beyond rides — Pink Auto is building employment, community trust, and a safer city for everyone."
                 className="mb-6 sm:mb-10 max-w-2xl"
@@ -427,7 +451,7 @@ export default function Home() {
               size="large"
               eyebrow="Services"
               title="Rides for every need"
-              description="From daily commutes to school pickups and event transport — Pink Auto covers Kolhapur with flexible options."
+              description="From daily commutes to school pickups and event transport — Pink Auto covers your travel needs with flexible options."
               className="mb-8 sm:mb-16"
             />
             <HorizontalScrollRow gridClassName="sm:grid-cols-2 lg:grid-cols-3 sm:gap-5" fadeFrom="stone">
@@ -498,7 +522,7 @@ export default function Home() {
             <SectionHeading
               size="large"
               eyebrow="Service areas"
-              title="Coverage in Kolhapur"
+              title="Our Coverage Area"
               description="Serving key neighbourhoods across the city — with routes expanding based on demand and driver availability."
               className="mb-12 sm:mb-16"
             />
@@ -521,7 +545,7 @@ export default function Home() {
                   </ul>
                 </SurfaceCard>
                 <p className="text-[14px] text-slate-400 leading-[1.7] px-1">
-                  The map shows our Kolhapur hub and approximate service radius. OpenStreetMap powers live neighbourhood context.
+                  The map shows our primary service hub and approximate service radius. OpenStreetMap powers live neighbourhood context.
                 </p>
               </div>
               <div className="lg:col-span-3">
@@ -558,7 +582,7 @@ export default function Home() {
                       Drive with Pink Auto
                     </h2>
                     <p className="mt-4 text-base sm:text-lg text-slate-200 leading-relaxed max-w-md">
-                      Join our network of verified women drivers in Kolhapur. Flexible hours, fair earnings, and full safety support.
+                      Join our network of verified women drivers. Flexible hours, fair earnings, and full safety support.
                     </p>
                   </div>
                 </div>
@@ -571,7 +595,7 @@ export default function Home() {
                       Driver registration
                     </h3>
                     <ul className="space-y-4 mb-9">
-                      {["Valid driving license", "Aadhaar verification", "Vehicle details", "Local Kolhapur address"].map((item) => (
+                      {["Valid driving license", "Aadhaar verification", "Vehicle details", "Local address verification"].map((item) => (
                         <li key={item} className="flex items-center gap-3.5">
                           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-400/10 ring-1 ring-teal-300/25">
                             <BadgeCheck className="w-4 h-4 text-teal-200" strokeWidth={2.25} />
@@ -611,7 +635,7 @@ export default function Home() {
               <SurfaceCard padding="lg">
                 <div className="flex items-center gap-3 mb-6">
                   <img src={assetUrl("/logo.png")} alt="Pink Auto" className="w-12 h-12 rounded-xl object-contain" />
-                  <h3 className="text-xl font-semibold text-slate-900">Pink Auto · Kolhapur</h3>
+                  <h3 className="text-xl font-semibold text-slate-900">Pink Auto</h3>
                 </div>
                 <ul className="space-y-4 text-base text-slate-600">
                   <li className="flex items-start gap-3.5">

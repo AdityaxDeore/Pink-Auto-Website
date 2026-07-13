@@ -25,11 +25,11 @@ const cardVariants = cva(
 )
 
 const badgeStyles = {
-  pink: "bg-rose-500/10 text-rose-700 ring-rose-200/80",
-  orange: "bg-orange-500/10 text-orange-700 ring-orange-200/80",
-  gray: "bg-slate-500/10 text-slate-700 ring-slate-200/80",
-  purple: "bg-violet-500/10 text-violet-700 ring-violet-200/80",
-  green: "bg-emerald-500/10 text-emerald-700 ring-emerald-200/80",
+  pink: "bg-white/95 text-slate-900 ring-slate-900/10",
+  orange: "bg-white/95 text-slate-900 ring-slate-900/10",
+  gray: "bg-white/95 text-slate-900 ring-slate-900/10",
+  purple: "bg-white/95 text-slate-900 ring-slate-900/10",
+  green: "bg-white/95 text-slate-900 ring-slate-900/10",
 }
 
 const imageOverlays = {
@@ -104,12 +104,12 @@ const GradientCard = React.forwardRef<HTMLDivElement, GradientCardProps>(
             <div className={cn("absolute inset-0 bg-gradient-to-t", imageOverlays[tone])} />
             <div
               className={cn(
-                "absolute top-4 left-4 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold ring-1 backdrop-blur-md",
+                "absolute top-4 left-4 z-10 inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-semibold tracking-wide ring-1 backdrop-blur-md shadow-[0_2px_14px_-3px_rgba(15,23,42,0.35)]",
                 badgeStyles[tone]
               )}
             >
               <span
-                className="h-2 w-2 rounded-full"
+                className="h-2 w-2 shrink-0 rounded-full ring-1 ring-black/10"
                 style={{ backgroundColor: badgeColor }}
               />
               {badgeText}
