@@ -1,77 +1,125 @@
-import { Logo } from "@/components/ui/logo"
-import { SITE, WHATSAPP_BOOK_URL } from "@/lib/site-config"
+import { Link } from 'react-router-dom';
+import {
+  MapPinIcon, PhoneIcon, MailIcon, ClockIcon,
+  FacebookIcon, InstagramIcon, XTwitterIcon, YouTubeIcon,
+} from '../ui/Icons';
 
-const footerLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Safety", href: "#safety" },
-  { label: "Coverage", href: "#coverage" },
-  { label: "Drivers", href: "#drivers" },
-  { label: "Contact", href: "#contact" },
-]
+const quickLinks = [
+  { label: 'Home', path: '/' },
+  { label: 'About Us', path: '/about' },
+  { label: 'Services', path: '/services' },
+  { label: 'Safety', path: '/safety' },
+  { label: 'Gallery', path: '/gallery' },
+];
+
+const serviceLinks = [
+  { label: 'Daily Rides', path: '/services' },
+  { label: 'Office Commute', path: '/services' },
+  { label: 'School Pickup', path: '/services' },
+  { label: "Women's Special", path: '/services' },
+  { label: 'Monthly Packages', path: '/services' },
+];
+
+const contactInfo = [
+  { Icon: MapPinIcon, text: 'Mahalaxmi Mandir Road, Kolhapur, Maharashtra 416012' },
+  { Icon: PhoneIcon, text: '+91 98765 43210' },
+  { Icon: MailIcon, text: 'hello@pinkauto.in' },
+  { Icon: ClockIcon, text: 'Mon-Sun: 6:00 AM - 11:00 PM' },
+];
+
+const socialLinks = [
+  { Icon: FacebookIcon, href: 'https://facebook.com/pinkauto', label: 'Facebook' },
+  { Icon: InstagramIcon, href: 'https://instagram.com/pinkauto', label: 'Instagram' },
+  { Icon: XTwitterIcon, href: 'https://x.com/pinkauto', label: 'X' },
+  { Icon: YouTubeIcon, href: 'https://youtube.com/pinkauto', label: 'YouTube' },
+];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-slate-200/70 bg-white">
-      <div className="max-w-[1080px] mx-auto px-4 sm:px-6 py-14 sm:py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-          <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2.5 mb-5">
-              <Logo className="w-9 h-9 rounded-[10px]" showWordmark wordmarkClassName="font-semibold text-[15px]" />
+    <footer className="footer">
+      <div className="container">
+        <div className="footer-grid">
+          {/* Brand Column */}
+          <div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
+              <img src="/logo.png" alt="Pink Auto" style={{ height: 40, width: 'auto' }} />
+              <span style={{ fontFamily: 'var(--font-primary)', fontWeight: 700, fontSize: '1.375rem', color: 'white' }}>Pink Auto</span>
             </div>
-            <p className="text-[14px] text-slate-500 leading-[1.7] max-w-xs">
-              Women-focused auto service — safe rides, verified drivers, and 24×7 support.
+            <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: 320 }}>
+              Kolhapur's trusted pink auto-rickshaw service providing safe, comfortable, and reliable transportation for women, students, senior citizens, and families.
             </p>
+            <p style={{ fontFamily: 'var(--font-marathi)', fontSize: '1.1rem', color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>
+              "सुरक्षित प्रवास, आमची जबाबदारी"
+            </p>
+            <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem' }}>
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  style={{
+                    width: 36, height: 36, borderRadius: '50%',
+                    background: 'rgba(255,255,255,0.08)',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    color: 'rgba(255,255,255,0.5)', transition: 'all 0.3s',
+                  }}
+                  onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.color = 'white'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = 'rgba(255,255,255,0.5)'; }}
+                >
+                  <social.Icon size={16} />
+                </a>
+              ))}
+            </div>
           </div>
 
+          {/* Quick Links */}
           <div>
-            <h3 className="eyebrow text-slate-400 mb-4">Explore</h3>
-            <ul className="space-y-2.5">
-              {footerLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="text-[14px] text-slate-500 hover:text-slate-900 transition-colors">
-                    {link.label}
-                  </a>
-                </li>
+            <h4>Quick Links</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
+              {quickLinks.map((link) => (
+                <li key={link.path + link.label}><Link to={link.path}>{link.label}</Link></li>
+              ))}
+              <li><Link to="/driver-registration">Become a Driver</Link></li>
+              <li><Link to="/testimonials">Testimonials</Link></li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4>Services</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.625rem' }}>
+              {serviceLinks.map((link) => (
+                <li key={link.label}><Link to={link.path}>{link.label}</Link></li>
               ))}
             </ul>
           </div>
 
+          {/* Contact */}
           <div>
-            <h3 className="eyebrow text-slate-400 mb-4">Contact</h3>
-            <ul className="space-y-2.5 text-[14px] text-slate-500">
-              <li>{SITE.location}</li>
-              <li>
-                <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="hover:text-slate-900 transition-colors">
-                  {SITE.phone}
-                </a>
-              </li>
-              <li>
-                <a href={`mailto:${SITE.email}`} className="hover:text-slate-900 transition-colors">
-                  {SITE.email}
-                </a>
-              </li>
+            <h4>Contact Us</h4>
+            <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+              {contactInfo.map((item) => (
+                <li key={item.text} style={{ display: 'flex', gap: '0.625rem', fontSize: '0.875rem', color: 'rgba(255,255,255,0.6)' }}>
+                  <span style={{ flexShrink: 0, marginTop: '0.125rem' }}><item.Icon size={16} color="rgba(255,255,255,0.4)" /></span>
+                  <span>{item.text}</span>
+                </li>
+              ))}
             </ul>
-          </div>
-
-          <div>
-            <h3 className="eyebrow text-slate-400 mb-4">Book a ride</h3>
-            <a
-              href={WHATSAPP_BOOK_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex h-10 items-center justify-center px-5 rounded-full bg-[#25D366] text-white text-[14px] font-semibold hover:bg-[#20BD5A] transition-colors shadow-[0_4px_14px_-4px_rgba(37,211,102,0.45)]"
-            >
-              WhatsApp us
-            </a>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-slate-200/70 flex flex-col sm:flex-row items-center justify-between gap-3 text-[13px] text-slate-400">
-          <p>© {new Date().getFullYear()} Pink Auto. All rights reserved.</p>
-          <p>Safe rides for women · Maharashtra</p>
+        {/* Bottom */}
+        <div className="footer-bottom">
+          <span>© {new Date().getFullYear()} Pink Auto. All rights reserved.</span>
+          <div style={{ display: 'flex', gap: '1.5rem' }}>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Refund Policy</a>
+          </div>
         </div>
       </div>
     </footer>
-  )
+  );
 }

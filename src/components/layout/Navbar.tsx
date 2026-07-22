@@ -1,130 +1,111 @@
-import { useEffect, useState } from "react"
-import { ArrowDownToLine } from "lucide-react"
-import { Logo } from "@/components/ui/logo"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { WhatsAppIcon } from '../ui/Icons';
 
-const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Safety", href: "#safety" },
-  { label: "Coverage", href: "#coverage" },
-  { label: "Drivers", href: "#drivers" },
-  { label: "Contact", href: "#contact" },
-]
-
-const NAV_HEIGHT = "h-12 sm:h-14"
-
-const navCtaBase =
-  "inline-flex items-center justify-center rounded-full font-semibold tracking-tight transition-all active:scale-[0.98]"
+const navItems = [
+  { label: 'Home', path: '/' },
+  { label: 'About', path: '/about' },
+  { label: 'Services', path: '/services' },
+  { label: 'Safety', path: '/safety' },
+  { label: 'Gallery', path: '/gallery' },
+  { label: 'Drivers', path: '/driver-registration' },
+  { label: 'Testimonials', path: '/testimonials' },
+  { label: 'Media', path: '/media-events' },
+  { label: 'Contact', path: '/contact' },
+];
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    onScroll()
-    window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : ""
-    return () => {
-      document.body.style.overflow = ""
-    }
-  }, [mobileOpen])
+    setMobileOpen(false);
+  }, [location.pathname]);
 
-  const closeMobile = () => setMobileOpen(false)
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileOpen]);
 
   return (
     <>
-      <header
-        className={cn(
-          "fixed top-0 left-0 right-0 z-[100] transition-[background,box-shadow,border-color] duration-300",
-          "bg-white/95 backdrop-blur-xl border-b border-slate-200/70",
-          scrolled && "shadow-[0_4px_20px_-6px_rgba(15,23,42,0.12)] bg-white/98"
-        )}
-      >
-        <nav className={cn("relative max-w-[1080px] mx-auto px-4 sm:px-6 flex items-center justify-between gap-3", NAV_HEIGHT)}>
-          <a
-            href="#main"
-            className="flex items-center gap-2.5 min-w-0 shrink-0 z-10"
-            onClick={closeMobile}
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+        <div className="nav-inner">
+          <Link to="/" className="nav-logo">
+            <img src="/logo.png" alt="Pink Auto" />
+            <span>Pink Auto</span>
+          </Link>
+
+          <ul className="nav-links">
+            {navItems.map((item) => (
+              <li key={item.path}>
+                <Link to={item.path} className={`nav-link ${location.pathname === item.path ? 'active' : ''}`}>
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <div className="nav-cta">
+            <a href="https://wa.me/919876543210?text=Hello%20Pink%20Auto!" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
+              <WhatsAppIcon size={14} /> WhatsApp
+            </a>
+          </div>
+
+          <button
+            className={`nav-toggle ${mobileOpen ? 'open' : ''}`}
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label="Toggle navigation"
+            style={{ zIndex: 10000, position: 'relative' }}
           >
-            <Logo className="w-9 h-9 rounded-[10px]" showWordmark wordmarkClassName="hidden sm:inline text-[15px] lg:text-base font-medium" />
-          </a>
-
-          <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-[14px] font-medium text-slate-500 hover:text-slate-900 transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
-
-          <div className="flex items-center gap-1.5 sm:gap-2 shrink-0 z-10">
-            <a
-              href="#download"
-              className={cn(
-                navCtaBase,
-                "h-8 sm:h-9 lg:h-10 gap-1.5 px-3 sm:px-4 text-[12px] sm:text-[13px] lg:text-[14px]",
-                "border border-slate-200/90 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-300 hover:text-slate-900"
-              )}
-            >
-              <ArrowDownToLine className="w-3.5 h-3.5 lg:w-4 lg:h-4 text-slate-500" strokeWidth={2} />
-              <span className="hidden sm:inline">Get the app</span>
-              <span className="sm:hidden">App</span>
-            </a>
-            <button
-              type="button"
-              onClick={() => setMobileOpen(!mobileOpen)}
-              className="lg:hidden w-9 h-9 flex items-center justify-center rounded-lg text-slate-700 hover:bg-slate-100/80 transition-colors"
-              aria-label="Toggle menu"
-              aria-expanded={mobileOpen}
-            >
-              <span className="text-lg leading-none">{mobileOpen ? "×" : "☰"}</span>
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-[90] bg-white/98 backdrop-blur-xl pt-14 px-5 pb-8 overflow-y-auto">
-          <div className="flex flex-col gap-1 max-w-md mx-auto">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="py-3.5 text-[17px] font-medium text-slate-800 border-b border-slate-100"
-                onClick={closeMobile}
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#download"
-              className={cn(
-                navCtaBase,
-                "mt-6 h-12 gap-2 border border-slate-200 bg-slate-50 text-slate-700 text-[15px]",
-                "hover:bg-slate-100 hover:border-slate-300"
-              )}
-              onClick={closeMobile}
-            >
-              <ArrowDownToLine className="w-4 h-4 text-slate-500" strokeWidth={2} />
-              Get the app
-            </a>
-          </div>
+            <span /><span /><span />
+          </button>
         </div>
-      )}
-    </>
-  )
-}
+      </nav>
 
-export function NavbarSpacer() {
-  return <div aria-hidden className={cn("shrink-0", NAV_HEIGHT)} />
+      {/* Mobile Navigation — Full Screen Dark Overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            className="mobile-nav"
+            initial={{ x: '100%' }}
+            animate={{ x: 0 }}
+            exit={{ x: '100%' }}
+            transition={{ type: 'tween', duration: 0.35, ease: [0.4, 0, 0.2, 1] }}
+          >
+            {navItems.map((item, i) => (
+              <motion.div
+                key={item.path}
+                initial={{ opacity: 0, x: 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.1 + i * 0.04 }}
+              >
+                <Link to={item.path} className={location.pathname === item.path ? 'active' : ''}>
+                  {item.label}
+                </Link>
+              </motion.div>
+            ))}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.1 + navItems.length * 0.04 }}
+              style={{ marginTop: '1.5rem', width: '100%', maxWidth: 320 }}
+            >
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>
+                Book on WhatsApp
+              </a>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  );
 }

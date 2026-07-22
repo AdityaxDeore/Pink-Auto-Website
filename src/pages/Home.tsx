@@ -1,677 +1,357 @@
-import { lazy, Suspense, useCallback, useEffect, useState } from "react"
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import FadeIn from '../components/ui/FadeIn';
+import Counter from '../components/ui/Counter';
 import {
-  BadgeCheck,
-  Clock,
-  GraduationCap,
-  Heart,
-  MapPin,
-  Phone,
-  Shield,
-  ShieldCheck,
-  Siren,
-  Users,
-  Briefcase,
-  Calendar,
-  Moon,
-} from "lucide-react"
-import { GradientCard } from "@/components/ui/gradient-card"
-import { DownloadButtons } from "@/components/ui/download-buttons"
-import { SectionHeading } from "@/components/ui/section-heading"
-import { HorizontalScrollRow, ScrollSnapItem } from "@/components/ui/horizontal-scroll-row"
-import { FeatureCard, InlineFeatureCard, StoryVisualCard, SurfaceCard } from "@/components/ui/surface-card"
-import { WhatsAppButton } from "@/components/ui/whatsapp-button"
-import { AboutVisual, SafetyVisual } from "@/components/ui/visual-panel"
-import Navbar, { NavbarSpacer } from "@/components/layout/Navbar"
-import Footer from "@/components/layout/Footer"
-import { SITE, WHATSAPP_BOOK_URL, WHATSAPP_DRIVER_URL } from "@/lib/site-config"
-import { BrandImage } from "@/components/ui/brand-image"
-import {
-  DRIVER_IMAGE,
-  DRIVER_IMAGE_FALLBACK,
-  FEATURE_IMAGES,
-  HERO_VISUAL_IMAGE,
-  SERVICE_IMAGES,
-  STORY_IMAGES,
-} from "@/lib/media"
-import { assetUrl, cn } from "@/lib/utils"
+  ShieldCheckIcon, CheckCircleIcon, SparklesIcon, WalletIcon,
+  MapPinIcon, BriefcaseIcon, GraduationCapIcon, UserIcon,
+  HeartIcon, CalendarIcon, UsersIcon, AwardIcon,
+  SmartphoneIcon, WhatsAppIcon, PhoneIcon,
+} from '../components/ui/Icons';
 
-const CinematicHero = lazy(() =>
-  import("@/components/ui/cinematic-hero").then((m) => ({ default: m.CinematicHero }))
-)
-const OpenStreetMap = lazy(() =>
-  import("@/components/ui/openstreetmap").then((m) => ({ default: m.OpenStreetMap }))
-)
-const TestimonialsMarquee = lazy(() =>
-  import("@/components/ui/testimonials-marquee").then((m) => ({ default: m.TestimonialsMarquee }))
-)
-
-const featureCards = [
-  {
-    gradient: "pink" as const,
-    badgeText: "Women-first",
-    badgeColor: "#EC4899",
-    title: "Women Drivers",
-    description: "Choose Pink Auto for verified women drivers — safer rides built for women, students, and families.",
-    ctaText: "Book Pink Auto",
-    ctaHref: "#download",
-    imageUrl: FEATURE_IMAGES.womenDrivers,
-    imageFallback: FEATURE_IMAGES.womenDriversFallback,
-    featured: true,
-  },
-  {
-    gradient: "gray" as const,
-    badgeText: "Everyday rides",
-    badgeColor: "#64748B",
-    title: "Standard Rides",
-    description: "Book regular autos anytime through the same app — quick, affordable trips across the city.",
-    ctaText: "Book a ride",
-    ctaHref: "#download",
-    imageUrl: FEATURE_IMAGES.standardRides,
-    imageFallback: FEATURE_IMAGES.standardRidesFallback,
-  },
-  {
-    gradient: "green" as const,
-    badgeText: "Always protected",
-    badgeColor: "#10B981",
-    title: "Live Safety",
-    description: "Real-time GPS tracking, SOS alerts, and trip sharing keep you connected on every journey.",
-    ctaText: "See safety features",
-    ctaHref: "#safety",
-    imageUrl: FEATURE_IMAGES.liveSafety,
-  },
-  {
-    gradient: "purple" as const,
-    badgeText: "Round the clock",
-    badgeColor: "#8B5CF6",
-    title: "24×7 Support",
-    description: "Our support team is available day and night — help is always one tap away when you need it.",
-    ctaText: "Contact support",
-    ctaHref: "#contact",
-    imageUrl: FEATURE_IMAGES.support,
-    imageFallback: FEATURE_IMAGES.supportFallback,
-  },
-]
-
-const safetyFeatures = [
-  { icon: BadgeCheck, title: "Verified drivers", description: "ID-checked women and standard auto drivers." },
-  { icon: MapPin, title: "Live GPS tracking", description: "Share your trip and track every route in real time." },
-  { icon: Siren, title: "One-tap SOS", description: "Emergency alerts to support and trusted contacts." },
-  { icon: ShieldCheck, title: "Driver verification", description: "License, background, and vehicle checks." },
-  { icon: Phone, title: "24×7 support", description: "In-app help and phone assistance anytime." },
-  { icon: Shield, title: "Safe ride policies", description: "Clear guidelines built for women and families." },
-]
+const features = [
+  { Icon: ShieldCheckIcon, title: 'Women-First Safety', desc: 'Verified women drivers, GPS tracking, and emergency support for every ride.', marathi: 'महिलांची सुरक्षा आमचं प्राधान्य' },
+  { Icon: CheckCircleIcon, title: 'Verified Drivers', desc: 'Every driver undergoes thorough background verification and training.', marathi: 'प्रत्येक चालक सत्यापित' },
+  { Icon: SparklesIcon, title: 'Clean & Comfortable', desc: 'Well-maintained pink auto-rickshaws with clean interiors and comfortable seating.', marathi: 'स्वच्छ आणि आरामदायी प्रवास' },
+  { Icon: WalletIcon, title: 'Fair Pricing', desc: 'Transparent metered fares with no surge pricing. Monthly packages available.', marathi: 'योग्य दर, कोणताही अतिरिक्त खर्च नाही' },
+];
 
 const services = [
-  {
-    icon: Heart,
-    title: "Women-only Rides",
-    description:
-      "Travel confidently with verified women drivers, GPS tracking, emergency support, and a service built specifically around women's safety and comfort.",
-    tone: "rose" as const,
-    imageUrl: SERVICE_IMAGES.womenOnly,
-    imageFallback: SERVICE_IMAGES.womenOnlyFallback,
-    featured: true,
-    hideOverlay: true,
-  },
-  {
-    icon: MapPin,
-    title: "Daily Local Rides",
-    description:
-      "Quick and affordable rides across the city for shopping, appointments, errands, and everyday travel.",
-    tone: "rose" as const,
-    imageUrl: SERVICE_IMAGES.daily,
-  },
-  {
-    icon: GraduationCap,
-    title: "School & College Pickup",
-    description:
-      "Safe and dependable transportation for students with trusted drivers and peace of mind for parents.",
-    tone: "violet" as const,
-    imageUrl: SERVICE_IMAGES.school,
-  },
-  {
-    icon: Briefcase,
-    title: "Office Commute",
-    description:
-      "Reliable daily commute solutions for working professionals with convenient pickup and drop services.",
-    tone: "sky" as const,
-    imageUrl: SERVICE_IMAGES.office,
-  },
-  {
-    icon: Users,
-    title: "Senior Citizen Transport",
-    description:
-      "Comfortable and assisted rides designed with extra care, patience, and support for elderly passengers.",
-    tone: "amber" as const,
-    imageUrl: SERVICE_IMAGES.senior,
-    imageFallback: SERVICE_IMAGES.seniorFallback,
-  },
-  {
-    icon: Calendar,
-    title: "Event & Monthly Packages",
-    description:
-      "Flexible transportation plans for events, functions, recurring travel, office schedules, and group requirements.",
-    tone: "emerald" as const,
-    imageUrl: SERVICE_IMAGES.events,
-    imageFallback: SERVICE_IMAGES.eventsFallback,
-  },
-  {
-    icon: Moon,
-    title: "Late Night Safety Rides",
-    description:
-      "Secure transportation for women returning home after work, events, classes, or travel, available whenever you need a safe ride.",
-    tone: "violet" as const,
-    imageUrl: SERVICE_IMAGES.lateNight,
-  },
-]
+  { Icon: MapPinIcon, title: 'Daily Rides', desc: 'Regular commute within Kolhapur city', image: '/images/daily-rides.jpg' },
+  { Icon: BriefcaseIcon, title: 'Office Commute', desc: 'Reliable pickup and drop for professionals', image: '/images/office-commute.jpg' },
+  { Icon: GraduationCapIcon, title: 'School & College', desc: 'Safe transport for students', image: '/images/college-student.png' },
+  { Icon: UserIcon, title: "Women's Special", desc: 'Dedicated rides with women drivers', image: '/images/woman-driver.png' },
+  { Icon: HeartIcon, title: 'Senior Citizen', desc: 'Assisted transport for elderly', image: '/images/senior-citizen.png' },
+  { Icon: CalendarIcon, title: 'Event Transport', desc: 'Reliable rides for events & functions', image: '/images/mahalaxmi-temple.png' },
+];
 
-const storyCards = [
-  {
-    title: "Women Empowerment",
-    description:
-      "Creating employment opportunities and supporting women drivers through safe and sustainable mobility.",
-    imageUrl: STORY_IMAGES.womenEmpowerment,
-    tone: "emerald" as const,
-  },
-  {
-    title: "Community Impact",
-    description:
-      "Working with families, schools, organizations, and communities to build safer transportation options.",
-    imageUrl: STORY_IMAGES.communityImpact,
-    tone: "sky" as const,
-  },
-  {
-    title: "Safe City Movement",
-    description:
-      "Building a more connected and secure mobility ecosystem for women, students, and families.",
-    imageUrl: STORY_IMAGES.safeCity,
-    tone: "violet" as const,
-  },
-]
-
-const serviceAreas = [
-  "Rajarampuri",
-  "Shahupuri",
-  "Tarabai Park",
-  "Kasba Bawada",
-  "Laxmipur",
-  "Rankala",
-  "ICS College Road",
-  "Guinness Circle",
-]
-
-const sectionPad = "px-4 sm:px-6 py-20 sm:py-28"
-const sectionAnchor = "scroll-mt-14 sm:scroll-mt-[3.75rem]"
-
-function PrimaryButton({
-  href,
-  children,
-  variant = "whatsapp",
-  external,
-}: {
-  href: string
-  children: React.ReactNode
-  variant?: "whatsapp" | "ghost" | "dark"
-  external?: boolean
-}) {
-  return (
-    <a
-      href={href}
-      {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-      className={cn(
-        "inline-flex h-11 lg:h-12 items-center justify-center px-6 lg:px-8 rounded-full text-[14px] lg:text-[15px] font-semibold tracking-tight transition-all",
-        variant === "whatsapp" && "bg-[#25D366] text-white hover:bg-[#20BD5A] shadow-[0_4px_14px_-4px_rgba(37,211,102,0.55)]",
-        variant === "ghost" && "border border-slate-300 bg-white text-slate-800 hover:border-slate-400 hover:bg-slate-50",
-        variant === "dark" && "bg-slate-900 text-white hover:bg-black"
-      )}
-    >
-      {children}
-    </a>
-  )
-}
+const testimonials = [
+  { name: 'Sneha Patil', role: 'Working Professional', text: 'Pink Auto has been a lifesaver for my daily commute. I feel completely safe traveling alone even late in the evening. The drivers are extremely professional.', rating: 5 },
+  { name: 'Priya Deshmukh', role: 'College Student', text: 'As a college student, Pink Auto gives me and my parents peace of mind. The service is reliable, affordable, and the drivers are always courteous.', rating: 5 },
+  { name: 'Meera Kulkarni', role: 'Mother of Two', text: "I trust Pink Auto completely for my children's school pickup. The verified drivers and GPS tracking give me confidence that my kids are safe.", rating: 5 },
+];
 
 export default function Home() {
-  const [introDone, setIntroDone] = useState(() => {
-    if (typeof window !== "undefined") {
-      return window.innerWidth < 768
-    }
-    return false
-  })
-
-  const handleIntroComplete = useCallback(() => {
-    setIntroDone(true)
-  }, [])
-
-  useEffect(() => {
-    if (introDone) return
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setIntroDone(true)
-      }
-    }
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [introDone])
-
-  useEffect(() => {
-    if (!introDone) return
-
-    window.scrollTo(0, 0)
-    document.body.style.removeProperty("overflow")
-    document.documentElement.style.removeProperty("overflow")
-
-    const hash = window.location.hash
-    if (!hash) return
-
-    const scrollToHash = () => {
-      const target = document.querySelector(hash)
-      if (target) {
-        target.scrollIntoView({ behavior: "smooth", block: "start" })
-      }
-    }
-
-    requestAnimationFrame(() => requestAnimationFrame(scrollToHash))
-  }, [introDone])
-
   return (
     <>
-      {!introDone && (
-        <Suspense fallback={<div className="fixed inset-0 z-50 bg-white" aria-hidden />}>
-          <CinematicHero onComplete={handleIntroComplete} />
-        </Suspense>
-      )}
+      {/* ── Hero Section ── */}
+      <section className="hero" style={{ background: '#1A0A12' }}>
+        <div className="hero-bg">
+          <img src="/images/hero-pink-auto.png" alt="Pink Auto Kolhapur" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        </div>
+        <div className="hero-overlay" />
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div className="hero-content">
+            <motion.h1 className="text-display" style={{ color: 'white' }}
+              initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              Kolhapur's Trusted <span className="gradient-text">Pink Auto</span> Service
+            </motion.h1>
 
-      {introDone && (
-      <div
-        id="main"
-        className="bg-cream scroll-mt-0"
-      >
-        <Navbar />
-        <NavbarSpacer />
-        <WhatsAppButton />
+            <motion.p className="text-body-lg" style={{ color: 'rgba(255,255,255,0.8)', marginTop: '1.25rem', maxWidth: 560 }}
+              initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15 }}>
+              Safe, Comfortable & Reliable Auto Service for Women, Students, Senior Citizens and Families.
+            </motion.p>
 
-        {/* Hero / Download */}
-        <section
-          id="download"
-          className={cn(
-            sectionAnchor,
-            "section-hero relative overflow-hidden border-b border-slate-200/50",
-            "px-4 sm:px-6 pt-8 sm:pt-12 pb-16 sm:pb-24"
-          )}
-        >
-          <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-            <div className="absolute top-1/2 right-0 -translate-y-1/2 w-full sm:w-[78%] lg:w-[46%] h-[min(88%,520px)] sm:h-[min(90%,560px)] lg:h-[min(92%,600px)]">
-              <img
-                src={HERO_VISUAL_IMAGE}
-                alt=""
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
-                className="absolute inset-0 h-full w-full object-cover object-[72%_28%] sm:object-[76%_32%] lg:object-[88%_30%]"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-[#fff9f7] from-0% via-[#fdfbf9]/75 via-[28%] to-transparent to-[55%]" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#fdfbf9] from-0% via-transparent via-[18%] to-transparent" />
-              <div className="absolute inset-0 bg-gradient-to-b from-[#fff9f7]/80 from-0% via-transparent via-[12%] to-transparent" />
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#fff9f7] from-0% via-[#fdfbf9]/96 via-[40%] to-transparent to-[58%]" />
-            <div className="absolute -top-32 left-[20%] w-[480px] h-[320px] rounded-full bg-orange-200/20 blur-3xl" />
-            <div className="absolute -top-20 right-[15%] w-[400px] h-[280px] rounded-full bg-sky-200/20 blur-3xl" />
-            <div className="absolute top-40 left-1/2 -translate-x-1/2 w-[500px] h-[200px] rounded-full bg-teal-200/10 blur-3xl" />
+            <motion.p className="text-marathi" style={{ color: 'rgba(255,255,255,0.55)', marginTop: '0.75rem', fontSize: '1.15rem' }}
+              initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }}>
+              "कोल्हापूरची भरवशाची पिंक ऑटो सेवा"
+            </motion.p>
+            <motion.div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem', marginTop: '2rem' }}
+              initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.35 }}>
+              <a href="https://wa.me/919876543210?text=Hello%20Pink%20Auto!" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">
+                <WhatsAppIcon size={16} /> Book on WhatsApp
+              </a>
+              <a href="tel:+919876543210" className="btn" style={{ background: 'transparent', border: '1.5px solid rgba(255,255,255,0.3)', color: 'white' }}>
+                <PhoneIcon size={16} /> Call Now
+              </a>
+              <Link to="/driver-registration" className="btn" style={{ background: 'transparent', color: 'rgba(255,255,255,0.8)' }}>
+                Become a Driver →
+              </Link>
+            </motion.div>
           </div>
+        </div>
+      </section>
 
-          <div className="relative z-10 max-w-[1080px] mx-auto">
-            <div className="max-w-xl lg:max-w-2xl text-center lg:text-left -mt-1 sm:-mt-2">
-              <p className="eyebrow mb-3">{SITE.location}</p>
-              <h1 className="text-display font-semibold text-slate-900 text-balance">
-                {SITE.tagline}
-              </h1>
-              <p className="mt-4 sm:mt-5 lg:mt-6 text-lead text-pretty max-w-xl mx-auto lg:mx-0 text-slate-600 lg:text-[1.35rem]">
-                <span className="font-medium text-slate-700">Driven by Women</span>
-                <span className="text-slate-400">, </span>
-                <span className="font-semibold text-slate-800">Trusted by Families</span>
-              </p>
-              <p className="mt-2.5 lg:mt-3 text-sm sm:text-base lg:text-[17px] font-medium tracking-wide text-slate-500">
-                Comfort
-                <span className="text-slate-300 mx-1.5">·</span>
-                Safety
-                <span className="text-slate-300 mx-1.5">·</span>
-                Empowerment
-              </p>
-
-              <div className="mt-8 flex flex-col items-center lg:items-start gap-5">
-                <DownloadButtons className="justify-center lg:justify-start" />
-                <div className="flex flex-col sm:flex-row items-center gap-3">
-                  <PrimaryButton href={WHATSAPP_BOOK_URL} external>
-                    Book on WhatsApp
-                  </PrimaryButton>
-                  <PrimaryButton href="#drivers" variant="ghost">
-                    Become a Driver
-                  </PrimaryButton>
-                </div>
-              </div>
-
-              <SurfaceCard
-                padding="md"
-                className="mt-10 grid grid-cols-3 divide-x divide-slate-200/80"
-              >
-                {[
-                  { value: "100+", label: "Women drivers" },
-                  { value: "24×7", label: "Support" },
-                  { value: "GPS", label: "Live tracking" },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center px-2 sm:px-4 py-1">
-                    <div className="text-2xl sm:text-3xl font-semibold text-slate-900 tracking-tight">
-                      {stat.value}
-                    </div>
-                    <div className="text-xs sm:text-sm text-slate-500 mt-1">{stat.label}</div>
+      {/* ── Trust Badges ── */}
+      <section style={{ background: 'white', padding: '2.5rem 0', borderBottom: '1px solid rgba(0,0,0,0.06)' }}>
+        <div className="container">
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 'clamp(2rem, 5vw, 3.5rem)', flexWrap: 'wrap' }}>
+            {[
+              { Icon: UsersIcon, text: 'Trusted by Local Families' },
+              { Icon: UserIcon, text: 'Women-First Transportation' },
+              { Icon: ShieldCheckIcon, text: 'Safe & Verified Rides' },
+              { Icon: AwardIcon, text: 'Professional Drivers' },
+            ].map((item, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.625rem', whiteSpace: 'nowrap' }}>
+                  <div style={{ width: 36, height: 36, borderRadius: 'var(--radius-sm)', background: 'var(--color-gray-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <item.Icon size={18} color="var(--color-black)" />
                   </div>
-                ))}
-              </SurfaceCard>
-            </div>
-          </div>
-        </section>
-
-        {/* About */}
-        <section
-          id="about"
-          className={cn(sectionPad, sectionAnchor, "relative overflow-hidden border-b border-slate-100 bg-white")}
-        >
-          <div
-            className="absolute inset-0 bg-cover bg-center opacity-15 pointer-events-none"
-            style={{ backgroundImage: `url(${assetUrl("/images/chatgpt-10-09-22.png")})` }}
-            aria-hidden="true"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/80 pointer-events-none" aria-hidden="true" />
-          <div className="relative max-w-[1080px] mx-auto z-10">
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-              <AboutVisual className="order-2 lg:order-1" />
-              <div className="order-1 lg:order-2 space-y-6">
-                <SectionHeading
-                  align="left"
-                  size="large"
-                  eyebrow="About Pink Auto"
-                  title="Empowering women on every ride"
-                  description={
-                    <>
-                      <span className="hl hl-rose">Pink Auto</span> is a{" "}
-                      <span className="hl hl-rose">women-focused</span> transportation service — offering{" "}
-                      <span className="hl hl-amber">safe</span>,{" "}
-                      <span className="hl hl-amber">reliable</span>, and{" "}
-                      <span className="hl hl-amber">comfortable</span> auto-rickshaw rides while creating{" "}
-                      <span className="hl hl-mint">employment</span> for{" "}
-                      <span className="hl hl-rose">women drivers</span>.
-                    </>
-                  }
-                  className="max-w-none"
-                />
-                <div className="space-y-4">
-                  <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-                    We believe every <span className="hl hl-violet">woman</span>,{" "}
-                    <span className="hl hl-violet">student</span>, and{" "}
-                    <span className="hl hl-violet">family</span> deserves transport they can{" "}
-                    <span className="hl hl-amber">trust</span>.{" "}
-                    <span className="hl hl-rose">Pink Auto</span> combines{" "}
-                    <span className="hl hl-rose">verified women drivers</span>,{" "}
-                    <span className="hl hl-sky">standard ride options</span>, and{" "}
-                    <span className="hl hl-mint">modern safety technology</span> in one{" "}
-                    <span className="hl hl-sky">simple app</span>.
-                  </p>
-                  <p className="text-sm text-slate-500 leading-relaxed">
-                    Our mission is comfort, safety, and empowerment — supporting women commuters, working professionals,
-                    parents, senior citizens, and corporate partners across the region.
-                  </p>
+                  <span style={{ fontWeight: 600, fontSize: '0.85rem', color: 'var(--text-secondary)' }}>{item.text}</span>
                 </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Stats ── */}
+      <section className="section--sm" style={{ background: 'white' }}>
+        <div className="container">
+          <div className="grid-4">
+            <Counter end={5000} suffix="+" label="Happy Rides" />
+            <Counter end={50} suffix="+" label="Verified Drivers" />
+            <Counter end={4} suffix=".8" label="Customer Rating" prefix="" />
+            <Counter end={15} suffix="+" label="Areas Covered" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── About Preview ── */}
+      <section className="section">
+        <div className="container">
+          <div className="grid-2" style={{ gap: '4rem', alignItems: 'center' }}>
+            <FadeIn direction="left">
+              <div style={{ borderRadius: 'var(--radius-2xl)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
+                <img src="/images/hero-pink-auto.png" alt="About Pink Auto" style={{ width: '100%', height: 400, objectFit: 'cover' }} />
               </div>
-            </div>
-
-            <div className="mt-12 sm:mt-20">
-              <SectionHeading
-                align="left"
-                size="default"
-                eyebrow="Built for Safety"
-                title="A movement for safer mobility"
-                description="Beyond rides — Pink Auto is building employment, community trust, and a safer city for everyone."
-                className="mb-6 sm:mb-10 max-w-2xl"
-              />
-              <HorizontalScrollRow gridClassName="sm:grid-cols-2 lg:grid-cols-3 sm:gap-5">
-                {storyCards.map((card) => (
-                  <ScrollSnapItem key={card.title}>
-                    <StoryVisualCard {...card} />
-                  </ScrollSnapItem>
-                ))}
-              </HorizontalScrollRow>
-            </div>
-          </div>
-        </section>
-
-        {/* Services */}
-        <section id="services" className={cn(sectionPad, sectionAnchor, "section-warm border-y border-stone-200/80")}>
-          <div className="max-w-[1080px] mx-auto">
-            <SectionHeading
-              size="large"
-              eyebrow="Services"
-              title="Rides for every need"
-              description="From daily commutes to school pickups and event transport — Pink Auto covers your travel needs with flexible options."
-              className="mb-8 sm:mb-16"
-            />
-            <HorizontalScrollRow gridClassName="sm:grid-cols-2 lg:grid-cols-3 sm:gap-5" fadeFrom="stone">
-              {services.map(({ tone, featured, imageFallback, hideOverlay, ...service }) => (
-                <ScrollSnapItem key={service.title} featured={featured}>
-                  <FeatureCard
-                    {...service}
-                    imageFallback={imageFallback}
-                    iconTone={tone}
-                    featured={featured}
-                    hideOverlay={hideOverlay}
-                    compact
-                  />
-                </ScrollSnapItem>
-              ))}
-            </HorizontalScrollRow>
-          </div>
-        </section>
-
-        {/* Why Pink Auto */}
-        <section id="features" className={cn(sectionPad, sectionAnchor, "section-lilac border-b border-slate-100")}>
-          <div className="max-w-[1080px] mx-auto">
-            <SectionHeading
-              size="large"
-              eyebrow="Why choose us"
-              title="Why Pink Auto"
-              description="Women-driven autos, standard bookings, and safety features — everything in one app."
-              className="mb-12 sm:mb-16"
-            />
-            <div className="grid sm:grid-cols-2 gap-5 sm:gap-6">
-              {featureCards.map(({ featured, imageFallback, ...card }) => (
-                <GradientCard
-                  key={card.title}
-                  {...card}
-                  imageFallback={imageFallback}
-                  featured={featured}
-                  className={featured ? "sm:col-span-2" : undefined}
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Safety */}
-        <section id="safety" className={cn(sectionPad, sectionAnchor, "section-mint border-y border-teal-100/60")}>
-          <div className="max-w-[1080px] mx-auto">
-            <SectionHeading
-              size="large"
-              eyebrow="Safety first"
-              title="Built for your peace of mind"
-              description="Every ride includes verification, tracking, and emergency support — designed for women, students, and families."
-              className="mb-12 sm:mb-16"
-            />
-            <div className="grid lg:grid-cols-5 gap-6 lg:gap-8 items-start">
-              <SafetyVisual className="lg:col-span-2 lg:sticky lg:top-24" />
-              <div className="lg:col-span-3 grid sm:grid-cols-2 gap-4 sm:gap-5">
-                {safetyFeatures.map((feature) => (
-                  <InlineFeatureCard key={feature.title} {...feature} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Coverage + OSM Map */}
-        <section id="coverage" className={cn(sectionPad, sectionAnchor, "section-mist border-b border-slate-100")}>
-          <div className="max-w-[1080px] mx-auto">
-            <SectionHeading
-              size="large"
-              eyebrow="Service areas"
-              title="Our Coverage Area"
-              description="Serving key neighbourhoods across the city — with routes expanding based on demand and driver availability."
-              className="mb-12 sm:mb-16"
-            />
-            <div className="grid lg:grid-cols-5 gap-5 lg:gap-6 items-stretch">
-              <div className="lg:col-span-2 flex flex-col gap-5">
-                <SurfaceCard padding="lg">
-                  <h3 className="text-[16px] font-semibold text-slate-900 mb-5 flex items-center gap-2.5">
-                    <span className="w-9 h-9 rounded-[12px] bg-sky-50 text-sky-600 ring-1 ring-sky-100 flex items-center justify-center">
-                      <MapPin className="w-4 h-4" strokeWidth={2} />
-                    </span>
-                    Popular areas
-                  </h3>
-                  <ul className="grid grid-cols-2 gap-x-3 gap-y-3">
-                    {serviceAreas.map((area) => (
-                      <li key={area} className="text-[14px] text-slate-600 flex items-center gap-2.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-teal-500 shrink-0" />
-                        {area}
-                      </li>
-                    ))}
-                  </ul>
-                </SurfaceCard>
-                <p className="text-[14px] text-slate-400 leading-[1.7] px-1">
-                  The map shows our primary service hub and approximate service radius. OpenStreetMap powers live neighbourhood context.
+            </FadeIn>
+            <FadeIn direction="right">
+              <div>
+                <span className="eyebrow">About Us</span>
+                <h2 className="text-h2" style={{ marginTop: '1rem' }}>
+                  Empowering Women Through <span className="gradient-text">Safe Transportation</span>
+                </h2>
+                <p className="text-body-lg" style={{ marginTop: '1.25rem', color: 'var(--text-secondary)' }}>
+                  Pink Auto was born from a simple yet powerful vision — to provide women, students, senior citizens, and families in Kolhapur with a transportation service they can trust completely.
                 </p>
+                <p className="text-marathi" style={{ marginTop: '1rem', color: 'var(--color-gray-500)' }}>
+                  "महिला सक्षमीकरण – सुरक्षित वाहतुकीद्वारे"
+                </p>
+                <Link to="/about" className="btn btn-primary" style={{ marginTop: '2rem' }}>Learn Our Story →</Link>
               </div>
-              <div className="lg:col-span-3">
-                <Suspense fallback={<div className="surface-card min-h-[380px] lg:min-h-[440px] animate-pulse bg-slate-100" />}>
-                  <OpenStreetMap height="100%" className="min-h-[380px] lg:min-h-[440px]" />
-                </Suspense>
-              </div>
-            </div>
+            </FadeIn>
           </div>
-        </section>
+        </div>
+      </section>
 
-        <Suspense fallback={<div className="py-20 sm:py-28 animate-pulse bg-cream" />}>
-          <TestimonialsMarquee />
-        </Suspense>
+      {/* ── Features ── */}
+      <section className="section" style={{ background: 'white' }}>
+        <div className="container">
+          <FadeIn>
+            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <span className="eyebrow">Why Choose Us</span>
+              <h2 className="text-h2" style={{ marginTop: '1rem' }}>Why Kolhapur Trusts <span className="gradient-text">Pink Auto</span></h2>
+              <p className="text-marathi" style={{ marginTop: '0.5rem', color: 'var(--color-gray-500)' }}>"विश्वासार्ह सेवा, प्रत्येक प्रवासात"</p>
+            </div>
+          </FadeIn>
+          <div className="grid-4">
+            {features.map((f, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <div className="card" style={{ padding: '2rem', textAlign: 'center', height: '100%' }}>
+                  <div style={{ width: 64, height: 64, borderRadius: 'var(--radius-lg)', background: 'var(--color-gray-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.25rem' }}>
+                    <f.Icon size={28} color="var(--color-black)" />
+                  </div>
+                  <h3 style={{ fontSize: '1.125rem', fontWeight: 600, marginBottom: '0.75rem' }}>{f.title}</h3>
+                  <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{f.desc}</p>
+                  <p className="text-marathi" style={{ marginTop: '0.75rem', fontSize: '0.85rem', color: 'var(--color-gray-500)' }}>{f.marathi}</p>
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+        </div>
+      </section>
 
-        {/* Drivers */}
-        <section id="drivers" className={cn(sectionPad, sectionAnchor, "bg-white")}>
-          <div className="max-w-[1080px] mx-auto">
-            <div className="surface-card rounded-[24px] bg-gradient-to-br from-slate-900 via-slate-800 to-teal-950 p-0 text-white overflow-hidden relative border-0 shadow-[0_20px_50px_-20px_rgba(15,23,42,0.45)]">
-              <div className="absolute top-0 right-0 w-72 h-72 bg-orange-500/15 rounded-full blur-3xl pointer-events-none" />
-              <div className="absolute bottom-0 left-1/3 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
-              <div className="relative grid lg:grid-cols-2 gap-0 items-stretch">
-                <div className="relative min-h-[280px] lg:min-h-full">
-                  <BrandImage
-                    src={DRIVER_IMAGE}
-                    fallback={DRIVER_IMAGE_FALLBACK}
-                    alt="Women professionals joining Pink Auto as drivers"
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-900/70 to-transparent lg:bg-gradient-to-t lg:from-slate-950/80 lg:via-transparent lg:to-transparent" />
-                  <div className="relative p-8 sm:p-11 lg:p-14 flex flex-col justify-end h-full min-h-[280px]">
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-orange-200 mb-3">Join us</p>
-                    <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight leading-[1.1]">
-                      Drive with Pink Auto
-                    </h2>
-                    <p className="mt-4 text-base sm:text-lg text-slate-200 leading-relaxed max-w-md">
-                      Join our network of verified women drivers. Flexible hours, fair earnings, and full safety support.
-                    </p>
+      {/* ── Services Preview ── */}
+      <section className="section">
+        <div className="container">
+          <FadeIn>
+            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <span className="eyebrow">Our Services</span>
+              <h2 className="text-h2" style={{ marginTop: '1rem' }}>Premium Services for <span className="gradient-text">Every Need</span></h2>
+              <p className="text-marathi" style={{ marginTop: '0.5rem', color: 'var(--color-gray-500)' }}>"प्रत्येक गरजेसाठी सेवा उपलब्ध"</p>
+            </div>
+          </FadeIn>
+          <div className="grid-3">
+            {services.map((s, i) => (
+              <FadeIn key={i} delay={i * 0.08}>
+                <div className="card" style={{ height: '100%' }}>
+                  <div style={{ height: 200, overflow: 'hidden' }}>
+                    <img src={s.image} alt={s.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
+                      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.08)')}
+                      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')} />
+                  </div>
+                  <div style={{ padding: '1.5rem' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.5rem' }}>
+                      <s.Icon size={20} color="var(--color-black)" />
+                      <h3 style={{ fontSize: '1.125rem', fontWeight: 600 }}>{s.title}</h3>
+                    </div>
+                    <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)' }}>{s.desc}</p>
                   </div>
                 </div>
-                <div className="p-8 sm:p-11 lg:p-14 flex items-center">
-                  <div className="rounded-[20px] bg-slate-950/50 backdrop-blur-md ring-1 ring-white/12 p-7 sm:p-9 w-full">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-teal-300 mb-2.5">
-                      Requirements
-                    </p>
-                    <h3 className="text-2xl sm:text-[1.75rem] font-semibold text-white tracking-tight leading-tight mb-7">
-                      Driver registration
-                    </h3>
-                    <ul className="space-y-4 mb-9">
-                      {["Valid driving license", "Aadhaar verification", "Vehicle details", "Local address verification"].map((item) => (
-                        <li key={item} className="flex items-center gap-3.5">
-                          <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-teal-400/10 ring-1 ring-teal-300/25">
-                            <BadgeCheck className="w-4 h-4 text-teal-200" strokeWidth={2.25} />
-                          </span>
-                          <span className="text-base sm:text-[17px] font-medium text-white/95 leading-snug">
-                            {item}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
-                    <a
-                      href={WHATSAPP_DRIVER_URL}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex h-12 w-full items-center justify-center rounded-full bg-[#25D366] text-white text-base font-semibold tracking-tight shadow-[0_8px_24px_-8px_rgba(37,211,102,0.45)] hover:bg-[#20BD5A] transition-colors"
-                    >
-                      Apply on WhatsApp
-                    </a>
+              </FadeIn>
+            ))}
+          </div>
+          <FadeIn delay={0.3}>
+            <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+              <Link to="/services" className="btn btn-primary">View All Services →</Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Safety Preview ── */}
+      <section className="section" style={{ background: 'var(--bg-dark)' }}>
+        <div className="container">
+          <div className="grid-2" style={{ gap: '4rem', alignItems: 'center' }}>
+            <FadeIn direction="left">
+              <div>
+                <span className="badge" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', borderColor: 'rgba(255,255,255,0.2)' }}>Safety First</span>
+                <h2 className="text-h2" style={{ color: 'white', marginTop: '1.25rem' }}>Your Safety Is Our <span className="gradient-text">Top Priority</span></h2>
+                <p style={{ color: 'rgba(255,255,255,0.7)', marginTop: '1.25rem', fontSize: '1.05rem', lineHeight: 1.7 }}>
+                  Every Pink Auto ride comes with multiple layers of safety including verified drivers, GPS tracking, emergency assistance, and 24/7 customer support.
+                </p>
+                <p className="text-marathi" style={{ color: 'rgba(255,255,255,0.5)', marginTop: '0.75rem', fontSize: '1rem' }}>"तुमची सुरक्षा, आमची जबाबदारी"</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', marginTop: '2rem' }}>
+                  {['GPS Enabled Vehicles', 'Background Verified Drivers', 'Emergency SOS Button', '24/7 Customer Support'].map((item, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', color: 'rgba(255,255,255,0.85)' }}>
+                      <div style={{ width: 24, height: 24, borderRadius: '50%', background: 'rgba(255,255,255,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                        <CheckCircleIcon size={14} color="white" />
+                      </div>
+                      <span style={{ fontSize: '0.95rem' }}>{item}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link to="/safety" className="btn btn-primary" style={{ marginTop: '2rem' }}>Learn About Safety →</Link>
+              </div>
+            </FadeIn>
+            <FadeIn direction="right">
+              <div style={{ borderRadius: 'var(--radius-2xl)', overflow: 'hidden', boxShadow: '0 20px 60px rgba(0,0,0,0.4)' }}>
+                <img src="/images/woman-driver.png" alt="Safe Pink Auto Driver" style={{ width: '100%', height: 450, objectFit: 'cover' }} />
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── Testimonials Preview ── */}
+      <section className="section">
+        <div className="container">
+          <FadeIn>
+            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <span className="eyebrow">Testimonials</span>
+              <h2 className="text-h2" style={{ marginTop: '1rem' }}>What Our Riders <span className="gradient-text">Say</span></h2>
+            </div>
+          </FadeIn>
+          <div className="grid-3">
+            {testimonials.map((t, i) => (
+              <FadeIn key={i} delay={i * 0.1}>
+                <div className="testimonial-card" style={{ height: '100%' }}>
+                  <div style={{ display: 'flex', gap: '0.25rem', marginBottom: '1rem' }}>
+                    {Array.from({ length: t.rating }).map((_, j) => (
+                      <span key={j} style={{ color: '#FFC107', fontSize: '1.125rem' }}>★</span>
+                    ))}
+                  </div>
+                  <p style={{ fontSize: '0.95rem', color: 'var(--text-secondary)', lineHeight: 1.7, fontStyle: 'italic' }}>"{t.text}"</p>
+                  <div style={{ marginTop: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <div style={{ width: 40, height: 40, borderRadius: 'var(--radius-sm)', background: 'var(--color-black)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', fontWeight: 700, fontSize: '0.875rem' }}>{t.name[0]}</div>
+                    <div>
+                      <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>{t.name}</div>
+                      <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{t.role}</div>
+                    </div>
                   </div>
                 </div>
+              </FadeIn>
+            ))}
+          </div>
+          <FadeIn delay={0.3}>
+            <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+              <Link to="/testimonials" className="btn btn-secondary">Read More Reviews →</Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── Gallery Preview ── */}
+      <section className="section" style={{ background: 'white' }}>
+        <div className="container">
+          <FadeIn>
+            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
+              <span className="eyebrow">Gallery</span>
+              <h2 className="text-h2" style={{ marginTop: '1rem' }}>Pink Auto <span className="gradient-text">In Action</span></h2>
+            </div>
+          </FadeIn>
+          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gridTemplateRows: '250px 250px', gap: '1rem' }}>
+            {[
+              { src: '/images/hero-pink-auto.png' }, { src: '/images/woman-driver.png' },
+              { src: '/images/family-riding.png' }, { src: '/images/college-student.png' },
+              { src: '/images/mahalaxmi-temple.png' },
+            ].map((img, i) => (
+              <FadeIn key={i} delay={i * 0.08}>
+                <div style={{ borderRadius: 'var(--radius-xl)', overflow: 'hidden', height: '100%', ...(i === 0 ? { gridRow: '1 / 3' } : {}) }}>
+                  <img src={img.src} alt="Pink Auto Gallery" style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
+                    onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
+                    onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')} />
+                </div>
+              </FadeIn>
+            ))}
+          </div>
+          <FadeIn delay={0.3}>
+            <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+              <Link to="/gallery" className="btn btn-secondary">View Full Gallery →</Link>
+            </div>
+          </FadeIn>
+        </div>
+      </section>
+
+      {/* ── App Coming Soon ── */}
+      <section className="section app-section">
+        <div className="container" style={{ position: 'relative', zIndex: 2 }}>
+          <div style={{ textAlign: 'center', maxWidth: 700, margin: '0 auto' }}>
+            <FadeIn>
+              <span className="badge" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', borderColor: 'rgba(255,255,255,0.2)' }}>
+                <SmartphoneIcon size={14} /> Coming Soon
+              </span>
+              <h2 className="text-h2" style={{ color: 'white', marginTop: '1.25rem' }}>Mobile App <span className="gradient-text">Coming Soon</span></h2>
+              <p style={{ color: 'rgba(255,255,255,0.7)', marginTop: '1rem', fontSize: '1.05rem', lineHeight: 1.7 }}>
+                Book rides, track your auto in real-time, make payments, and more — all from your smartphone.
+              </p>
+              <p className="text-marathi" style={{ color: 'rgba(255,255,255,0.4)', marginTop: '0.75rem', fontSize: '1rem' }}>"मोबाईल ॲपवर लवकरच उपलब्ध"</p>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2.5rem', flexWrap: 'wrap' }}>
+                <button className="btn" disabled style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.12)', cursor: 'not-allowed', gap: '0.75rem' }}>
+                  <svg width="20" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01-.01zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/></svg>
+                  App Store
+                </button>
+                <button className="btn" disabled style={{ background: 'rgba(255,255,255,0.08)', color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.12)', cursor: 'not-allowed', gap: '0.75rem' }}>
+                  <svg width="20" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 0 1-.61-.92V2.734a1 1 0 0 1 .609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.832l2.688 1.554a1 1 0 0 1 0 1.742l-2.69 1.556-2.535-2.535 2.537-2.317zM5.864 2.658L16.8 9.483l-2.302 2.302-8.634-8.634v-.493z"/></svg>
+                  Play Store
+                </button>
+              </div>
+            </FadeIn>
+          </div>
+        </div>
+      </section>
+
+      {/* ── CTA ── */}
+      <section className="section">
+        <div className="container">
+          <FadeIn>
+            <div style={{ background: 'var(--color-gray-100)', borderRadius: 'var(--radius-2xl)', padding: 'clamp(3rem, 6vw, 5rem)', textAlign: 'center', color: 'var(--color-gray-900)' }}>
+              <h2 className="text-h2" style={{ color: 'var(--color-gray-900)' }}>Ready for a Safe Ride?</h2>
+              <p style={{ marginTop: '1rem', fontSize: '1.1rem', color: 'var(--color-gray-700)', maxWidth: 500, margin: '1rem auto 0' }}>
+                Book your Pink Auto now via WhatsApp or give us a call. We're here for you.
+              </p>
+              <p className="text-marathi" style={{ marginTop: '0.5rem', color: 'var(--color-gray-500)' }}>"आजच तुमची सुरक्षित सवारी बुक करा"</p>
+              <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
+                <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Book on WhatsApp</a>
+                <a href="tel:+919876543210" className="btn btn-secondary">Call Now</a>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* Contact */}
-        <section id="contact" className={cn(sectionPad, sectionAnchor, "section-stone border-t border-slate-200/60")}>
-          <div className="max-w-[1080px] mx-auto">
-            <SectionHeading
-              size="large"
-              eyebrow="Get in touch"
-              title="Contact us"
-              description="Office inquiries, partnerships, and ride support — we're here 24×7."
-              className="mb-12 sm:mb-16"
-            />
-            <div className="grid lg:grid-cols-2 gap-5 lg:gap-6">
-              <SurfaceCard padding="lg">
-                <div className="flex items-center gap-3 mb-6">
-                  <img src={assetUrl("/logo.png")} alt="Pink Auto" className="w-12 h-12 rounded-xl object-contain" />
-                  <h3 className="text-xl font-semibold text-slate-900">Pink Auto</h3>
-                </div>
-                <ul className="space-y-4 text-base text-slate-600">
-                  <li className="flex items-start gap-3.5">
-                    <MapPin className="w-[18px] h-[18px] text-sky-600 mt-0.5 shrink-0" strokeWidth={1.75} />
-                    {SITE.address}
-                  </li>
-                  <li className="flex items-center gap-3.5">
-                    <Phone className="w-[18px] h-[18px] text-teal-600 shrink-0" strokeWidth={1.75} />
-                    <a href={`tel:${SITE.phone.replace(/\s/g, "")}`} className="hover:text-slate-900 transition-colors">
-                      {SITE.phone}
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-3.5">
-                    <Clock className="w-[18px] h-[18px] text-amber-600 shrink-0" strokeWidth={1.75} />
-                    24×7 in-app & phone support
-                  </li>
-                </ul>
-                <div className="mt-7 flex flex-wrap gap-3">
-                  <PrimaryButton href={WHATSAPP_BOOK_URL} external>
-                    WhatsApp
-                  </PrimaryButton>
-                  <PrimaryButton href={`mailto:${SITE.email}`} variant="ghost">
-                    {SITE.email}
-                  </PrimaryButton>
-                </div>
-              </SurfaceCard>
-              <Suspense fallback={<div className="surface-card min-h-[300px] lg:min-h-full animate-pulse bg-slate-100" />}>
-                <OpenStreetMap height="100%" className="min-h-[300px] lg:min-h-full" />
-              </Suspense>
-            </div>
-          </div>
-        </section>
-
-        <Footer />
-      </div>
-      )}
+          </FadeIn>
+        </div>
+      </section>
     </>
-  )
+  );
 }
