@@ -1,36 +1,46 @@
 import { Link } from 'react-router-dom';
-import PageHero from '../components/ui/PageHero';
 import FadeIn from '../components/ui/FadeIn';
 import { MapPinIcon, BriefcaseIcon, GraduationCapIcon, UserIcon, HeartIcon, CalendarIcon, WalletIcon } from '../components/ui/Icons';
+import { getImage } from '../utils/images';
+import imgDaily from '../assets/funtions/daily.png';
+import imgOffice from '../assets/funtions/office.png';
+import imgSchool from '../assets/funtions/school and college.png';
+import imgWomen from '../assets/funtions/women.png';
+import imgSenior from '../assets/funtions/senior citizen.png';
+import imgEvent from '../assets/funtions/event.png';
 
 const services = [
-  { Icon: MapPinIcon, title: 'Daily Rides', desc: 'Comfortable daily commute within Kolhapur city. Get from point A to point B safely and reliably.', benefits: ['Metered fare', 'Quick pickup', 'Multiple payment options', 'Clean vehicles'], image: '/images/daily-rides.jpg', marathi: 'दैनंदिन प्रवासासाठी' },
-  { Icon: BriefcaseIcon, title: 'Office Commute', desc: 'Reliable pickup and drop service for working professionals. Never be late to work again.', benefits: ['Fixed schedule', 'Monthly packages', 'Professional drivers', 'Punctual service'], image: '/images/office-commute.jpg', marathi: 'ऑफिसला जाण्यासाठी' },
-  { Icon: GraduationCapIcon, title: 'School Pickup & Drop', desc: 'Safe and reliable school transport for your children with verified and trained drivers.', benefits: ['Verified drivers', 'GPS tracking', 'Parent notifications', 'Fixed routes'], image: '/images/college-student.png', marathi: 'शाळेसाठी सुरक्षित वाहतूक' },
-  { Icon: GraduationCapIcon, title: 'College Pickup', desc: 'Dependable transport for college students with special student-friendly pricing.', benefits: ['Student discounts', 'Flexible timings', 'Campus coverage', 'Group bookings'], image: '/images/college-student.png', marathi: 'कॉलेजसाठी विशेष सवलत' },
-  { Icon: UserIcon, title: "Women's Special Rides", desc: 'Dedicated rides with women drivers for women passengers. Extra safety features included.', benefits: ['Women drivers available', 'SOS button', 'Ride sharing with family', 'Safe late-night rides'], image: '/images/woman-driver.png', marathi: 'महिलांसाठी विशेष सेवा' },
-  { Icon: HeartIcon, title: 'Senior Citizen Transport', desc: 'Gentle, assisted transport for senior citizens with patient and caring drivers.', benefits: ['Door-to-door service', 'Assisted boarding', 'Medical trip priority', 'Special care'], image: '/images/senior-citizen.png', marathi: 'ज्येष्ठ नागरिकांसाठी' },
-  { Icon: WalletIcon, title: 'Monthly Packages', desc: 'Save more with our monthly subscription packages. Fixed routes, fixed pricing, unlimited peace of mind.', benefits: ['Up to 20% savings', 'Priority booking', 'Dedicated driver', 'Flexible cancellation'], image: '/images/hero-pink-auto.png', marathi: 'मासिक पॅकेजेस उपलब्ध' },
-  { Icon: CalendarIcon, title: 'Event Transport', desc: 'Bulk auto-rickshaw booking for events, functions, and community programs.', benefits: ['Bulk booking', 'Event coordination', 'Custom branding', 'Reliable fleet'], image: '/images/mahalaxmi-temple.png', marathi: 'कार्यक्रमांसाठी वाहतूक' },
+  { Icon: MapPinIcon, title: 'Daily Rides', desc: 'Comfortable daily commute within the city. Get from point A to point B safely and reliably.', benefits: ['Metered fare', 'Quick pickup', 'Multiple payment options', 'Clean vehicles'], image: imgDaily, marathi: 'दैनंदिन प्रवासासाठी' },
+  { Icon: BriefcaseIcon, title: 'Office Commute', desc: 'Reliable pickup and drop service for working professionals. Never be late to work again.', benefits: ['Fixed schedule', 'Monthly packages', 'Professional drivers', 'Punctual service'], image: imgOffice, marathi: 'ऑफिसला जाण्यासाठी' },
+  { Icon: GraduationCapIcon, title: 'School Pickup & Drop', desc: 'Safe and reliable school transport for your children with verified and trained drivers.', benefits: ['Verified drivers', 'GPS tracking', 'Parent notifications', 'Fixed routes'], image: imgSchool, marathi: 'शाळेसाठी सुरक्षित वाहतूक' },
+  { Icon: GraduationCapIcon, title: 'College Pickup', desc: 'Dependable transport for college students with special student-friendly pricing.', benefits: ['Student discounts', 'Flexible timings', 'Campus coverage', 'Group bookings'], image: imgSchool, marathi: 'कॉलेजसाठी विशेष सवलत' },
+  { Icon: UserIcon, title: "Women's Special Rides", desc: 'Dedicated rides with women drivers for women passengers. Extra safety features included.', benefits: ['Women drivers available', 'SOS button', 'Ride sharing with family', 'Safe late-night rides'], image: imgWomen, marathi: 'महिलांसाठी विशेष सेवा' },
+  { Icon: HeartIcon, title: 'Senior Citizen Transport', desc: 'Gentle, assisted transport for senior citizens with patient and caring drivers.', benefits: ['Door-to-door service', 'Assisted boarding', 'Medical trip priority', 'Special care'], image: imgSenior, marathi: 'ज्येष्ठ नागरिकांसाठी' },
+  { Icon: WalletIcon, title: 'Monthly Packages', desc: 'Save more with our monthly subscription packages. Fixed routes, fixed pricing, unlimited peace of mind.', benefits: ['Up to 20% savings', 'Priority booking', 'Dedicated driver', 'Flexible cancellation'], image: getImage(14), marathi: 'मासिक पॅकेजेस उपलब्ध' },
+  { Icon: CalendarIcon, title: 'Event Transport', desc: 'Bulk auto-rickshaw booking for events, functions, and community programs.', benefits: ['Bulk booking', 'Event coordination', 'Custom branding', 'Reliable fleet'], image: imgEvent, marathi: 'कार्यक्रमांसाठी वाहतूक' },
 ];
 
 export default function Services() {
   return (
     <>
-      <PageHero eyebrow="Our Services" title="Premium Transportation Services for Everyone"
-        subtitle="From daily commutes to special events, Pink Auto offers reliable and safe auto-rickshaw services tailored to your needs."
-        marathi="प्रत्येक गरजेसाठी विश्वासार्ह सेवा" />
-
-      <section className="section">
+      <section className="section page-header-section">
         <div className="container">
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '3rem' }}>
+          <div style={{ marginBottom: '4rem' }}>
+            <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Our Services</span>
+            <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Premium Transportation Services for <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Everyone</span></h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem', maxWidth: '800px' }}>
+              From daily commutes to special events, Pink Auto offers reliable and safe auto-rickshaw services tailored to your needs.
+            </p>
+            <p className="text-marathi" style={{ color: 'var(--color-accent)', fontSize: '1.1rem' }}>
+              "प्रत्येक गरजेसाठी विश्वासार्ह सेवा"
+            </p>
+          </div>
+          <div className="mobile-carousel md:!flex md:!flex-col md:!gap-12">
             {services.map((s, i) => (
-              <FadeIn key={i} delay={0.05}>
-                <div className="card" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', overflow: 'hidden' }}>
-                  <div style={{ minHeight: 280, overflow: 'hidden', order: i % 2 === 0 ? 0 : 1 }}>
-                    <img src={s.image} alt={s.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.05)')}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')} />
+              <FadeIn key={i} delay={0.05} className="min-w-[85vw] md:min-w-0 shrink-0 snap-center">
+                <div className="card grid grid-cols-1 md:grid-cols-2 overflow-hidden h-full">
+                  <div className={`min-h-[280px] overflow-hidden order-first ${i % 2 === 0 ? 'md:order-first' : 'md:order-last'}`}>
+                    <img src={s.image} alt={s.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                   <div style={{ padding: 'clamp(2rem, 4vw, 3rem)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>

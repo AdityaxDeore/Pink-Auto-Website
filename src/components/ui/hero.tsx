@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { motion } from "framer-motion"
+
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
@@ -95,7 +95,6 @@ export default function Hero() {
             <div className="w-full max-w-[560px] mx-auto md:mx-0 text-center md:text-left">
               {/* Badge */}
               <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 rounded-full bg-pink-50 text-pink-700 text-xs sm:text-sm font-medium mb-5 sm:mb-6 max-w-full">
-                <span className="shrink-0">📍</span>
                 <span>Launching across Maharashtra</span>
               </div>
 
@@ -200,68 +199,38 @@ export default function Hero() {
                 </div>
 
                 {/* Floating Cards — repositioned for mobile */}
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 }}
+                <div
                   className="absolute top-2 left-2 sm:top-0 sm:-left-2 md:-top-3 md:-left-3 bg-white shadow-lg shadow-slate-200 border border-slate-100 rounded-xl sm:rounded-2xl px-2.5 sm:px-3.5 py-2 sm:py-2.5 text-[10px] sm:text-xs flex items-center gap-1.5 sm:gap-2 whitespace-nowrap"
                 >
                   <span className="text-emerald-500">●</span>
                   <span className="font-medium">Ride Confirmed</span>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 }}
+                <div
                   className="absolute top-10 right-2 sm:top-8 sm:-right-2 md:top-12 md:-right-4 bg-white shadow-lg shadow-slate-200 border border-slate-100 rounded-xl sm:rounded-2xl px-2.5 sm:px-3.5 py-2 sm:py-2.5 text-[10px] sm:text-xs flex items-center gap-1.5 sm:gap-2 whitespace-nowrap"
                 >
                   <span className="text-emerald-500">●</span>
                   <span className="font-medium">Driver Verified</span>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.7 }}
+                <div
                   className="absolute bottom-6 left-0 sm:bottom-4 sm:-left-3 md:-bottom-2 md:-left-5 bg-white shadow-lg shadow-slate-200 border border-slate-100 rounded-xl sm:rounded-2xl px-2.5 sm:px-3.5 py-2 sm:py-2.5 text-[10px] sm:text-xs flex items-center gap-1.5 sm:gap-2 whitespace-nowrap"
                 >
                   <span className="text-red-500">●</span>
                   <span className="font-medium">SOS Available</span>
-                </motion.div>
+                </div>
 
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.9 }}
+                <div
                   className="absolute bottom-14 right-0 sm:bottom-12 sm:-right-3 md:bottom-10 md:-right-6 bg-white shadow-lg shadow-slate-200 border border-slate-100 rounded-xl sm:rounded-2xl px-2.5 sm:px-3.5 py-2 sm:py-2.5 text-[10px] sm:text-xs flex items-center gap-1.5 sm:gap-2 whitespace-nowrap"
                 >
                   <span className="text-sky-500">●</span>
                   <span className="font-medium">GPS Enabled</span>
-                </motion.div>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Stats Row */}
-          <div className="mt-12 sm:mt-16 md:mt-20 grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6 sm:gap-y-8 border-t border-slate-100 pt-8 sm:pt-10 text-center">
-            <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">5,000+</div>
-              <div className="text-xs sm:text-sm text-slate-500 mt-1">Safe Rides</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">100+</div>
-              <div className="text-xs sm:text-sm text-slate-500 mt-1">Drivers</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">98%</div>
-              <div className="text-xs sm:text-sm text-slate-500 mt-1">Satisfaction</div>
-            </div>
-            <div>
-              <div className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight">24×7</div>
-              <div className="text-xs sm:text-sm text-slate-500 mt-1">Support</div>
-            </div>
-          </div>
+
         </div>
       </div>
     </div>

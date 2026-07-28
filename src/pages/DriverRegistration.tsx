@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import PageHero from '../components/ui/PageHero';
 import FadeIn from '../components/ui/FadeIn';
 
 const steps = [
@@ -24,47 +23,28 @@ export default function DriverRegistration() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Join Pink Auto"
-        title="Drive with Pride. Earn with Dignity."
-        subtitle="Become a Pink Auto driver today. Enjoy flexible hours, safe working conditions, and respect in the community."
-        marathi="सन्मानाने जगा, सन्मानाने कमवा"
-      />
-
-      <section className="section">
+      <section className="section page-header-section">
         <div className="container">
-          <div className="grid-2" style={{ gap: '4rem', alignItems: 'start' }}>
+          {/* Removed large text block so form appears without scrolling */}
+          <div className="grid-2 items-start gap-10 md:gap-16">
             
             {/* ── Benefits Sidebar ── */}
             <FadeIn direction="left">
               <div style={{ position: 'sticky', top: '100px' }}>
-                <span className="eyebrow">Why Join Us?</span>
+                <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Why Join Us?</span>
                 <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '2rem' }}>
-                  Benefits of Being a <span className="gradient-text">Pink Auto Driver</span>
+                  Benefits of Being a <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Pink Auto Driver</span>
                 </h2>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                   {[
-                    { icon: '💰', title: 'Better Earnings', desc: 'Keep 100% of your metered fare. Zero commission on street pickups.' },
-                    { icon: '🕒', title: 'Flexible Hours', desc: 'You decide when you want to work. Balance work and family life.' },
-                    { icon: '🛡️', title: 'Safety First', desc: 'Emergency SOS button, GPS tracking, and continuous support.' },
-                    { icon: '🏥', title: 'Health Insurance', desc: 'Accidental and health insurance coverage for you and your family.' },
-                    { icon: '👩‍🏫', title: 'Professional Training', desc: 'Free training in self-defense, customer service, and vehicle maintenance.' },
+                    { title: 'Better Earnings', desc: 'Keep 100% of your metered fare. Zero commission on street pickups.' },
+                    { title: 'Flexible Hours', desc: 'You decide when you want to work. Balance work and family life.' },
+                    { title: 'Safety First', desc: 'Emergency SOS button, GPS tracking, and continuous support.' },
+                    { title: 'Health Insurance', desc: 'Accidental and health insurance coverage for you and your family.' },
+                    { title: 'Professional Training', desc: 'Free training in self-defense, customer service, and vehicle maintenance.' },
                   ].map((benefit, i) => (
                     <div key={i} style={{ display: 'flex', gap: '1rem' }}>
-                      <div style={{
-                        width: 48,
-                        height: 48,
-                        borderRadius: '50%',
-                        background: 'var(--pink-50)',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '1.25rem',
-                        flexShrink: 0,
-                      }}>
-                        {benefit.icon}
-                      </div>
                       <div>
                         <h4 style={{ fontSize: '1.05rem', fontWeight: 600 }}>{benefit.title}</h4>
                         <p style={{ color: 'var(--text-secondary)', fontSize: '0.9rem', marginTop: '0.25rem' }}>{benefit.desc}</p>
@@ -80,7 +60,6 @@ export default function DriverRegistration() {
               <div className="card" style={{ padding: 'clamp(2rem, 4vw, 3rem)' }}>
                 {isSubmitted ? (
                   <div style={{ textAlign: 'center', padding: '3rem 1rem' }}>
-                    <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🎉</div>
                     <h3 className="text-h3">Application Submitted!</h3>
                     <p style={{ color: 'var(--text-secondary)', marginTop: '1rem' }}>
                       Thank you for applying to join Pink Auto. Our team will review your application and contact you within 48 hours for the next steps.
@@ -128,7 +107,7 @@ export default function DriverRegistration() {
                             </div>
                             <div className="form-group">
                               <label className="form-label">Complete Address</label>
-                              <textarea className="form-textarea" placeholder="Enter your residential address in Kolhapur" rows={3} required></textarea>
+                              <textarea className="form-textarea" placeholder="Enter your residential address" rows={3} required></textarea>
                             </div>
                           </motion.div>
                         )}

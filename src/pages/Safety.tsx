@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import PageHero from '../components/ui/PageHero';
 import FadeIn from '../components/ui/FadeIn';
 import Counter from '../components/ui/Counter';
+import { getImage } from '../utils/images';
 import { SearchIcon, MapPinIcon, AlertCircleIcon, HeadphonesIcon, ShieldIcon, UserIcon, CheckCircleIcon } from '../components/ui/Icons';
 
 const safetyFeatures = [
@@ -23,11 +23,22 @@ const safeJourneySteps = [
 export default function Safety() {
   return (
     <>
-      <PageHero eyebrow="Safety & Trust" title="Your Safety is Our Top Priority"
-        subtitle="Multiple layers of safety measures ensure every Pink Auto ride is secure, comfortable, and trustworthy."
-        marathi="तुमची सुरक्षा हीच आमची सर्वोच्च प्राथमिकता" />
+      <section className="section page-header-section" style={{ paddingBottom: '4rem' }}>
+        <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+            <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Safety & Trust</span>
+            <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Your Safety is Our <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Top Priority</span></h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+              Multiple layers of safety measures ensure every Pink Auto ride is secure, comfortable, and trustworthy.
+            </p>
+            <p className="text-marathi" style={{ color: 'var(--color-accent)', fontSize: '1.1rem' }}>
+              "तुमची सुरक्षा हीच आमची सर्वोच्च प्राथमिकता"
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <section className="section--sm" style={{ background: 'white' }}>
+      <section className="section--sm" style={{ background: 'white', paddingTop: 0 }}>
         <div className="container"><div className="grid-4">
           <Counter end={100} suffix="%" label="Safety Record" />
           <Counter end={50} suffix="+" label="Verified Drivers" />
@@ -99,10 +110,10 @@ export default function Safety() {
 
       <section className="section" style={{ background: 'white' }}>
         <div className="container">
-          <div className="grid-2" style={{ gap: '4rem', alignItems: 'center' }}>
+          <div className="grid-2 items-center gap-10 md:gap-16">
             <FadeIn direction="left">
               <div style={{ borderRadius: 'var(--radius-2xl)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)' }}>
-                <img src="/images/woman-driver.png" alt="Verified Driver" style={{ width: '100%', height: 450, objectFit: 'cover' }} />
+                <img src={getImage(13)} alt="Verified Driver" style={{ width: '100%', objectFit: 'cover' }} className="h-72 md:h-[450px]" />
               </div>
             </FadeIn>
             <FadeIn direction="right">

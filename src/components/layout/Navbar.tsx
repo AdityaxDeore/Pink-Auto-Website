@@ -6,12 +6,9 @@ import { WhatsAppIcon } from '../ui/Icons';
 const navItems = [
   { label: 'Home', path: '/' },
   { label: 'About', path: '/about' },
-  { label: 'Services', path: '/services' },
   { label: 'Safety', path: '/safety' },
   { label: 'Gallery', path: '/gallery' },
   { label: 'Drivers', path: '/driver-registration' },
-  { label: 'Testimonials', path: '/testimonials' },
-  { label: 'Media', path: '/media-events' },
   { label: 'Contact', path: '/contact' },
 ];
 

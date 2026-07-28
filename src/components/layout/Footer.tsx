@@ -21,7 +21,7 @@ const serviceLinks = [
 ];
 
 const contactInfo = [
-  { Icon: MapPinIcon, text: 'Mahalaxmi Mandir Road, Kolhapur, Maharashtra 416012' },
+  { Icon: MapPinIcon, text: 'Mahalaxmi Mandir Road, Maharashtra 416012' },
   { Icon: PhoneIcon, text: '+91 98765 43210' },
   { Icon: MailIcon, text: 'hello@pinkauto.in' },
   { Icon: ClockIcon, text: 'Mon-Sun: 6:00 AM - 11:00 PM' },
@@ -41,17 +41,14 @@ export default function Footer() {
         <div className="footer-grid">
           {/* Brand Column */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.25rem' }}>
-              <img src="/logo.png" alt="Pink Auto" style={{ height: 40, width: 'auto' }} />
-              <span style={{ fontFamily: 'var(--font-primary)', fontWeight: 700, fontSize: '1.375rem', color: 'white' }}>Pink Auto</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
+              <img src="/logo.png" alt="Pink Auto" style={{ height: 32, width: 'auto', filter: 'grayscale(1)' }} />
+              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 400, fontSize: '1.5rem', color: 'var(--color-canvas)', letterSpacing: '-0.02em', fontStyle: 'italic' }}>Pink Auto</span>
             </div>
-            <p style={{ fontSize: '0.9rem', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, marginBottom: '1.5rem', maxWidth: 320 }}>
-              Kolhapur's trusted pink auto-rickshaw service providing safe, comfortable, and reliable transportation for women, students, senior citizens, and families.
+            <p style={{ fontSize: '0.95rem', color: 'rgba(249,248,246,0.6)', lineHeight: 1.7, marginBottom: '2rem', maxWidth: 320 }}>
+              An elegant, secure, and reliable service tailored for women, students, and families.
             </p>
-            <p style={{ fontFamily: 'var(--font-marathi)', fontSize: '1.1rem', color: 'rgba(255,255,255,0.5)', fontStyle: 'italic' }}>
-              "सुरक्षित प्रवास, आमची जबाबदारी"
-            </p>
-            <div style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem' }}>
+            <div style={{ display: 'flex', gap: '1rem', marginTop: '1.5rem' }}>
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -60,13 +57,12 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   aria-label={social.label}
                   style={{
-                    width: 36, height: 36, borderRadius: '50%',
-                    background: 'rgba(255,255,255,0.08)',
+                    width: 40, height: 40, border: '1px solid rgba(249,248,246,0.1)',
                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                    color: 'rgba(255,255,255,0.5)', transition: 'all 0.3s',
+                    color: 'rgba(249,248,246,0.6)', transition: 'all 0.5s',
                   }}
-                  onMouseEnter={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.15)'; e.currentTarget.style.color = 'white'; }}
-                  onMouseLeave={(e) => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; e.currentTarget.style.color = 'rgba(255,255,255,0.5)'; }}
+                  onMouseEnter={(e) => { e.currentTarget.style.borderColor = 'var(--color-accent)'; e.currentTarget.style.color = 'var(--color-accent)'; }}
+                  onMouseLeave={(e) => { e.currentTarget.style.borderColor = 'rgba(249,248,246,0.1)'; e.currentTarget.style.color = 'rgba(249,248,246,0.6)'; }}
                 >
                   <social.Icon size={16} />
                 </a>

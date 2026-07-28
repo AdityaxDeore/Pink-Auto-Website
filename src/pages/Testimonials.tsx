@@ -1,4 +1,3 @@
-import PageHero from '../components/ui/PageHero';
 import FadeIn from '../components/ui/FadeIn';
 
 const testimonials = [
@@ -40,7 +39,7 @@ const testimonials = [
   {
     name: 'Aarti Joshi',
     role: 'Event Organizer',
-    text: "Booked 10 Pink Autos for a women's conference in Kolhapur. The coordination was flawless and the guests loved the pink branding!",
+    text: "Booked 10 Pink Autos for a women's conference in the city. The coordination was flawless and the guests loved the pink branding!",
     rating: 4,
     type: 'Event Booking'
   }
@@ -49,17 +48,20 @@ const testimonials = [
 export default function Testimonials() {
   return (
     <>
-      <PageHero
-        eyebrow="Testimonials"
-        title="Stories of Trust & Safety"
-        subtitle="Don't just take our word for it. Hear what the women and families of Kolhapur have to say about their Pink Auto experience."
-        marathi="तुमचा विश्वास, आमची ताकद"
-      />
-
-      <section className="section">
+      <section className="section page-header-section">
         <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto', marginBottom: '4rem' }}>
+            <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Testimonials</span>
+            <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Stories of <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Trust & Safety</span></h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+              Don't just take our word for it. Hear what the women and families have to say about their Pink Auto experience.
+            </p>
+            <p className="text-marathi" style={{ color: 'var(--color-accent)', fontSize: '1.1rem' }}>
+              "तुमचा विश्वास, आमची ताकद"
+            </p>
+          </div>
           
-          <div className="grid-3">
+          <div className="grid-3 mobile-carousel">
             {testimonials.map((t, i) => (
               <FadeIn key={i} delay={i * 0.1}>
                 <div className="testimonial-card" style={{ height: '100%', display: 'flex', flexDirection: 'column', border: '1px solid var(--color-gray-200)', borderRadius: 'var(--radius-xl)', padding: '2rem' }}>
@@ -111,7 +113,7 @@ export default function Testimonials() {
             }}>
               <h2 className="text-h2">Had a Safe Journey?</h2>
               <p style={{ marginTop: '1rem', color: 'var(--text-secondary)', fontSize: '1.05rem', marginBottom: '2rem' }}>
-                Your feedback helps us improve and gives confidence to other women in Kolhapur to travel safely.
+                Your feedback helps us improve and gives confidence to other women to travel safely.
               </p>
               <a href="https://wa.me/919876543210?text=I%20want%20to%20share%20my%20feedback!" target="_blank" rel="noopener noreferrer" className="btn btn-primary">
                 Share Your Feedback

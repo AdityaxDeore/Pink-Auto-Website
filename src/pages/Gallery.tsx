@@ -1,21 +1,16 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import PageHero from '../components/ui/PageHero';
 import FadeIn from '../components/ui/FadeIn';
 
-const categories = ['All', 'Vehicles', 'Drivers', 'Customers', 'Events'];
+import { allImages } from '../utils/images';
 
-const galleryImages = [
-  { src: '/images/hero-pink-auto.png', category: 'Vehicles', title: 'Pink Auto Fleet' },
-  { src: '/images/woman-driver.png', category: 'Drivers', title: 'Our Proud Driver' },
-  { src: '/images/family-riding.png', category: 'Customers', title: 'Safe Family Ride' },
-  { src: '/images/college-student.png', category: 'Customers', title: 'College Student Commute' },
-  { src: '/images/mahalaxmi-temple.png', category: 'Vehicles', title: 'Pink Auto at Mahalaxmi Temple' },
-  { src: '/images/senior-citizen.png', category: 'Customers', title: 'Assisted Senior Citizen Ride' },
-  // Adding some placeholders for layout completeness based on actual file paths if available or repeating
-  { src: '/images/daily-rides.jpg', category: 'Vehicles', title: 'Daily Rides' },
-  { src: '/images/office-commute.jpg', category: 'Customers', title: 'Office Commute' },
-];
+const categories = ['All', 'Gallery'];
+
+const galleryImages = allImages.map((src, i) => ({
+  src,
+  category: 'Gallery',
+  title: `Pink Auto Snapshot ${i + 1}`,
+}));
 
 export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -27,15 +22,18 @@ export default function Gallery() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Our Gallery"
-        title="Glimpses of the Pink Auto Experience"
-        subtitle="Explore our modern fleet, proud drivers, happy customers, and community events in Kolhapur."
-        marathi="पिंक ऑटो कुटुंबाची क्षणचित्रे"
-      />
-
-      <section className="section">
+      <section className="section page-header-section">
         <div className="container">
+          <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto', marginBottom: '4rem' }}>
+            <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Our Gallery</span>
+            <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Glimpses of the <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Pink Auto Experience</span></h2>
+            <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+              Explore our modern fleet, proud drivers, happy customers, and community events.
+            </p>
+            <p className="text-marathi" style={{ color: 'var(--color-accent)', fontSize: '1.1rem' }}>
+              "पिंक ऑटो कुटुंबाची क्षणचित्रे"
+            </p>
+          </div>
           
           {/* ── Filter Buttons ── */}
           <FadeIn>
@@ -75,13 +73,7 @@ export default function Gallery() {
                     <img
                       src={img.src}
                       alt={img.title}
-                      style={{
-                        width: '100%',
-                        display: 'block',
-                        transition: 'transform 0.5s ease',
-                      }}
-                      onMouseEnter={(e) => (e.currentTarget.style.transform = 'scale(1.08)')}
-                      onMouseLeave={(e) => (e.currentTarget.style.transform = 'scale(1)')}
+                      style={{ width: '100%', display: 'block', borderRadius: 'var(--radius-xl)' }}
                     />
                     <div style={{
                       position: 'absolute',

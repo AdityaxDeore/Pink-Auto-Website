@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import PageHero from '../components/ui/PageHero';
 import FadeIn from '../components/ui/FadeIn';
 import { MapPinIcon, PhoneIcon, MailIcon, ClockIcon, FacebookIcon, InstagramIcon, XTwitterIcon } from '../components/ui/Icons';
 
@@ -17,21 +16,21 @@ export default function Contact() {
 
   return (
     <>
-      <PageHero
-        eyebrow="Contact Us"
-        title="We're Here to Help"
-        subtitle="Have a question about our services, want to book a ride, or partner with us? Reach out today."
-        marathi="तुमच्या सेवेसाठी सदैव तत्पर"
-      />
-
-      <section className="section">
+      <section className="section page-header-section">
         <div className="container">
-          <div className="grid-2" style={{ gap: '4rem' }}>
+          <div className="grid-2 gap-10 md:gap-16">
             
             {/* ── Contact Info ── */}
             <FadeIn direction="left">
               <div>
-                <h2 className="text-h2" style={{ marginBottom: '2rem' }}>Get in Touch</h2>
+                <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Contact Us</span>
+                <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>We're Here to Help</h2>
+                <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem' }}>
+                  Have a question about our services, want to book a ride, or partner with us? Reach out today.
+                </p>
+                <p className="text-marathi" style={{ color: 'var(--color-accent)', marginBottom: '3rem', fontSize: '1.1rem' }}>
+                  "तुमच्या सेवेसाठी सदैव तत्पर"
+                </p>
                 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
                   <div style={{ display: 'flex', gap: '1.25rem' }}>
@@ -47,7 +46,7 @@ export default function Contact() {
                       <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
                         Pink Auto Headquarters,<br />
                         Mahalaxmi Mandir Road, Near Rankala,<br />
-                        Kolhapur, Maharashtra 416012
+                        Maharashtra 416012
                       </p>
                     </div>
                   </div>
@@ -132,7 +131,7 @@ export default function Contact() {
                     <input type="text" className="form-input" placeholder="Your name" required />
                   </div>
                   
-                  <div className="grid-2" style={{ gap: '1.5rem' }}>
+                  <div className="grid-2 gap-6">
                     <div className="form-group">
                       <label className="form-label">Phone Number</label>
                       <input type="tel" className="form-input" placeholder="Your phone number" required />
