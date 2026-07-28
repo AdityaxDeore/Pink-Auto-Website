@@ -1,25 +1,18 @@
-name: Deploy to GitHub Pages Directly
+name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["master"] # Or "main"
+    branches: [master] # Change to 'main' if that is your default branch
   workflow_dispatch:
 
-# Required permissions for direct Pages deployment
 permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+  contents: write # Required to push to the gh-pages branch
 
 jobs:
-  build:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Setup Node
@@ -28,27 +21,15 @@ jobs:
           node-version: 20
           cache: npm
 
-      - name: Install dependencies
+      - name: Install Dependencies
         run: npm ci
 
-      - name: Build for GitHub Pages
-        run: npm run build:pages
+      - name: Build Project
+        # Make sure this matches your package.json build script
+        run: npm run build:pages 
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Push to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: './dist' # Ensure this matches your build directory
-
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist # Change to ./build or ./out depending on your framework
