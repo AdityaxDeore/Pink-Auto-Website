@@ -1,6 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
-  <rect x="40" y="90" width="120" height="50" rx="16" fill="#64748B" opacity="0.85"/>
-  <circle cx="65" cy="145" r="14" fill="#334155"/>
-  <circle cx="135" cy="145" r="14" fill="#334155"/>
-  <path d="M55 90 L75 60 H125 L145 90" fill="#94A3B8" opacity="0.9"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 200 200"><rect width="120" height="50" x="40" y="90" fill="#64748B" opacity=".85" rx="16"/><circle cx="65" cy="145" r="14" fill="#334155"/><circle cx="135" cy="145" r="14" fill="#334155"/><path fill="#94A3B8" d="M55 90 L75 60 H125 L145 90" opacity=".9"/></svg>
