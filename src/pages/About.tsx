@@ -28,7 +28,7 @@ export default function About() {
                   More Than Just a Ride Service
                 </p>
                 <p style={{ marginTop: '1.5rem', color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.8 }}>
-                  Pink Auto was founded with a single purpose: to provide a safe, reliable, and comfortable commuting experience. We empower our drivers and protect our passengers, creating a transport ecosystem built entirely on trust.
+                  Pink Auto was founded with a single purpose: to provide a safe, reliable, and comfortable commuting experience. We champion women driver empowerment, creating dignified employment opportunities while we shield and empower our passengers — building a transport ecosystem rooted entirely in trust.
                 </p>
               </div>
             </FadeIn>
@@ -52,7 +52,7 @@ export default function About() {
                 </div>
                 <h3 className="text-h3" style={{ marginBottom: '1rem' }}>Our Vision</h3>
                 <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1.05rem' }}>
-                  To make the city the safest place for women commuters by providing a reliable, comfortable, and professionally managed auto-rickshaw service that sets the standard for women-centric transportation across Maharashtra.
+                  To make the city the safest place for women commuters by providing a reliable, comfortable, and professionally managed auto-rickshaw service that sets the standard for women-centric transportation across Maharashtra — and to champion women's empowerment by creating dignified, financially independent employment opportunities for women drivers.
                 </p>
                 <p className="text-marathi" style={{ marginTop: '1rem', color: 'var(--color-gray-500)' }}>"कोल्हापूरला महिलांसाठी सर्वात सुरक्षित शहर बनवणे"</p>
               </div>
@@ -112,7 +112,16 @@ export default function About() {
                   Pink Auto is more than a transportation service — it's a platform for women's economic independence.
                 </p>
                 <ul style={{ marginTop: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', listStyle: 'none' }}>
-                  {['Professional driving training and certification', 'Steady income and financial independence', 'Flexible working hours', 'Insurance and safety equipment', 'Community support and mentorship', 'Recognition and dignity in their profession'].map((item, i) => (
+                  {[
+                    'Professional driving training and certification',
+                    'Steady income and financial independence',
+                    'Flexible working hours',
+                    'Insurance and safety equipment',
+                    'Community support and mentorship',
+                    'Recognition and dignity in their profession',
+                    'Financial assistance through loans for pink auto purchase',
+                    'Access to CSR funds and grants for vehicle procurement',
+                  ].map((item, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: 'var(--text-secondary)' }}>
                       <span style={{ color: 'var(--color-black)', fontWeight: 700, flexShrink: 0 }}>✓</span>{item}
                     </li>
@@ -140,14 +149,14 @@ export default function About() {
               <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--color-gray-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
                 <MessageCircleIcon size={28} color="var(--color-black)" />
               </div>
-              <h3 className="text-h3" style={{ marginBottom: '1.25rem' }}>A Message from the Founder</h3>
+              <h3 className="text-h3" style={{ marginBottom: '1.25rem' }}>A Message from the Team / Organisation</h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.9, maxWidth: 600, margin: '0 auto', fontStyle: 'italic' }}>
                 "When I started Pink Auto, I had one goal — to ensure that no woman ever feels unsafe while commuting. Every pink auto-rickshaw you see on our streets is a promise of safety, dignity, and empowerment."
               </p>
               <p className="text-marathi" style={{ marginTop: '1.25rem', color: 'var(--color-gray-500)', fontSize: '1rem' }}>"कोल्हापूरला सुरक्षित बनवणं हे आमचं स्वप्न आहे"</p>
               <div style={{ marginTop: '1.5rem' }}>
                 <div style={{ fontWeight: 600, fontSize: '1rem' }}>Pink Auto Team</div>
-                <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>Founder & CEO</div>
+                <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>Pink Auto Organisation</div>
               </div>
             </div>
           </FadeIn>

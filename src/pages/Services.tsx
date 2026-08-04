@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import FadeIn from '../components/ui/FadeIn';
 import { MapPinIcon, BriefcaseIcon, GraduationCapIcon, UserIcon, HeartIcon, CalendarIcon, WalletIcon } from '../components/ui/Icons';
 import { getImage } from '../utils/images';
-import imgDaily from '../assets/funtions/daily.png';
-import imgOffice from '../assets/funtions/office.png';
-import imgSchool from '../assets/funtions/school and college.png';
-import imgWomen from '../assets/funtions/women.png';
-import imgSenior from '../assets/funtions/senior citizen.png';
-import imgEvent from '../assets/funtions/event.png';
+import imgDaily from '../assets/images/Videoshot_20260728_124328.jpg';
+import imgOffice from '../assets/images/Videoshot_20260728_124428.jpg';
+import imgSchool from '../assets/images/Videoshot_20260728_124435.jpg';
+import imgWomen from '../assets/images/Videoshot_20260728_124522.jpg';
+import imgSenior from '../assets/images/Videoshot_20260728_124537.jpg';
+import imgEvent from '../assets/images/Videoshot_20260728_124541.jpg';
 
 const services = [
   { Icon: MapPinIcon, title: 'Daily Rides', desc: 'Comfortable daily commute within the city. Get from point A to point B safely and reliably.', benefits: ['Metered fare', 'Quick pickup', 'Multiple payment options', 'Clean vehicles'], image: imgDaily, marathi: 'दैनंदिन प्रवासासाठी' },
@@ -72,12 +72,12 @@ export default function Services() {
       <section className="section--sm" style={{ background: 'var(--color-gray-50)' }}>
         <div className="container container-narrow" style={{ textAlign: 'center' }}>
           <FadeIn>
-            <span className="eyebrow">Fair Pricing</span>
-            <h2 className="text-h2" style={{ marginTop: '1rem' }}>Transparent & Fair Pricing</h2>
+            <span className="eyebrow">Flexible Pricing</span>
+            <h2 className="text-h2" style={{ marginTop: '1rem' }}>Estimate-Based &amp; <span style={{ fontStyle: 'italic' }}>Negotiable Pricing</span></h2>
             <p style={{ marginTop: '1rem', color: 'var(--text-secondary)', fontSize: '1.05rem', maxWidth: 600, margin: '1rem auto 0' }}>
-              All rides are metered with government-approved fares. No surge pricing, no hidden charges.
+              We provide an estimate fare range for your route. The final fare is open for negotiation with the driver, ensuring flexibility and fairness for every ride.
             </p>
-            <p className="text-marathi" style={{ marginTop: '0.75rem', color: 'var(--color-gray-500)' }}>"योग्य दर, कोणताही छुपा खर्च नाही"</p>
+            <p className="text-marathi" style={{ marginTop: '0.75rem', color: 'var(--color-gray-500)' }}>"अंदाजे भाडे सांगतो, चालकाशी बोलून ठरवा"</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
               <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">Get Pricing on WhatsApp</a>
               <Link to="/contact" className="btn btn-secondary">Contact for Packages</Link>

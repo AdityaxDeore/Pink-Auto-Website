@@ -6,7 +6,7 @@ import { SearchIcon, MapPinIcon, AlertCircleIcon, HeadphonesIcon, ShieldIcon, Us
 
 const safetyFeatures = [
   { Icon: SearchIcon, title: 'Verified Drivers', desc: 'Every driver undergoes rigorous background verification including police verification, address verification, and reference checks.', details: ['Police verification', 'Address proof verified', 'Character reference check', 'Driving license verification'] },
-  { Icon: MapPinIcon, title: 'GPS Enabled Vehicles', desc: 'All Pink Auto rickshaws are equipped with GPS tracking devices, enabling real-time location monitoring.', details: ['Real-time tracking', 'Route monitoring', 'Speed alerts', 'Geo-fencing'] },
+  { Icon: MapPinIcon, title: 'GPS Enabled Vehicles', desc: 'All Pink Auto rickshaws are equipped with GPS tracking devices, enabling real-time location monitoring.', details: ['Real-time tracking', 'Route monitoring', 'Speed alerts', 'Live location sharing'] },
   { Icon: AlertCircleIcon, title: 'Emergency Assistance', desc: 'One-tap SOS button connects riders directly to our emergency response team and local authorities.', details: ['SOS button', 'Direct police connect', 'Emergency contacts alert', 'Rapid response team'] },
   { Icon: HeadphonesIcon, title: '24/7 Customer Support', desc: 'Round-the-clock customer support via phone, WhatsApp, and in-app chat for any queries or emergencies.', details: ['Phone support', 'WhatsApp support', 'Quick response time', 'Multilingual support'] },
   { Icon: ShieldIcon, title: 'Safety Policies', desc: 'Comprehensive safety policies covering ride-sharing protocols, vehicle maintenance, driver conduct, and passenger protection.', details: ['Zero-tolerance policy', 'Regular vehicle checks', 'Driver code of conduct', 'Feedback mechanism'] },
@@ -153,9 +153,8 @@ export default function Safety() {
           <FadeIn>
             <h2 className="text-h2">Feel Safe with Every Ride</h2>
             <p style={{ marginTop: '1rem', color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: 500, margin: '1rem auto 0' }}>Book your next safe ride with Pink Auto today.</p>
-            <p className="text-marathi" style={{ marginTop: '0.5rem', color: 'var(--color-gray-500)' }}>"प्रत्येक प्रवासात सुरक्षित वाटा"</p>
+            <p className="text-marathi" style={{ marginTop: '0.5rem', color: 'var(--color-gray-500)' }}>"प्रत्येक प्रवासात सुरक्षा"</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">Book Safe Ride</a>
               <Link to="/contact" className="btn btn-secondary">Contact Us</Link>
             </div>
           </FadeIn>

@@ -1,8 +1,9 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import FloatingButtons from './components/layout/FloatingButtons';
+import IntroAnimation from './components/ui/IntroAnimation';
 import ScrollProgress from './components/layout/ScrollProgress';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -22,46 +23,11 @@ function ScrollToTop() {
   return null;
 }
 
-import { useLocation } from 'react-router-dom';
-
 export default function App() {
-  const [loading, setLoading] = useState(true);
+  const [showIntro, setShowIntro] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 1200);
-    return () => clearTimeout(timer);
-  }, []);
-
-  if (loading) {
-    return (
-      <div style={{
-        position: 'fixed',
-        inset: 0,
-        background: 'linear-gradient(135deg, #FFF7FA, #F3E8FF)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        gap: '1.5rem',
-        zIndex: 99999,
-      }}>
-        <div style={{
-          width: 60,
-          height: 60,
-          border: '3px solid #FCE4EC',
-          borderTopColor: '#E91E63',
-          borderRadius: '50%',
-          animation: 'spin 0.8s linear infinite',
-        }} />
-        <span style={{
-          fontFamily: "'Poppins', sans-serif",
-          fontWeight: 700,
-          fontSize: '1.5rem',
-          color: '#E91E63',
-        }}>Pink Auto</span>
-        <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-      </div>
-    );
+  if (showIntro) {
+    return <IntroAnimation onComplete={() => setShowIntro(false)} />;
   }
 
   return (

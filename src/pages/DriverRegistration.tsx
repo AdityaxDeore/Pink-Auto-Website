@@ -43,6 +43,7 @@ export default function DriverRegistration() {
                     { title: 'Safety First', desc: 'Emergency SOS button, GPS tracking, and continuous support.' },
                     { title: 'Health Insurance', desc: 'Accidental and health insurance coverage for you and your family.' },
                     { title: 'Professional Training', desc: 'Free training in self-defense, customer service, and vehicle maintenance.' },
+                    { title: 'More Rides, More Benefits', desc: 'Earn rewards, priority assignments, and performance bonuses as you complete more rides.' },
                   ].map((benefit, i) => (
                     <div key={i} style={{ display: 'flex', gap: '1rem' }}>
                       <div>
@@ -106,8 +107,16 @@ export default function DriverRegistration() {
                               <input type="date" className="form-input" required />
                             </div>
                             <div className="form-group">
-                              <label className="form-label">Complete Address</label>
-                              <textarea className="form-textarea" placeholder="Enter your residential address" rows={3} required></textarea>
+                              <label className="form-label">City</label>
+                              <input type="text" className="form-input" placeholder="Enter your city" required />
+                            </div>
+                            <div className="form-group">
+                              <label className="form-label">Taluka</label>
+                              <input type="text" className="form-input" placeholder="Enter your taluka" required />
+                            </div>
+                            <div className="form-group">
+                              <label className="form-label">District</label>
+                              <input type="text" className="form-input" placeholder="Enter your district" required />
                             </div>
                           </motion.div>
                         )}

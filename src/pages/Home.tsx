@@ -8,18 +8,18 @@ import {
 } from '../components/ui/Icons';
 import { getImage } from '../utils/images';
 import heroImage from '../assets/images/hero.png';
-import imgDaily from '../assets/funtions/daily.png';
-import imgOffice from '../assets/funtions/office.png';
-import imgSchool from '../assets/funtions/school and college.png';
-import imgWomen from '../assets/funtions/women.png';
-import imgSenior from '../assets/funtions/senior citizen.png';
-import imgEvent from '../assets/funtions/event.png';
-import imgHeritage from '../assets/images/IMG_2429.gif';
+import imgDaily from '../assets/images/Videoshot_20260728_124328.jpg';
+import imgOffice from '../assets/images/Videoshot_20260728_124428.jpg';
+import imgSchool from '../assets/images/Videoshot_20260728_124435.jpg';
+import imgWomen from '../assets/images/Videoshot_20260728_124522.jpg';
+import imgSenior from '../assets/images/Videoshot_20260728_124537.jpg';
+import imgEvent from '../assets/images/Videoshot_20260728_124541.jpg';
+
 const features = [
   { Icon: ShieldCheckIcon, title: 'Women-First Safety', desc: 'Verified women drivers, GPS tracking, and emergency support for every ride.', marathi: 'महिलांची सुरक्षा आमचं प्राधान्य' },
   { Icon: CheckCircleIcon, title: 'Verified Drivers', desc: 'Every driver undergoes thorough background verification and training.', marathi: 'प्रत्येक चालक सत्यापित' },
   { Icon: SparklesIcon, title: 'Clean & Comfortable', desc: 'Well-maintained pink auto-rickshaws with clean interiors and comfortable seating.', marathi: 'स्वच्छ आणि आरामदायी प्रवास' },
-  { Icon: WalletIcon, title: 'Fair Pricing', desc: 'Transparent metered fares with no surge pricing. Monthly packages available.', marathi: 'योग्य दर, कोणताही अतिरिक्त खर्च नाही' },
+  { Icon: WalletIcon, title: 'Fair Pricing', desc: 'We provide an estimate fare range for your route. The final fare is negotiable with the driver, ensuring flexibility and fairness.', marathi: 'अंदाजे भाडे सांगतो, चालकाशी बोलून ठरवा' },
 ];
 
 const services = [
@@ -112,7 +112,15 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-10 md:gap-16">
             <FadeIn direction="left" className="lg:col-span-5 lg:col-start-1 group">
               <div style={{ overflow: 'hidden', borderRadius: 'var(--radius-3xl)' }}>
-                <img src={imgHeritage} alt="About Pink Auto" style={{ width: '100%', objectFit: 'cover', objectPosition: 'center bottom' }} className="h-80 md:h-[400px] transition-all duration-[2000ms] group-hover:scale-105" />
+                <video
+                  src="/videos/driving.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center', display: 'block' }}
+                  className="h-80 md:h-[400px] transition-all duration-[2000ms] group-hover:scale-105"
+                />
               </div>
             </FadeIn>
             <FadeIn direction="right" className="lg:col-span-5 lg:col-start-7">
@@ -141,7 +149,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 mb-16">
               <div className="lg:col-span-6 lg:col-start-2">
                 <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Our Features</span>
-                <h2 className="text-display-md" style={{ marginTop: '1rem' }}>Why You Trust <span style={{ fontStyle: 'italic' }}>Pink Auto</span></h2>
+                <h2 className="text-display-md" style={{ marginTop: '1rem' }}>Why You Trust <span style={{ fontStyle: 'italic' }}>Pink Auto</span>?</h2>
               </div>
             </div>
           </FadeIn>
