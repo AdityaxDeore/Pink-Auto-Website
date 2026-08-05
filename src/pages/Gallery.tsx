@@ -7,7 +7,6 @@ import { allImages } from '../utils/images';
 // Material folder photos/videos (copied to public/gallery/)
 const materialPhotos = [
   { src: '/gallery/wa-image-1.jpeg', type: 'photo', category: 'Photos', title: 'Pink Auto Fleet' },
-  { src: '/gallery/wa-image-2.jpeg', type: 'photo', category: 'Photos', title: 'Pink Auto Service' },
   { src: '/gallery/wa-image-3.jpeg', type: 'photo', category: 'Photos', title: 'Pink Auto Team' },
 ];
 
@@ -16,15 +15,32 @@ const materialVideos = [
   { src: '/videos/driving.mp4', type: 'video', category: 'Videos', title: 'Pink Auto Driving' },
 ];
 
-// Real photos from assets (exclude large GIFs, use only JPG/JPEG/PNG stills)
+const duplicates = [
+  'office.jpg',
+  'school.jpg',
+  'Videoshot_20260728_124428.jpg',
+  'Videoshot_20260728_124435.jpg',
+  'Videoshot_20260728_124522.jpg',
+  'Videoshot_20260728_124541.jpg'
+];
+
+// Real photos from assets (exclude large GIFs and replaced duplicates)
 const staticImages = allImages
-  .filter(src => !src.endsWith('.gif'))
+  .filter(src => !src.endsWith('.gif') && !duplicates.some(dup => src.includes(dup)))
   .map((src, i) => ({
     src,
     type: 'photo' as const,
     category: 'Photos',
     title: `Pink Auto Snapshot ${i + 1}`,
-  }));
+  }))
+  .filter(img => ![
+    'Pink Auto Snapshot 4',
+    'Pink Auto Snapshot 5',
+    'Pink Auto Snapshot 6',
+    'Pink Auto Snapshot 10',
+    'Pink Auto Snapshot 11',
+    'Pink Auto Snapshot 13'
+  ].includes(img.title));
 
 const allGalleryItems = [...materialPhotos, ...staticImages, ...materialVideos];
 

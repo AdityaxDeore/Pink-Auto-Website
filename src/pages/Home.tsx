@@ -9,11 +9,11 @@ import {
 import { getImage } from '../utils/images';
 import heroImage from '../assets/images/hero.png';
 import imgDaily from '../assets/images/Videoshot_20260728_124328.jpg';
-import imgOffice from '../assets/images/Videoshot_20260728_124428.jpg';
-import imgSchool from '../assets/images/Videoshot_20260728_124435.jpg';
-import imgWomen from '../assets/images/Videoshot_20260728_124522.jpg';
+import imgOffice from '../assets/images/office _new.png';
+import imgSchool from '../assets/images/School_new.png';
+import imgWomen from '../assets/images/women_only.jpg';
 import imgSenior from '../assets/images/Videoshot_20260728_124537.jpg';
-import imgEvent from '../assets/images/Videoshot_20260728_124541.jpg';
+import imgEvent from '../assets/images/event.jpg';
 
 const features = [
   { Icon: ShieldCheckIcon, title: 'Women-First Safety', desc: 'Verified women drivers, GPS tracking, and emergency support for every ride.', marathi: 'महिलांची सुरक्षा आमचं प्राधान्य' },

@@ -90,7 +90,7 @@ export default function Safety() {
           <FadeIn>
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
               <span className="badge" style={{ background: 'rgba(255,255,255,0.1)', color: 'white', borderColor: 'rgba(255,255,255,0.2)' }}>Safe Journey</span>
-              <h2 className="text-h2" style={{ color: 'white', marginTop: '1.25rem' }}>Your Safe Journey <span className="gradient-text">Process</span></h2>
+              <h2 className="text-h2" style={{ color: 'var(--color-accent)', marginTop: '1.25rem' }}>Your Safe Journey <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Process</span></h2>
               <p className="text-marathi" style={{ color: 'rgba(255,255,255,0.5)', marginTop: '0.5rem', fontSize: '1rem' }}>"सुरक्षित प्रवासाची प्रक्रिया"</p>
             </div>
           </FadeIn>
