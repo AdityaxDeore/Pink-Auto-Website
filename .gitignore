@@ -24,3 +24,4 @@ terminals/
 *.njsproj
 *.sln
 *.sw?
+drive-download-*.zip
