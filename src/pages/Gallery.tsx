@@ -5,44 +5,22 @@ import FadeIn from '../components/ui/FadeIn';
 import { allImages } from '../utils/images';
 
 // Material folder photos/videos (copied to public/gallery/)
-const materialPhotos = [
-  { src: '/gallery/wa-image-1.jpeg', type: 'photo', category: 'Photos', title: 'Pink Auto Fleet' },
-  { src: '/gallery/wa-image-3.jpeg', type: 'photo', category: 'Photos', title: 'Pink Auto Team' },
-];
-
 const materialVideos = [
   { src: '/gallery/wa-video-1.mp4', type: 'video', category: 'Videos', title: 'Pink Auto in Action' },
   { src: '/videos/driving.mp4', type: 'video', category: 'Videos', title: 'Pink Auto Driving' },
 ];
 
-const duplicates = [
-  'office.jpg',
-  'school.jpg',
-  'Videoshot_20260728_124428.jpg',
-  'Videoshot_20260728_124435.jpg',
-  'Videoshot_20260728_124522.jpg',
-  'Videoshot_20260728_124541.jpg'
-];
-
-// Real photos from assets (exclude large GIFs and replaced duplicates)
+// Only include GIF files from assets
 const staticImages = allImages
-  .filter(src => !src.endsWith('.gif') && !duplicates.some(dup => src.includes(dup)))
+  .filter(src => src.endsWith('.gif'))
   .map((src, i) => ({
     src,
     type: 'photo' as const,
     category: 'Photos',
     title: `Pink Auto Snapshot ${i + 1}`,
-  }))
-  .filter(img => ![
-    'Pink Auto Snapshot 4',
-    'Pink Auto Snapshot 5',
-    'Pink Auto Snapshot 6',
-    'Pink Auto Snapshot 10',
-    'Pink Auto Snapshot 11',
-    'Pink Auto Snapshot 13'
-  ].includes(img.title));
+  }));
 
-const allGalleryItems = [...materialPhotos, ...staticImages, ...materialVideos];
+const allGalleryItems = [...staticImages, ...materialVideos];
 
 const categories = ['All', 'Photos', 'Videos'];
 
@@ -130,7 +108,12 @@ export default function Gallery() {
                       <img
                         src={item.src}
                         alt={item.title}
-                        style={{ width: '100%', display: 'block', borderRadius: 'var(--radius-xl)' }}
+                        style={{ 
+                          width: '100%', 
+                          display: 'block', 
+                          borderRadius: 'var(--radius-xl)',
+                          filter: item.src.endsWith('.gif') ? 'contrast(1.2)' : 'none'
+                        }}
                       />
                     )}
                     <div style={{
@@ -192,6 +175,7 @@ export default function Gallery() {
                 alt="Fullscreen"
                 className="lightbox-image"
                 onClick={(e) => e.stopPropagation()}
+                style={{ filter: lightboxItem.src.endsWith('.gif') ? 'contrast(1.2)' : 'none' }}
               />
             )}
           </motion.div>
