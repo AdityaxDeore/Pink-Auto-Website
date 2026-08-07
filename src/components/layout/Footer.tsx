@@ -15,7 +15,7 @@ const quickLinks = [
 const serviceLinks = [
   { label: 'Daily Rides', path: '/services' },
   { label: 'Office Commute', path: '/services' },
-  { label: 'School Pickup', path: '/services' },
+  { label: 'School & College', path: '/services' },
   { label: "Women's Special", path: '/services' },
   { label: 'Monthly Packages', path: '/services' },
 ];

@@ -1,22 +1,21 @@
 import { Link } from 'react-router-dom';
 import FadeIn from '../components/ui/FadeIn';
 import { MapPinIcon, BriefcaseIcon, GraduationCapIcon, UserIcon, HeartIcon, CalendarIcon, WalletIcon } from '../components/ui/Icons';
-import { getImage } from '../utils/images';
 import imgDaily from '../assets/images/Videoshot_20260728_124328.jpg';
-import imgOffice from '../assets/images/Videoshot_20260728_124428.jpg';
-import imgSchool from '../assets/images/Videoshot_20260728_124435.jpg';
-import imgWomen from '../assets/images/Videoshot_20260728_124522.jpg';
+import imgOffice from '../assets/images/office _new.png';
+import imgSchool from '../assets/images/School_new.png';
+import imgWomen from '../assets/images/women_only.jpg';
 import imgSenior from '../assets/images/Videoshot_20260728_124537.jpg';
-import imgEvent from '../assets/images/Videoshot_20260728_124541.jpg';
+import imgEvent from '../assets/images/event.jpg';
+import imgPackages from '../assets/images/IMG_20260728_122118.jpg';
 
 const services = [
   { Icon: MapPinIcon, title: 'Daily Rides', desc: 'Comfortable daily commute within the city. Get from point A to point B safely and reliably.', benefits: ['Metered fare', 'Quick pickup', 'Multiple payment options', 'Clean vehicles'], image: imgDaily, marathi: 'दैनंदिन प्रवासासाठी' },
   { Icon: BriefcaseIcon, title: 'Office Commute', desc: 'Reliable pickup and drop service for working professionals. Never be late to work again.', benefits: ['Fixed schedule', 'Monthly packages', 'Professional drivers', 'Punctual service'], image: imgOffice, marathi: 'ऑफिसला जाण्यासाठी' },
-  { Icon: GraduationCapIcon, title: 'School Pickup & Drop', desc: 'Safe and reliable school transport for your children with verified and trained drivers.', benefits: ['Verified drivers', 'GPS tracking', 'Parent notifications', 'Fixed routes'], image: imgSchool, marathi: 'शाळेसाठी सुरक्षित वाहतूक' },
-  { Icon: GraduationCapIcon, title: 'College Pickup', desc: 'Dependable transport for college students with special student-friendly pricing.', benefits: ['Student discounts', 'Flexible timings', 'Campus coverage', 'Group bookings'], image: imgSchool, marathi: 'कॉलेजसाठी विशेष सवलत' },
+  { Icon: GraduationCapIcon, title: 'School & College Pickup and Drops', desc: 'Safe and dependable transport for school and college students with verified drivers and parent peace of mind.', benefits: ['Verified drivers', 'GPS tracking', 'Parent notifications', 'Student discounts'], image: imgSchool, marathi: 'शाळा आणि कॉलेजसाठी सुरक्षित वाहतूक' },
   { Icon: UserIcon, title: "Women's Special Rides", desc: 'Dedicated rides with women drivers for women passengers. Extra safety features included.', benefits: ['Women drivers available', 'SOS button', 'Ride sharing with family', 'Safe late-night rides'], image: imgWomen, marathi: 'महिलांसाठी विशेष सेवा' },
   { Icon: HeartIcon, title: 'Senior Citizen Transport', desc: 'Gentle, assisted transport for senior citizens with patient and caring drivers.', benefits: ['Door-to-door service', 'Assisted boarding', 'Medical trip priority', 'Special care'], image: imgSenior, marathi: 'ज्येष्ठ नागरिकांसाठी' },
-  { Icon: WalletIcon, title: 'Monthly Packages', desc: 'Save more with our monthly subscription packages. Fixed routes, fixed pricing, unlimited peace of mind.', benefits: ['Up to 20% savings', 'Priority booking', 'Dedicated driver', 'Flexible cancellation'], image: getImage(14), marathi: 'मासिक पॅकेजेस उपलब्ध' },
+  { Icon: WalletIcon, title: 'Monthly Packages', desc: 'Save more with our monthly subscription packages. Fixed routes, fixed pricing, unlimited peace of mind.', benefits: ['Up to 20% savings', 'Priority booking', 'Dedicated driver', 'Flexible cancellation'], image: imgPackages, marathi: 'मासिक पॅकेजेस उपलब्ध' },
   { Icon: CalendarIcon, title: 'Event Transport', desc: 'Bulk auto-rickshaw booking for events, functions, and community programs.', benefits: ['Bulk booking', 'Event coordination', 'Custom branding', 'Reliable fleet'], image: imgEvent, marathi: 'कार्यक्रमांसाठी वाहतूक' },
 ];
 
@@ -39,7 +38,7 @@ export default function Services() {
             {services.map((s, i) => (
               <FadeIn key={i} delay={0.05} className="min-w-[85vw] md:min-w-0 shrink-0 snap-center">
                 <div className="card grid grid-cols-1 md:grid-cols-2 overflow-hidden h-full">
-                  <div className={`min-h-[280px] overflow-hidden order-first ${i % 2 === 0 ? 'md:order-first' : 'md:order-last'}`}>
+                  <div className={`h-60 sm:h-72 md:h-full md:min-h-[300px] overflow-hidden order-first ${i % 2 === 0 ? 'md:order-first' : 'md:order-last'}`}>
                     <img src={s.image} alt={s.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                   </div>
                   <div style={{ padding: 'clamp(2rem, 4vw, 3rem)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>

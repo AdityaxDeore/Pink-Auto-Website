@@ -23,7 +23,7 @@ export default function About() {
             <FadeIn direction="left">
               <div>
                 <span className="eyebrow" style={{ color: 'var(--color-accent)', fontSize: '1.125rem' }}>About Pink Auto</span>
-                <h2 className="text-display-lg" style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>Who We <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Are</span></h2>
+                <h2 className="text-display-lg" style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>Who We <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Are?</span></h2>
                 <p style={{ marginTop: '1.5rem', color: 'var(--text-secondary)', fontSize: '1.5rem', lineHeight: 1.6, fontWeight: 500 }}>
                   More Than Just a Ride Service
                 </p>
@@ -149,7 +149,7 @@ export default function About() {
               <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'var(--color-gray-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
                 <MessageCircleIcon size={28} color="var(--color-black)" />
               </div>
-              <h3 className="text-h3" style={{ marginBottom: '1.25rem' }}>A Message from the Team / Organisation</h3>
+              <h3 className="text-h3" style={{ marginBottom: '1.25rem' }}>A Message from the Organisation</h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.9, maxWidth: 600, margin: '0 auto', fontStyle: 'italic' }}>
                 "When I started Pink Auto, I had one goal — to ensure that no woman ever feels unsafe while commuting. Every pink auto-rickshaw you see on our streets is a promise of safety, dignity, and empowerment."
               </p>
