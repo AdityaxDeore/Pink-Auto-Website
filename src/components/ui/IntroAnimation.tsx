@@ -104,6 +104,27 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
               width: '100%',
             }}
           >
+            {/* Logo Image */}
+            <motion.div
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              style={{ marginBottom: '1.25rem', display: 'flex', justifyContent: 'center' }}
+            >
+              <img
+                src="/logo.png"
+                alt="Pink Auto Logo"
+                style={{
+                  width: 84,
+                  height: 84,
+                  borderRadius: '50%',
+                  objectFit: 'cover',
+                  boxShadow: '0 10px 28px rgba(233, 30, 99, 0.28)',
+                  border: '3px solid #FFF',
+                }}
+              />
+            </motion.div>
+
             {/* Marathi Tagline */}
             <div
               style={{
