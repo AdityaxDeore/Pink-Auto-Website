@@ -3,7 +3,6 @@ import { motion } from "framer-motion"
 import { Quote } from "lucide-react"
 import { testimonialColumns, testimonials, type Testimonial } from "@/data/testimonials"
 import { TESTIMONIAL_ACCENT_STYLES } from "@/lib/media"
-import { SectionHeading } from "@/components/ui/section-heading"
 import { cn } from "@/lib/utils"
 
 type TestimonialsColumnProps = {
@@ -129,7 +128,7 @@ export function TestimonialsMarquee({ className }: { className?: string }) {
       id="testimonials"
       aria-labelledby="testimonials-heading"
       className={cn(
-        "scroll-mt-14 sm:scroll-mt-[3.75rem] section-cream relative overflow-hidden py-20 sm:py-28",
+        "scroll-mt-14 sm:scroll-mt-[3.75rem] w-full bg-[var(--color-canvas-soft)] relative overflow-hidden py-20 sm:py-28 flex flex-col items-center justify-center text-center",
         "border-y border-slate-200/60",
         className
       )}
@@ -138,44 +137,49 @@ export function TestimonialsMarquee({ className }: { className?: string }) {
       <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-teal-200/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 w-96 h-48 bg-sky-200/10 rounded-full blur-3xl pointer-events-none" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 32 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
-        transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-        className="relative max-w-[1080px] mx-auto px-4 sm:px-6"
-      >
-        <SectionHeading
-          size="large"
-          headingId="testimonials-heading"
-          eyebrow="Testimonials"
-          title="Trusted by women & families"
-          description="Real stories from students, parents, and professionals who ride with Pink Auto every day."
-          className="mb-12 sm:mb-14"
-        />
-
-        {reduceMotion ? (
-          <div role="list" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto">
-            {[col1[0], col2[0], col3[0], col1[1], col2[1], col3[1]].map((item) => (
-              <TestimonialCard key={item.name} {...item} />
-            ))}
+      <div className="container mx-auto flex flex-col items-center justify-center text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+          className="w-full flex flex-col items-center justify-center text-center"
+        >
+          {/* Section Header */}
+          <div className="w-full max-w-3xl mx-auto text-center flex flex-col items-center justify-center mb-12 sm:mb-14">
+            <span className="eyebrow mb-3" style={{ color: 'var(--color-accent)' }}>Testimonials</span>
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-slate-900 text-center tracking-tight" style={{ fontFamily: 'var(--font-heading)' }}>
+              Trusted by <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>women & families</span>
+            </h2>
+            <p className="mt-4 text-base sm:text-lg text-slate-500 text-center max-w-xl mx-auto leading-relaxed">
+              Real stories from students, parents, and professionals who ride with Pink Auto every day.
+            </p>
           </div>
-        ) : (
-          <div
-            className="flex justify-center gap-4 sm:gap-5 mt-2 max-h-[740px] overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_8%,black_92%,transparent)]"
-            role="region"
-            aria-label="Scrolling testimonials"
-          >
-            <TestimonialsColumn testimonials={col1} duration={24} />
-            <TestimonialsColumn testimonials={col2} className="hidden md:flex" duration={28} />
-            <TestimonialsColumn testimonials={col3} className="hidden lg:flex" duration={26} />
-          </div>
-        )}
 
-        <p className="text-center text-sm text-slate-500 mt-8 font-medium">
-          <span className="text-teal-600 font-semibold">{testimonials.length}</span> voices from our community
-        </p>
-      </motion.div>
+          {/* Marquee Content */}
+          {reduceMotion ? (
+            <div role="list" className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 max-w-5xl mx-auto w-full justify-center">
+              {[col1[0], col2[0], col3[0], col1[1], col2[1], col3[1]].map((item) => (
+                <TestimonialCard key={item.name} {...item} />
+              ))}
+            </div>
+          ) : (
+            <div
+              className="flex justify-center items-center gap-4 sm:gap-5 mt-2 max-h-[740px] overflow-hidden w-full mx-auto [mask-image:linear-gradient(to_bottom,transparent,black_8%,black_92%,transparent)]"
+              role="region"
+              aria-label="Scrolling testimonials"
+            >
+              <TestimonialsColumn testimonials={col1} duration={24} />
+              <TestimonialsColumn testimonials={col2} className="hidden md:flex" duration={28} />
+              <TestimonialsColumn testimonials={col3} className="hidden lg:flex" duration={26} />
+            </div>
+          )}
+
+          <p className="text-center text-sm text-slate-500 mt-8 font-medium mx-auto">
+            <span className="text-teal-600 font-semibold">{testimonials.length}</span> voices from our community
+          </p>
+        </motion.div>
+      </div>
     </section>
   )
 }

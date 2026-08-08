@@ -1,10 +1,12 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import FloatingButtons from './components/layout/FloatingButtons';
 import IntroAnimation from './components/ui/IntroAnimation';
 import ScrollProgress from './components/layout/ScrollProgress';
+import PageTransition from './components/layout/PageTransition';
 import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
@@ -23,6 +25,25 @@ function ScrollToTop() {
   return null;
 }
 
+function AnimatedRoutes() {
+  const location = useLocation();
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Home /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/services" element={<PageTransition><Services /></PageTransition>} />
+        <Route path="/safety" element={<PageTransition><Safety /></PageTransition>} />
+        <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
+        <Route path="/driver-registration" element={<PageTransition><DriverRegistration /></PageTransition>} />
+        <Route path="/testimonials" element={<PageTransition><Testimonials /></PageTransition>} />
+        <Route path="/media-events" element={<PageTransition><MediaEvents /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+}
+
 export default function App() {
   const [showIntro, setShowIntro] = useState(true);
 
@@ -36,17 +57,7 @@ export default function App() {
       <ScrollProgress />
       <Navbar />
       <main>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/safety" element={<Safety />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/driver-registration" element={<DriverRegistration />} />
-          <Route path="/testimonials" element={<Testimonials />} />
-          <Route path="/media-events" element={<MediaEvents />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+        <AnimatedRoutes />
       </main>
       <Footer />
       <FloatingButtons />

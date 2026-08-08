@@ -14,6 +14,10 @@ import imgSchool from '../assets/images/School_new.png';
 import imgWomen from '../assets/images/women_only.jpg';
 import imgSenior from '../assets/images/Videoshot_20260728_124537.jpg';
 import imgEvent from '../assets/images/event.jpg';
+import Counter from '../components/ui/Counter';
+import { TestimonialsMarquee } from '../components/ui/testimonials-marquee';
+import DownloadAppSection from '../components/ui/DownloadAppSection';
+import Typewriter from '../components/ui/Typewriter';
 
 const features = [
   { Icon: ShieldCheckIcon, title: 'Women-First Safety', desc: 'Verified women drivers, GPS tracking, and emergency support for every ride.', marathi: 'महिलांची सुरक्षा आमचं प्राधान्य' },
@@ -61,9 +65,9 @@ export default function Home() {
                 <div style={{ height: '1px', width: '40px', background: 'var(--color-accent)' }} />
                 <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Pink Auto</span>
               </div>
-              <motion.h1 className="text-display" style={{ color: 'var(--text-primary)' }}
+              <motion.h1 className="text-display-xl" style={{ color: 'var(--text-primary)', marginTop: '2rem' }}
                 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}>
-                Safe & Reliable Rides for <span style={{ color: 'var(--color-accent)', fontStyle: 'italic' }}>Everyone</span>
+                Safe & Reliable Rides for <br /><Typewriter words={['Everyone', 'Women', 'Students', 'Families', 'Seniors']} />
               </motion.h1>
 
               <motion.p className="text-body-lg" style={{ color: 'var(--text-secondary)', marginTop: '2rem', maxWidth: 480 }}
@@ -169,6 +173,18 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ── Stats / Trust Counters ── */}
+      <section className="section--sm" style={{ background: 'white' }}>
+        <div className="container">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <Counter end={500} suffix="+" label="Happy Riders" />
+            <Counter end={50} suffix="+" label="Verified Drivers" />
+            <Counter end={100} suffix="%" label="Safety Record" />
+            <Counter end={24} suffix="/7" label="Support Available" />
+          </div>
+        </div>
+      </section>
+
       {/* ── Services Preview ── */}
       <section className="section">
         <div className="container">
@@ -185,8 +201,11 @@ export default function Home() {
             {services.map((s, i) => (
               <FadeIn key={i} delay={i * 0.08}>
                 <div className="card group" style={{ height: '100%', padding: '0', borderRadius: 'var(--radius-2xl)', border: 'none', background: 'white' }}>
-                  <div style={{ overflow: 'hidden', borderRadius: 'var(--radius-2xl) var(--radius-2xl) 0 0' }}>
+                  <div style={{ overflow: 'hidden', borderRadius: 'var(--radius-2xl) var(--radius-2xl) 0 0', position: 'relative' }}>
                     <img src={s.image} alt={s.title} style={{ width: '100%', height: '280px', objectFit: 'cover' }} className="transition-all duration-[2000ms] group-hover:scale-105" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[var(--color-accent)]/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-6">
+                      <span className="text-white font-medium tracking-widest uppercase text-sm border-b border-white pb-1">Learn More</span>
+                    </div>
                   </div>
                   <div style={{ padding: '2rem' }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
@@ -206,6 +225,9 @@ export default function Home() {
           </FadeIn>
         </div>
       </section>
+
+      {/* ── Testimonials ── */}
+      <TestimonialsMarquee />
 
       {/* ── Safety Preview ── */}
       <section className="section" style={{ background: 'var(--color-ink)', color: 'var(--color-canvas)' }}>
@@ -241,7 +263,8 @@ export default function Home() {
         </div>
       </section>
 
-
+      {/* ── Download App Section ── */}
+      <DownloadAppSection />
 
       {/* ── CTA ── */}
       <section className="section" style={{ padding: '8rem 0' }}>
