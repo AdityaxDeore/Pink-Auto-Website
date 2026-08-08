@@ -15,7 +15,7 @@ const quickLinks = [
 const serviceLinks = [
   { label: 'Daily Rides', path: '/services' },
   { label: 'Office Commute', path: '/services' },
-  { label: 'School & College', path: '/services' },
+  { label: 'School Pickup', path: '/services' },
   { label: "Women's Special", path: '/services' },
   { label: 'Monthly Packages', path: '/services' },
 ];
@@ -29,7 +29,7 @@ const contactInfo = [
 
 const socialLinks = [
   { Icon: FacebookIcon, href: 'https://facebook.com/pinkauto', label: 'Facebook' },
-  { Icon: InstagramIcon, href: 'https://instagram.com/pinkauto', label: 'Instagram' },
+  { Icon: InstagramIcon, href: 'https://www.instagram.com/kadambajaj_kolhapur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', label: 'Instagram' },
   { Icon: XTwitterIcon, href: 'https://x.com/pinkauto', label: 'X' },
   { Icon: YouTubeIcon, href: 'https://youtube.com/pinkauto', label: 'YouTube' },
 ];

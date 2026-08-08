@@ -44,9 +44,15 @@ export default function Contact() {
                     <div>
                       <h4 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.25rem' }}>Office Address</h4>
                       <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-                        Pink Auto Headquarters,<br />
-                        Mahalaxmi Mandir Road, Near Rankala,<br />
-                        Maharashtra 416012
+                        <a 
+                          href="https://maps.app.goo.gl/fMYEYWtzSmjRXXBfA" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                          style={{ color: 'inherit', textDecoration: 'underline' }}
+                        >
+                          MAHALAXMI AUTO SERVICES<br />
+                          16°42'10.4"N 74°16'11.6"E (74.269887, 16.7028852)
+                        </a>
                       </p>
                     </div>
                   </div>
@@ -109,7 +115,13 @@ export default function Contact() {
                     <a href="#" className="btn btn-ghost btn-sm" style={{ borderRadius: 'var(--radius-full)', padding: '0.5rem 1rem' }}>
                       <FacebookIcon size={18} /> Facebook
                     </a>
-                    <a href="#" className="btn btn-ghost btn-sm" style={{ borderRadius: 'var(--radius-full)', padding: '0.5rem 1rem' }}>
+                    <a 
+                      href="https://www.instagram.com/kadambajaj_kolhapur?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="btn btn-ghost btn-sm" 
+                      style={{ borderRadius: 'var(--radius-full)', padding: '0.5rem 1rem' }}
+                    >
                       <InstagramIcon size={18} /> Instagram
                     </a>
                     <a href="#" className="btn btn-ghost btn-sm" style={{ borderRadius: 'var(--radius-full)', padding: '0.5rem 1rem' }}>
@@ -179,8 +191,8 @@ export default function Contact() {
       {/* ── Map ── */}
       <section style={{ height: '400px', width: '100%', background: '#eee' }}>
         <iframe 
-          title="Pink Auto Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.5791931551694!2d74.2235943!3d16.6974051!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1000cdec07a29%3A0xece8ea642952e42f!2sMahalaxmi%20Temple%20Kolhapur!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+          title="Mahalaxmi Auto Services Location"
+          src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3821.411640103781!2d74.269887!3d16.7028852!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTbCsDQyJzEwLjQiTiA3NMKwMTYnMTEuNiJF!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
           width="100%" 
           height="100%" 
           style={{ border: 0 }} 
