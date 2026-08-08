@@ -84,15 +84,15 @@ export default function About() {
               <h2 className="text-h2" style={{ marginTop: '1rem' }}>What Drives <span className="gradient-text">Us Forward</span></h2>
             </div>
           </FadeIn>
-          <div className="grid-3 mobile-carousel">
+          <div className="grid-3">
             {values.map((v, i) => (
               <FadeIn key={i} delay={i * 0.08}>
-                <div className="card" style={{ padding: '2rem', textAlign: 'center', height: '100%' }}>
-                  <div style={{ width: 56, height: 56, borderRadius: 'var(--radius-lg)', background: 'var(--color-gray-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1rem' }}>
-                    <v.Icon size={24} color="var(--color-black)" />
+                <div className="card" style={{ padding: '1.25rem 1rem', textAlign: 'center', height: '100%' }}>
+                  <div style={{ width: 44, height: 44, borderRadius: 'var(--radius-md)', background: 'var(--color-gray-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 0.75rem' }}>
+                    <v.Icon size={20} color="var(--color-black)" />
                   </div>
-                  <h3 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.5rem' }}>{v.title}</h3>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>{v.desc}</p>
+                  <h3 style={{ fontSize: '1rem', fontWeight: 600, marginBottom: '0.35rem' }}>{v.title}</h3>
+                  <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', lineHeight: 1.5 }}>{v.desc}</p>
                 </div>
               </FadeIn>
             ))}

@@ -61,15 +61,15 @@ export default function Safety() {
           <div className="grid-2" style={{ gap: '2rem' }}>
             {safetyFeatures.map((f, i) => (
               <FadeIn key={i} delay={i * 0.08}>
-                <div className="card" style={{ padding: '2.5rem', height: '100%' }}>
-                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1.25rem' }}>
+                <div className="card safety-feature-card" style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem)', height: '100%' }}>
+                  <div className="safety-feature-header">
                     <div style={{ width: 56, height: 56, borderRadius: 'var(--radius-lg)', background: 'var(--color-gray-100)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       <f.Icon size={24} color="var(--color-black)" />
                     </div>
                     <div>
                       <h3 style={{ fontSize: '1.2rem', fontWeight: 600, marginBottom: '0.75rem' }}>{f.title}</h3>
                       <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.7, marginBottom: '1rem' }}>{f.desc}</p>
-                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
+                      <div className="safety-details-grid">
                         {f.details.map((d, j) => (
                           <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.8125rem', color: 'var(--text-secondary)' }}>
                             <span style={{ color: 'var(--color-black)', fontWeight: 700, fontSize: '0.75rem' }}>●</span> {d}

@@ -32,18 +32,14 @@ export default function Contact() {
                   "तुमच्या सेवेसाठी सदैव तत्पर"
                 </p>
                 
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                  <div style={{ display: 'flex', gap: '1.25rem' }}>
-                    <div style={{
-                      width: 56, height: 56, borderRadius: 'var(--radius-sm)', background: 'var(--color-gray-100)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: 'var(--color-black)', flexShrink: 0,
-                    }}>
+                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
+                  <div className="contact-info-item">
+                    <div className="contact-info-icon">
                       <MapPinIcon size={24} />
                     </div>
                     <div>
                       <h4 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.25rem' }}>Office Address</h4>
-                      <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                      <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, wordBreak: 'break-word' }}>
                         <a 
                           href="https://maps.app.goo.gl/fMYEYWtzSmjRXXBfA" 
                           target="_blank" 
@@ -57,12 +53,8 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '1.25rem' }}>
-                    <div style={{
-                      width: 56, height: 56, borderRadius: 'var(--radius-sm)', background: 'var(--color-gray-100)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: 'var(--color-black)', flexShrink: 0,
-                    }}>
+                  <div className="contact-info-item">
+                    <div className="contact-info-icon">
                       <PhoneIcon size={24} />
                     </div>
                     <div>
@@ -74,29 +66,21 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div style={{ display: 'flex', gap: '1.25rem' }}>
-                    <div style={{
-                      width: 56, height: 56, borderRadius: 'var(--radius-sm)', background: 'var(--color-gray-100)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: 'var(--color-black)', flexShrink: 0,
-                    }}>
+                  <div className="contact-info-item">
+                    <div className="contact-info-icon">
                       <MailIcon size={24} />
                     </div>
                     <div>
                       <h4 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '0.25rem' }}>Email Us</h4>
-                      <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+                      <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, wordBreak: 'break-word' }}>
                         hello@pinkauto.in<br />
                         support@pinkauto.in
                       </p>
                     </div>
                   </div>
                   
-                  <div style={{ display: 'flex', gap: '1.25rem' }}>
-                    <div style={{
-                      width: 56, height: 56, borderRadius: 'var(--radius-sm)', background: 'var(--color-gray-100)',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      color: 'var(--color-black)', flexShrink: 0,
-                    }}>
+                  <div className="contact-info-item">
+                    <div className="contact-info-icon">
                       <ClockIcon size={24} />
                     </div>
                     <div>
@@ -109,9 +93,9 @@ export default function Contact() {
                   </div>
                 </div>
 
-                <div style={{ marginTop: '3rem' }}>
+                <div style={{ marginTop: '2.5rem' }}>
                   <h4 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '1rem' }}>Follow Us</h4>
-                  <div style={{ display: 'flex', gap: '1rem' }}>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem' }}>
                     <a href="#" className="btn btn-ghost btn-sm" style={{ borderRadius: 'var(--radius-full)', padding: '0.5rem 1rem' }}>
                       <FacebookIcon size={18} /> Facebook
                     </a>

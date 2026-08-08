@@ -86,7 +86,11 @@ export default function Navbar() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.1 + i * 0.04 }}
               >
-                <Link to={item.path} className={location.pathname === item.path ? 'active' : ''}>
+                <Link 
+                  to={item.path} 
+                  className={location.pathname === item.path ? 'active' : ''}
+                  onClick={() => setMobileOpen(false)}
+                >
                   {item.label}
                 </Link>
               </motion.div>
