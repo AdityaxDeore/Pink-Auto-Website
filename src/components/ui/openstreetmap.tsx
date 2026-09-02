@@ -44,7 +44,7 @@ export function OpenStreetMap({ className, height = "420px" }: OpenStreetMapProp
 
       L.marker([SITE.coords.lat, SITE.coords.lng], { icon: PINK_MARKER })
         .addTo(map)
-        .bindPopup("<strong>Pink Auto</strong><br/>Primary service hub")
+        .bindPopup("<strong>Gatigo</strong><br/>Primary service hub")
 
       L.circle([SITE.coords.lat, SITE.coords.lng], {
         radius: SITE.serviceRadiusKm * 1000,

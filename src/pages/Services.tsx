@@ -28,7 +28,7 @@ export default function Services() {
             <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Our Services</span>
             <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Premium Transportation Services for <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Everyone</span></h2>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem', maxWidth: '800px' }}>
-              From daily commutes to special events, Pink Auto offers reliable and safe auto-rickshaw services tailored to your needs.
+              From daily commutes to special events, Gatigo offers reliable and safe auto-rickshaw services tailored to your needs.
             </p>
             <p className="text-marathi" style={{ color: 'var(--color-accent)', fontSize: '1.1rem' }}>
               "प्रत्येक गरजेसाठी विश्वासार्ह सेवा"
@@ -58,7 +58,7 @@ export default function Services() {
                     </div>
                     <p className="text-marathi" style={{ color: 'var(--color-gray-500)', fontSize: '0.95rem', marginBottom: '1rem' }}>"{s.marathi}"</p>
                     <div>
-                      <a href="https://wa.me/919876543210?text=Hello%20Pink%20Auto!" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">Book This Service</a>
+                      <a href="#download" className="btn btn-primary btn-sm">Download App to Book</a>
                     </div>
                   </div>
                 </div>
@@ -78,7 +78,7 @@ export default function Services() {
             </p>
             <p className="text-marathi" style={{ marginTop: '0.75rem', color: 'var(--color-gray-500)' }}>"अंदाजे भाडे सांगतो, चालकाशी बोलून ठरवा"</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="btn btn-whatsapp">Get Pricing on WhatsApp</a>
+              <a href="#download" className="btn btn-primary">Download the App</a>
               <Link to="/contact" className="btn btn-secondary">Contact for Packages</Link>
             </div>
           </FadeIn>

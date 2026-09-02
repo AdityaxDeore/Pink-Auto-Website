@@ -401,7 +401,7 @@ export interface CinematicHeroProps extends React.HTMLAttributes<HTMLDivElement>
 }
 
 export function CinematicHero({
-  brandName = "Pink Auto",
+  brandName = "Gatigo",
   tagline1 = "Safe rides,",
   tagline2 = "driven by women.",
   cardHeading = "Safer rides, your way.",
@@ -757,7 +757,7 @@ export function CinematicHero({
         <div className="mt-10 sm:mt-14 lg:mt-16 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 w-full max-w-md sm:max-w-none px-4 sm:px-0 pointer-events-auto">
           <a
             href="#download"
-            aria-label="Download Pink Auto on the App Store"
+            aria-label="Download Gatigo on the App Store"
             className="btn-modern-light flex items-center justify-center gap-2.5 sm:gap-3 px-5 sm:px-6 py-3 sm:py-3.5 rounded-[1.25rem] group focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
           >
             <svg className="w-6 h-6 sm:w-7 sm:h-7 transition-transform group-hover:scale-105 shrink-0" fill="currentColor" viewBox="0 0 384 512" aria-hidden="true">
@@ -770,7 +770,7 @@ export function CinematicHero({
           </a>
           <a
             href="#download"
-            aria-label="Get Pink Auto on Google Play"
+            aria-label="Get Gatigo on Google Play"
             className="btn-modern-dark flex items-center justify-center gap-2.5 sm:gap-3 px-5 sm:px-6 py-3 sm:py-3.5 rounded-[1.25rem] group focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2 focus:ring-offset-background"
           >
             <svg className="w-5 h-5 sm:w-6 sm:h-6 transition-transform group-hover:scale-105 shrink-0" fill="currentColor" viewBox="0 0 512 512" aria-hidden="true">
@@ -802,7 +802,7 @@ export function CinematicHero({
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
             <a
               href="#download"
-              aria-label="Download Pink Auto on the App Store"
+              aria-label="Download Gatigo on the App Store"
               className="btn-modern-light flex items-center justify-center gap-3 px-6 py-3.5 rounded-2xl group focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
             >
               <svg className="w-7 h-7 transition-transform group-hover:scale-105 shrink-0" fill="currentColor" viewBox="0 0 384 512" aria-hidden="true">
@@ -815,7 +815,7 @@ export function CinematicHero({
             </a>
             <a
               href="#download"
-              aria-label="Get Pink Auto on Google Play"
+              aria-label="Get Gatigo on Google Play"
               className="btn-modern-dark flex items-center justify-center gap-3 px-6 py-3.5 rounded-2xl group focus:outline-none focus:ring-2 focus:ring-pink-500 focus:ring-offset-2"
             >
               <svg className="w-6 h-6 transition-transform group-hover:scale-105 shrink-0" fill="currentColor" viewBox="0 0 512 512" aria-hidden="true">
@@ -889,7 +889,7 @@ export function CinematicHero({
                 <div className="phone-device w-full h-full overflow-hidden rounded-[2.75rem] ring-[3px] ring-zinc-900">
                   <img
                     src={APP_SCREENSHOT}
-                    alt="Pink Auto app"
+                    alt="Gatigo app"
                     className="block h-full w-full object-cover object-center"
                     width={853}
                     height={1844}
@@ -910,7 +910,7 @@ export function CinematicHero({
                 Safe · Reliable
               </p>
               <h2 className="text-brand-display text-3xl sm:text-4xl lg:text-[4.25rem] xl:text-[5rem] text-center lg:text-right leading-[1.05]">
-                {brandName === "Pink Auto" ? (
+                {brandName === "Gatigo" ? (
                   <>Pink <span>Auto</span></>
                 ) : (
                   brandName

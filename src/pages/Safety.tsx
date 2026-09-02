@@ -6,7 +6,7 @@ import { SearchIcon, MapPinIcon, AlertCircleIcon, HeadphonesIcon, ShieldIcon, Us
 
 const safetyFeatures = [
   { Icon: SearchIcon, title: 'Verified Drivers', desc: 'Every driver undergoes rigorous background verification including police verification, address verification, and reference checks.', details: ['Police verification', 'Address proof verified', 'Character reference check', 'Driving license verification'] },
-  { Icon: MapPinIcon, title: 'GPS Enabled Vehicles', desc: 'All Pink Auto rickshaws are equipped with GPS tracking devices, enabling real-time location monitoring.', details: ['Real-time tracking', 'Route monitoring', 'Speed alerts', 'Live location sharing'] },
+  { Icon: MapPinIcon, title: 'GPS Enabled Vehicles', desc: 'All Gatigo rickshaws are equipped with GPS tracking devices, enabling real-time location monitoring.', details: ['Real-time tracking', 'Route monitoring', 'Speed alerts', 'Live location sharing'] },
   { Icon: AlertCircleIcon, title: 'Emergency Assistance', desc: 'One-tap SOS button connects riders directly to our emergency response team and local authorities.', details: ['SOS button', 'Direct police connect', 'Emergency contacts alert', 'Rapid response team'] },
   { Icon: HeadphonesIcon, title: '24/7 Customer Support', desc: 'Round-the-clock customer support via phone, WhatsApp, and in-app chat for any queries or emergencies.', details: ['Phone support', 'WhatsApp support', 'Quick response time', 'Multilingual support'] },
   { Icon: ShieldIcon, title: 'Safety Policies', desc: 'Comprehensive safety policies covering ride-sharing protocols, vehicle maintenance, driver conduct, and passenger protection.', details: ['Zero-tolerance policy', 'Regular vehicle checks', 'Driver code of conduct', 'Feedback mechanism'] },
@@ -14,7 +14,7 @@ const safetyFeatures = [
 ];
 
 const safeJourneySteps = [
-  { step: '01', title: 'Book Your Ride', desc: 'Contact us via WhatsApp or phone to book your Pink Auto ride.' },
+  { step: '01', title: 'Book Your Ride', desc: 'Open the Gatigo app and request a ride with just a few taps.' },
   { step: '02', title: 'Driver Assignment', desc: 'A verified driver is assigned. You receive driver details and vehicle number.' },
   { step: '03', title: 'Tracked Ride', desc: 'Your ride is GPS-tracked from pickup to drop-off for complete safety.' },
   { step: '04', title: 'Safe Arrival', desc: 'Arrive safely at your destination. Rate your ride and share feedback.' },
@@ -29,7 +29,7 @@ export default function Safety() {
             <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Safety & Trust</span>
             <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Your Safety is Our <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Top Priority</span></h2>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem' }}>
-              Multiple layers of safety measures ensure every Pink Auto ride is secure, comfortable, and trustworthy.
+              Multiple layers of safety measures ensure every Gatigo ride is secure, comfortable, and trustworthy.
             </p>
             <p className="text-marathi" style={{ color: 'var(--color-accent)', fontSize: '1.1rem' }}>
               "तुमची सुरक्षा हीच आमची सर्वोच्च प्राथमिकता"
@@ -121,7 +121,7 @@ export default function Safety() {
                 <span className="eyebrow">Driver Verification</span>
                 <h2 className="text-h2" style={{ marginTop: '1rem' }}>Rigorous <span className="gradient-text">Verification Process</span></h2>
                 <p style={{ marginTop: '1.25rem', color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.8 }}>
-                  Every Pink Auto driver goes through a multi-step verification process before being approved.
+                  Every Gatigo driver goes through a multi-step verification process before being approved.
                 </p>
                 <div style={{ marginTop: '1.5rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                   {[
@@ -152,7 +152,7 @@ export default function Safety() {
         <div className="container" style={{ textAlign: 'center' }}>
           <FadeIn>
             <h2 className="text-h2">Feel Safe with Every Ride</h2>
-            <p style={{ marginTop: '1rem', color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: 500, margin: '1rem auto 0' }}>Book your next safe ride with Pink Auto today.</p>
+            <p style={{ marginTop: '1rem', color: 'var(--text-secondary)', fontSize: '1.1rem', maxWidth: 500, margin: '1rem auto 0' }}>Book your next safe ride with Gatigo today.</p>
             <p className="text-marathi" style={{ marginTop: '0.5rem', color: 'var(--color-gray-500)' }}>"प्रत्येक प्रवासात सुरक्षा"</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '2rem', flexWrap: 'wrap' }}>
               <Link to="/contact" className="btn btn-secondary">Contact Us</Link>

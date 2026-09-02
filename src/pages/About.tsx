@@ -22,19 +22,19 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-12 lg:gap-20">
             <FadeIn direction="left">
               <div>
-                <span className="eyebrow" style={{ color: 'var(--color-accent)', fontSize: '1.125rem' }}>About Pink Auto</span>
+                <span className="eyebrow" style={{ color: 'var(--color-accent)', fontSize: '1.125rem' }}>About Gatigo</span>
                 <h2 className="text-display-lg" style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>Who We <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Are?</span></h2>
                 <p style={{ marginTop: '1.5rem', color: 'var(--text-secondary)', fontSize: '1.5rem', lineHeight: 1.6, fontWeight: 500 }}>
                   More Than Just a Ride Service
                 </p>
                 <p style={{ marginTop: '1.5rem', color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.8 }}>
-                  Pink Auto was founded with a single purpose: to provide a safe, reliable, and comfortable commuting experience. We champion women driver empowerment, creating dignified employment opportunities while we shield and empower our passengers — building a transport ecosystem rooted entirely in trust.
+                  Gatigo was founded with a single purpose: to provide a safe, reliable, and comfortable commuting experience. We champion women driver empowerment, creating dignified employment opportunities while we shield and empower our passengers — building a transport ecosystem rooted entirely in trust.
                 </p>
               </div>
             </FadeIn>
             <FadeIn direction="right" delay={0.2}>
               <div style={{ borderRadius: 'var(--radius-3xl)', overflow: 'hidden', boxShadow: 'var(--shadow-lg)', border: '1px solid rgba(26,26,26,0.05)' }}>
-                <img src={videoShotImage} alt="Pink Auto Experience" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} className="aspect-[4/5]" />
+                <img src={videoShotImage} alt="Gatigo Experience" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} className="aspect-[4/5]" />
               </div>
             </FadeIn>
           </div>
@@ -109,7 +109,7 @@ export default function About() {
                 <span className="eyebrow">Women Empowerment</span>
                 <h2 className="text-h2" style={{ marginTop: '1rem' }}>Empowering Women Through <span className="gradient-text">Employment</span></h2>
                 <p style={{ marginTop: '1.25rem', color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.8 }}>
-                  Pink Auto is more than a transportation service — it's a platform for women's economic independence.
+                  Gatigo is more than a transportation service — it's a platform for women's economic independence.
                 </p>
                 <ul style={{ marginTop: '1.25rem', display: 'flex', flexDirection: 'column', gap: '0.75rem', listStyle: 'none' }}>
                   {[
@@ -119,7 +119,7 @@ export default function About() {
                     'Insurance and safety equipment',
                     'Community support and mentorship',
                     'Recognition and dignity in their profession',
-                    'Financial assistance through loans for pink auto purchase',
+                    'Financial assistance through loans for Gatigo purchase',
                     'Access to CSR funds and grants for vehicle procurement',
                   ].map((item, i) => (
                     <li key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.75rem', color: 'var(--text-secondary)' }}>
@@ -151,12 +151,12 @@ export default function About() {
               </div>
               <h3 className="text-h3" style={{ marginBottom: '1.25rem' }}>A Message from the Organisation</h3>
               <p style={{ color: 'var(--text-secondary)', fontSize: '1.05rem', lineHeight: 1.9, maxWidth: 600, margin: '0 auto', fontStyle: 'italic' }}>
-                "When I started Pink Auto, I had one goal — to ensure that no woman ever feels unsafe while commuting. Every pink auto-rickshaw you see on our streets is a promise of safety, dignity, and empowerment."
+                "When I started Gatigo, I had one goal — to ensure that no woman ever feels unsafe while commuting. Every Gatigo-rickshaw you see on our streets is a promise of safety, dignity, and empowerment."
               </p>
               <p className="text-marathi" style={{ marginTop: '1.25rem', color: 'var(--color-gray-500)', fontSize: '1rem' }}>"कोल्हापूरला सुरक्षित बनवणं हे आमचं स्वप्न आहे"</p>
               <div style={{ marginTop: '1.5rem' }}>
-                <div style={{ fontWeight: 600, fontSize: '1rem' }}>Pink Auto Team</div>
-                <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>Pink Auto Organisation</div>
+                <div style={{ fontWeight: 600, fontSize: '1rem' }}>Gatigo Team</div>
+                <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>Gatigo Organisation</div>
               </div>
             </div>
           </FadeIn>

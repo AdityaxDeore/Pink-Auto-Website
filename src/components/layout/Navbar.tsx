@@ -38,8 +38,8 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="nav-inner">
           <Link to="/" className="nav-logo">
-            <img src="/logo.png" alt="Pink Auto" />
-            <span>Pink Auto</span>
+            <img src="/logo.png" alt="Gatigo" />
+            <span>Gatigo</span>
           </Link>
 
           <ul className="nav-links">
@@ -53,8 +53,8 @@ export default function Navbar() {
           </ul>
 
           <div className="nav-cta">
-            <a href="https://wa.me/919876543210?text=Hello%20Pink%20Auto!" target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-sm">
-              <WhatsAppIcon size={14} /> WhatsApp
+            <a href="#download" className="btn btn-primary btn-sm">
+              Download App
             </a>
           </div>
 
@@ -101,8 +101,8 @@ export default function Navbar() {
               transition={{ delay: 0.1 + navItems.length * 0.04 }}
               style={{ marginTop: '1.5rem', width: '100%', maxWidth: 320 }}
             >
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="btn btn-primary" style={{ width: '100%' }}>
-                Book on WhatsApp
+              <a href="#download" className="btn btn-primary" style={{ width: '100%' }}>
+                Download App
               </a>
             </motion.div>
           </motion.div>

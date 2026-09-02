@@ -4,21 +4,21 @@ const testimonials = [
   {
     name: 'Sneha Patil',
     role: 'Working Professional',
-    text: 'Pink Auto has been a lifesaver for my daily commute. I feel completely safe traveling alone even late in the evening. The drivers are extremely professional and polite.',
+    text: 'Gatigo has been a lifesaver for my daily commute. I feel completely safe traveling alone even late in the evening. The drivers are extremely professional and polite.',
     rating: 5,
     type: 'Daily Commuter'
   },
   {
     name: 'Priya Deshmukh',
     role: 'College Student',
-    text: 'As a college student, Pink Auto gives me and my parents peace of mind. The service is reliable, affordable, and the drivers are always on time.',
+    text: 'As a college student, Gatigo gives me and my parents peace of mind. The service is reliable, affordable, and the drivers are always on time.',
     rating: 5,
     type: 'Student'
   },
   {
     name: 'Meera Kulkarni',
     role: 'Mother of Two',
-    text: "I trust Pink Auto completely for my children's school pickup. The verified drivers and GPS tracking give me confidence that my kids are in safe hands.",
+    text: "I trust Gatigo completely for my children's school pickup. The verified drivers and GPS tracking give me confidence that my kids are in safe hands.",
     rating: 5,
     type: 'Parent'
   },
@@ -32,14 +32,14 @@ const testimonials = [
   {
     name: 'TechCorp India',
     role: 'Corporate Partner',
-    text: 'We partnered with Pink Auto for our female employees\' late-night drops. The service has been exceptional with zero safety incidents in the past year.',
+    text: 'We partnered with Gatigo for our female employees\' late-night drops. The service has been exceptional with zero safety incidents in the past year.',
     rating: 5,
     type: 'Corporate'
   },
   {
     name: 'Aarti Joshi',
     role: 'Event Organizer',
-    text: "Booked 10 Pink Autos for a women's conference in the city. The coordination was flawless and the guests loved the pink branding!",
+    text: "Booked 10 Gatigos for a women's conference in the city. The coordination was flawless and the guests loved the pink branding!",
     rating: 4,
     type: 'Event Booking'
   }
@@ -54,7 +54,7 @@ export default function Testimonials() {
             <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Testimonials</span>
             <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Stories of <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Trust & Safety</span></h2>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem' }}>
-              Don't just take our word for it. Hear what the women and families have to say about their Pink Auto experience.
+              Don't just take our word for it. Hear what the women and families have to say about their Gatigo experience.
             </p>
             <p className="text-marathi" style={{ color: 'var(--color-accent)', fontSize: '1.1rem' }}>
               "तुमचा विश्वास, आमची ताकद"

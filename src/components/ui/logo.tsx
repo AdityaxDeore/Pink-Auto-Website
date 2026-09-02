@@ -1,4 +1,4 @@
-import logoSrc from "@/assets/96b9b8ea-dbd2-4b87-85d0-dd214ab40833 (1).png"
+import logoSrc from "@/assets/logo.png"
 import { cn } from "@/lib/utils"
 
 type LogoProps = {
@@ -12,7 +12,7 @@ export function Logo({ className, showWordmark = false, wordmarkClassName }: Log
     <>
       <img
         src={logoSrc}
-        alt="Pink Auto"
+        alt="Gatigo"
         className={cn("object-contain shrink-0", className)}
       />
       {showWordmark && (
@@ -22,7 +22,7 @@ export function Logo({ className, showWordmark = false, wordmarkClassName }: Log
             wordmarkClassName
           )}
         >
-          Pink Auto
+          Gatigo
         </span>
       )}
     </>

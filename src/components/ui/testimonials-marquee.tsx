@@ -152,7 +152,7 @@ export function TestimonialsMarquee({ className }: { className?: string }) {
               Trusted by <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>women & families</span>
             </h2>
             <p className="mt-4 text-base sm:text-lg text-slate-500 text-center max-w-xl mx-auto leading-relaxed">
-              Real stories from students, parents, and professionals who ride with Pink Auto every day.
+              Real stories from students, parents, and professionals who ride with Gatigo every day.
             </p>
           </div>
 

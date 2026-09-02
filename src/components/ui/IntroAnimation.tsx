@@ -113,7 +113,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
             >
               <img
                 src="/logo.png"
-                alt="Pink Auto Logo"
+                alt="Gatigo Logo"
                 style={{
                   width: 84,
                   height: 84,
@@ -161,7 +161,7 @@ export default function IntroAnimation({ onComplete }: IntroAnimationProps) {
                   fontStyle: 'italic',
                 }}
               >
-                Pink Auto
+                Gatigo
               </span>
             </div>
 

@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom';
 const newsItems = [
   {
     date: 'March 8, 2024',
-    title: 'Pink Auto Launches 50 New Vehicles on Women\'s Day',
+    title: 'Gatigo Launches 50 New Vehicles on Women\'s Day',
     source: 'Local Times',
-    desc: 'In a major boost to women\'s safe mobility, Pink Auto expanded its fleet with 50 new auto-rickshaws driven entirely by women.',
+    desc: 'In a major boost to women\'s safe mobility, Gatigo expanded its fleet with 50 new auto-rickshaws driven entirely by women.',
     image: '/images/hero-pink-auto.png'
   },
   {

@@ -16,32 +16,32 @@ const rawTestimonials = [
   {
     name: "Priya Patil",
     role: "Engineering Student",
-    text: "As a student, I often return home after evening practicals. My parents were always worried about my commute. Since I started using Pink Auto, they can relax knowing I'm travelling with verified drivers and live tracking.",
+    text: "As a student, I often return home after evening practicals. My parents were always worried about my commute. Since I started using Gatigo, they can relax knowing I'm travelling with verified drivers and live tracking.",
   },
   {
     name: "Snehal Jadhav",
     role: "Working Professional",
-    text: "I commute every day for work. Pink Auto has been reliable, punctual, and most importantly, safe. It's refreshing to see a service built specifically around women's needs.",
+    text: "I commute every day for work. Gatigo has been reliable, punctual, and most importantly, safe. It's refreshing to see a service built specifically around women's needs.",
   },
   {
     name: "Madhuri Kulkarni",
     role: "Parent",
-    text: "My daughter uses Pink Auto for her college commute. The driver's details, tracking features, and safety-first approach give us confidence every single day.",
+    text: "My daughter uses Gatigo for her college commute. The driver's details, tracking features, and safety-first approach give us confidence every single day.",
   },
   {
     name: "Rutuja Khot",
     role: "Medical Student",
-    text: "Hospital duties often end late at night. Pink Auto has become my preferred transportation option because I know safety is never treated as an afterthought.",
+    text: "Hospital duties often end late at night. Gatigo has become my preferred transportation option because I know safety is never treated as an afterthought.",
   },
   {
     name: "Archana Powar",
     role: "School Teacher",
-    text: "The professionalism of the drivers and the ease of booking make Pink Auto stand out. It feels like a service that genuinely understands local families.",
+    text: "The professionalism of the drivers and the ease of booking make Gatigo stand out. It feels like a service that genuinely understands local families.",
   },
   {
     name: "Sachin Chougule",
     role: "Parent",
-    text: "As a father, nothing matters more than knowing my daughter reaches her destination safely. Pink Auto has earned our family's trust.",
+    text: "As a father, nothing matters more than knowing my daughter reaches her destination safely. Gatigo has earned our family's trust.",
   },
   {
     name: "Sonali Desai",
@@ -51,7 +51,7 @@ const rawTestimonials = [
   {
     name: "Vaishnavi Mane",
     role: "Software Engineer",
-    text: "I frequently travel between Rajarampuri and Tarabai Park for work. Pink Auto has been consistent, dependable, and easy to use from day one.",
+    text: "I frequently travel between Rajarampuri and Tarabai Park for work. Gatigo has been consistent, dependable, and easy to use from day one.",
   },
   {
     name: "Deepali Salunkhe",
@@ -66,7 +66,7 @@ const rawTestimonials = [
   {
     name: "Rekha Chavan",
     role: "NGO Volunteer",
-    text: "We often work on women-focused community programs, and Pink Auto aligns perfectly with that mission. Safe mobility creates stronger communities.",
+    text: "We often work on women-focused community programs, and Gatigo aligns perfectly with that mission. Safe mobility creates stronger communities.",
   },
   {
     name: "Anjali Kadam",
@@ -76,7 +76,7 @@ const rawTestimonials = [
   {
     name: "Vikram Nalawade",
     role: "Corporate Employee",
-    text: "I regularly arrange transportation for family members. Pink Auto's reliability and safety standards have made it our first choice.",
+    text: "I regularly arrange transportation for family members. Gatigo's reliability and safety standards have made it our first choice.",
   },
   {
     name: "Ashwini Mohite",
@@ -96,22 +96,22 @@ const rawTestimonials = [
   {
     name: "Meena Patankar",
     role: "Senior Citizen",
-    text: "The drivers are patient, respectful, and helpful. I feel comfortable using Pink Auto for hospital visits and daily errands.",
+    text: "The drivers are patient, respectful, and helpful. I feel comfortable using Gatigo for hospital visits and daily errands.",
   },
   {
     name: "Rohini Pawar",
     role: "Marketing Professional",
-    text: "A transportation service should make you feel secure the moment you book a ride. Pink Auto achieves exactly that.",
+    text: "A transportation service should make you feel secure the moment you book a ride. Gatigo achieves exactly that.",
   },
   {
     name: "Sanjana Shinde",
     role: "Law Student",
-    text: "Late evening classes are no longer a concern. Pink Auto has made my daily commute much safer and more convenient.",
+    text: "Late evening classes are no longer a concern. Gatigo has made my daily commute much safer and more convenient.",
   },
   {
     name: "Ujwala Patil",
     role: "Parent & Homemaker",
-    text: "The combination of verified drivers, GPS tracking, and responsive support gives families confidence. That's why we trust Pink Auto.",
+    text: "The combination of verified drivers, GPS tracking, and responsive support gives families confidence. That's why we trust Gatigo.",
   },
 ] as const
 

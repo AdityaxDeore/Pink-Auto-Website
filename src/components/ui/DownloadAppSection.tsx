@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import FadeIn from './FadeIn';
 import { SmartphoneIcon } from './Icons';
+import { DownloadButtons } from './download-buttons';
 
 export default function DownloadAppSection() {
   return (
-    <section className="section" style={{ background: 'var(--color-primary)', color: 'var(--color-on-dark)', overflow: 'hidden' }}>
+    <section id="download" className="section" style={{ background: 'var(--color-primary)', color: 'var(--color-on-dark)', overflow: 'hidden' }}>
       <div className="container relative">
         {/* Decorative background circle */}
         <div style={{
@@ -21,35 +22,18 @@ export default function DownloadAppSection() {
             <div>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1.5rem' }}>
                 <SmartphoneIcon size={24} color="var(--color-accent)" />
-                <span className="eyebrow" style={{ color: 'var(--color-mute)' }}>Coming Soon</span>
+                <span className="eyebrow" style={{ color: 'var(--color-mute)' }}>Download Now</span>
               </div>
               <h2 className="text-display-md" style={{ color: 'var(--color-on-dark)' }}>
                 Your Safety, Now in <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Your Pocket</span>
               </h2>
               <p style={{ marginTop: '1.5rem', fontSize: '1.125rem', color: 'var(--color-mute)', lineHeight: 1.7, maxWidth: 480 }}>
-                We're building a dedicated mobile app to make booking and tracking your Pink Auto rides even easier and safer. 
-                Get real-time tracking, one-tap SOS, and seamless payments.
+                Download the Gatigo app to book rides, track your driver in real-time, 
+                use one-tap SOS, and enjoy seamless payments — all from your phone.
               </p>
               
-              <div style={{ marginTop: '2.5rem', display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-                <div style={{ 
-                  display: 'flex', alignItems: 'center', gap: '1rem', 
-                  background: 'rgba(255,255,255,0.05)', 
-                  border: '1px solid rgba(255,255,255,0.1)', 
-                  padding: '1rem 1.5rem', 
-                  borderRadius: 'var(--radius-xl)' 
-                }}>
-                  <div style={{ fontWeight: 600, fontSize: '0.9rem' }}>Join the Waitlist</div>
-                  <input 
-                    type="email" 
-                    placeholder="Enter your email" 
-                    style={{
-                      background: 'transparent', border: 'none', borderBottom: '1px solid rgba(255,255,255,0.2)',
-                      color: 'white', padding: '0.25rem 0', outline: 'none', width: '180px'
-                    }}
-                  />
-                  <button className="btn btn-sm btn-primary" style={{ padding: '0.5rem 1rem' }}>Notify Me</button>
-                </div>
+              <div style={{ marginTop: '2.5rem' }}>
+                <DownloadButtons />
               </div>
             </div>
           </FadeIn>
