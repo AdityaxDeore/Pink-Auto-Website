@@ -1,5 +1,5 @@
 export const SITE = {
-  name: "Gatigo",
+  name: "GatiGo",
   tagline: "Safe & Reliable Auto Service for Women",
   subtaglines: [
     "Driven by Women, Trusted by Families",
@@ -15,9 +15,9 @@ export const SITE = {
 } as const
 
 export const WHATSAPP_BOOK_URL = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-  "Hi Gatigo, I'd like to book a ride."
+  "Hi GatiGo, I'd like to book a ride."
 )}`
 
 export const WHATSAPP_DRIVER_URL = `https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(
-  "Hi Gatigo, I'm interested in joining as a driver."
+  "Hi GatiGo, I'm interested in joining as a driver."
 )}`

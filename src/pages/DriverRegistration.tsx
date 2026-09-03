@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import { DownloadButtons } from '../components/ui/download-buttons';
 import FadeIn from '../components/ui/FadeIn';
 
@@ -46,7 +45,7 @@ const requirements = [
 ];
 
 const steps = [
-  { num: '01', title: 'Download the App', desc: 'Get the Gatigo Partner app from App Store or Google Play and sign up.' },
+  { num: '01', title: 'Download the App', desc: 'Get the GatiGo Partner app from App Store or Google Play and sign up.' },
   { num: '02', title: 'Document Check', desc: 'Submit your license, Aadhaar, and other documents for quick verification.' },
   { num: '03', title: 'Training', desc: 'Attend a free one-day orientation and safety training session.' },
   { num: '04', title: 'Start Earning', desc: 'You\'re live! Start getting passenger requests and earn every day.' },
@@ -92,7 +91,7 @@ export default function DriverRegistration() {
                 maxWidth: 700,
               }}
             >
-              Drive with <em style={{ color: 'var(--color-accent)', fontStyle: 'italic' }}>Gatigo</em>.<br />
+              Drive with <em style={{ color: 'var(--color-accent)', fontStyle: 'italic' }}>GatiGo</em>.<br />
               Empower Your Community.
             </h1>
             <p style={{ color: 'rgba(249,248,246,0.65)', fontSize: '1.15rem', marginTop: '1.75rem', maxWidth: 560, lineHeight: 1.8 }}>
@@ -113,7 +112,7 @@ export default function DriverRegistration() {
         <div className="container">
           <FadeIn>
             <div className="text-center mb-16">
-              <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Why Gatigo?</span>
+              <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Why GatiGo?</span>
               <h2 className="text-display-md mt-3">
                 Benefits of Joining <span style={{ fontStyle: 'italic' }}>Our Fleet</span>
               </h2>
@@ -149,7 +148,7 @@ export default function DriverRegistration() {
                 How to <span style={{ fontStyle: 'italic' }}>Get Started</span>
               </h2>
               <p style={{ color: 'var(--text-secondary)', marginTop: '1rem', maxWidth: 480, margin: '1rem auto 0', lineHeight: 1.7 }}>
-                Joining Gatigo takes just a few simple steps. No complicated forms — just reach out!
+                Joining GatiGo takes just a few simple steps. No complicated forms — just reach out!
               </p>
             </div>
           </FadeIn>
@@ -190,7 +189,7 @@ export default function DriverRegistration() {
                 What You <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Need</span> to Join
               </h2>
               <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, marginBottom: '2.5rem' }}>
-                We keep our requirements simple and transparent. If you meet these basics, you're ready to drive with Gatigo!
+                We keep our requirements simple and transparent. If you meet these basics, you're ready to drive with GatiGo!
               </p>
               <a
                 href="#download"
@@ -229,10 +228,10 @@ export default function DriverRegistration() {
             <div style={{ textAlign: 'center', maxWidth: 640, margin: '0 auto' }}>
               <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Ready?</span>
               <h2 style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2rem, 4vw, 3.5rem)', color: 'var(--color-canvas)', marginTop: '1.25rem', lineHeight: 1.15 }}>
-                Join Gatigo Today &amp; <em style={{ color: 'var(--color-accent)', fontStyle: 'italic' }}>Start Earning</em>
+                Join GatiGo Today &amp; <em style={{ color: 'var(--color-accent)', fontStyle: 'italic' }}>Start Earning</em>
               </h2>
               <p style={{ color: 'rgba(249,248,246,0.6)', marginTop: '1.5rem', fontSize: '1.05rem', lineHeight: 1.8 }}>
-                Download the Gatigo Partner App to complete your registration, submit documents, and start accepting rides today.
+                Download the GatiGo Partner App to complete your registration, submit documents, and start accepting rides today.
               </p>
               <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '1rem', marginTop: '3rem' }}>
                 <DownloadButtons />

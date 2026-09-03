@@ -28,7 +28,7 @@ export default function DownloadAppSection() {
                 Your Safety, Now in <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Your Pocket</span>
               </h2>
               <p style={{ marginTop: '1.5rem', fontSize: '1.125rem', color: 'var(--color-mute)', lineHeight: 1.7, maxWidth: 480 }}>
-                Download the Gatigo app to book rides, track your driver in real-time, 
+                Download the GatiGo app to book rides, track your driver in real-time, 
                 use one-tap SOS, and enjoy seamless payments — all from your phone.
               </p>
               

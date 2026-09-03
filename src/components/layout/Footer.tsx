@@ -42,8 +42,8 @@ export default function Footer() {
           {/* Brand Column */}
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '2rem' }}>
-              <img src="/logo.png" alt="Gatigo" style={{ height: 64, width: 64, borderRadius: '50%', objectFit: 'cover' }} />
-              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 400, fontSize: '2rem', color: 'var(--color-canvas)', letterSpacing: '-0.02em', fontStyle: 'italic' }}>Gatigo</span>
+              <img src="/logo.png" alt="GatiGo" style={{ height: 64, width: 64, borderRadius: '50%', objectFit: 'cover' }} />
+              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 400, fontSize: '2rem', color: 'var(--color-canvas)', letterSpacing: '-0.02em', fontStyle: 'italic' }}>GatiGo</span>
             </div>
             <p style={{ fontSize: '0.95rem', color: 'rgba(249,248,246,0.6)', lineHeight: 1.7, marginBottom: '2rem', maxWidth: 320 }}>
               An elegant, secure, and reliable service tailored for women, students, and families.
@@ -108,7 +108,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className="footer-bottom">
-          <span>© {new Date().getFullYear()} Gatigo. All rights reserved.</span>
+          <span>© {new Date().getFullYear()} GatiGo. All rights reserved.</span>
           <div style={{ display: 'flex', gap: '1.5rem' }}>
             <a href="#">Privacy Policy</a>
             <a href="#">Terms of Service</a>

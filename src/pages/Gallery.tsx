@@ -6,19 +6,19 @@ import FadeIn from '../components/ui/FadeIn';
 // All gallery items — real photos from Material folder + WhatsApp images + videos
 const galleryItems = [
   // Material folder real photos
-  { src: '/gallery/img-5792.jpg', type: 'photo' as const, title: 'Gatigo Fleet' },
-  { src: '/gallery/img-5798.jpg', type: 'photo' as const, title: 'Gatigo on the Road' },
-  { src: '/gallery/img-5801.jpg', type: 'photo' as const, title: 'Gatigo Ready' },
+  { src: '/gallery/img-5792.jpg', type: 'photo' as const, title: 'GatiGo Fleet' },
+  { src: '/gallery/img-5798.jpg', type: 'photo' as const, title: 'GatiGo on the Road' },
+  { src: '/gallery/img-5801.jpg', type: 'photo' as const, title: 'GatiGo Ready' },
   { src: '/gallery/img-5803.jpg', type: 'photo' as const, title: 'Safe Ride' },
   { src: '/gallery/img-5806.jpg', type: 'photo' as const, title: 'Women First' },
   { src: '/gallery/img-5815.jpg', type: 'photo' as const, title: 'Community Rides' },
-  { src: '/gallery/img-5816.jpg', type: 'photo' as const, title: 'Gatigo Experience' },
+  { src: '/gallery/img-5816.jpg', type: 'photo' as const, title: 'GatiGo Experience' },
   // WhatsApp images
   { src: '/gallery/wa-image-1.jpeg', type: 'photo' as const, title: 'Happy Passengers' },
   { src: '/gallery/wa-image-2.jpeg', type: 'photo' as const, title: 'Ride in Style' },
   { src: '/gallery/wa-image-3.jpeg', type: 'photo' as const, title: 'Safe Travel' },
   // Videos
-  { src: '/gallery/wa-video-1.mp4', type: 'video' as const, title: 'Gatigo in Action' },
+  { src: '/gallery/wa-video-1.mp4', type: 'video' as const, title: 'GatiGo in Action' },
   { src: '/videos/driving.mp4', type: 'video' as const, title: 'Smooth Ride' },
 ];
 
@@ -71,7 +71,7 @@ export default function Gallery() {
               Our Visual Story
             </span>
             <h1 className="text-white mb-4" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 500, lineHeight: 1.1 }}>
-              The Gatigo{' '}
+              The GatiGo{' '}
               <em style={{ color: 'var(--color-accent)', fontStyle: 'italic' }}>Experience</em>
             </h1>
             <p className="text-white/70 text-lg font-light leading-relaxed max-w-xl mx-auto mt-4">

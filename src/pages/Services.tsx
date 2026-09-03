@@ -28,7 +28,7 @@ export default function Services() {
             <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Our Services</span>
             <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Premium Transportation Services for <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Everyone</span></h2>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem', maxWidth: '800px' }}>
-              From daily commutes to special events, Gatigo offers reliable and safe auto-rickshaw services tailored to your needs.
+              From daily commutes to special events, GatiGo offers reliable and safe auto-rickshaw services tailored to your needs.
             </p>
             <p className="text-marathi" style={{ color: 'var(--color-accent)', fontSize: '1.1rem' }}>
               "प्रत्येक गरजेसाठी विश्वासार्ह सेवा"

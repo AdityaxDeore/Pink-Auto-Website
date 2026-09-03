@@ -23,7 +23,7 @@ import Typewriter from '../components/ui/Typewriter';
 const features = [
   { Icon: ShieldCheckIcon, title: 'Women-First Safety', desc: 'Verified women drivers, GPS tracking, and emergency support for every ride.', marathi: 'महिलांची सुरक्षा आमचं प्राधान्य' },
   { Icon: CheckCircleIcon, title: 'Verified Drivers', desc: 'Every driver undergoes thorough background verification and training.', marathi: 'प्रत्येक चालक सत्यापित' },
-  { Icon: SparklesIcon, title: 'Clean & Comfortable', desc: 'Well-maintained Gatigo-rickshaws with clean interiors and comfortable seating.', marathi: 'स्वच्छ आणि आरामदायी प्रवास' },
+  { Icon: SparklesIcon, title: 'Clean & Comfortable', desc: 'Well-maintained GatiGo-rickshaws with clean interiors and comfortable seating.', marathi: 'स्वच्छ आणि आरामदायी प्रवास' },
   { Icon: WalletIcon, title: 'Fair Pricing', desc: 'We provide an estimate fare range for your route. The final fare is negotiable with the driver, ensuring flexibility and fairness.', marathi: 'अंदाजे भाडे सांगतो, चालकाशी बोलून ठरवा' },
 ];
 
@@ -57,14 +57,14 @@ export default function Home() {
           animate={{ opacity: 1 }} 
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <img src={heroImage} alt="Gatigo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          <img src={heroImage} alt="GatiGo" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
         </motion.div>
         <div className="container relative z-10 w-full">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-10 md:gap-16">
             <div className="hero-content lg:col-span-7 lg:col-start-1" style={{ padding: '8rem 0 4rem 0' }}>
               <div className="flex items-center gap-4 mb-6">
                 <div style={{ height: '1px', width: '40px', background: 'var(--color-accent)' }} />
-                <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Gatigo</span>
+                <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>GatiGo</span>
               </div>
               <motion.h1 className="text-display-xl" style={{ color: 'var(--text-primary)', marginTop: '2rem' }}
                 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}>
@@ -73,7 +73,7 @@ export default function Home() {
 
               <motion.p className="text-body-lg" style={{ color: 'var(--text-secondary)', marginTop: '2rem', maxWidth: 480 }}
                 initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}>
-                Your trusted Gatigo-rickshaw service providing safe, comfortable, and reliable transportation for women, students, senior citizens, and families.
+                Your trusted GatiGo-rickshaw service providing safe, comfortable, and reliable transportation for women, students, senior citizens, and families.
               </motion.p>
 
               <motion.p className="text-marathi" style={{ color: 'var(--color-accent)', marginTop: '0.75rem', fontSize: '1.1rem' }}
@@ -100,7 +100,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }} 
               transition={{ duration: 1.2, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
             >
-              <img src={heroImage} alt="Gatigo" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0' }} />
+              <img src={heroImage} alt="GatiGo" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '0' }} />
             </motion.div>
           </div>
         </div>
@@ -135,7 +135,7 @@ export default function Home() {
                   Empowering <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Women</span> Through Safe Transport
                 </h2>
                 <p className="text-body" style={{ color: 'var(--text-secondary)', marginBottom: '1.5rem', fontSize: '1.125rem', lineHeight: 1.8 }}>
-                  Gatigo was born from a simple yet powerful vision — to provide women, students, senior citizens, and families with a transportation service they can trust completely.
+                  GatiGo was born from a simple yet powerful vision — to provide women, students, senior citizens, and families with a transportation service they can trust completely.
                 </p>
                 <p className="text-marathi" style={{ color: 'var(--color-accent)', marginBottom: '3rem' }}>
                   "महिला सक्षमीकरण – सुरक्षित वाहतुकीद्वारे"
@@ -154,7 +154,7 @@ export default function Home() {
             <div className="grid grid-cols-1 lg:grid-cols-12 mb-16">
               <div className="lg:col-span-6 lg:col-start-2">
                 <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Our Features</span>
-                <h2 className="text-display-md" style={{ marginTop: '1rem' }}>Why You Trust <span style={{ fontStyle: 'italic' }}>Gatigo</span>?</h2>
+                <h2 className="text-display-md" style={{ marginTop: '1rem' }}>Why You Trust <span style={{ fontStyle: 'italic' }}>GatiGo</span>?</h2>
               </div>
             </div>
           </FadeIn>
@@ -239,7 +239,7 @@ export default function Home() {
                 <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Safety First</span>
                 <h2 className="text-display-md" style={{ color: 'var(--color-canvas)', marginTop: '1.5rem' }}>Your Safety Is Our <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Top Priority</span></h2>
                 <p style={{ color: 'rgba(249, 248, 246, 0.7)', marginTop: '1.5rem', fontSize: '1.125rem', lineHeight: 1.7 }}>
-                  Every Gatigo ride comes with multiple layers of safety including verified drivers, GPS tracking, emergency assistance, and 24/7 customer support.
+                  Every GatiGo ride comes with multiple layers of safety including verified drivers, GPS tracking, emergency assistance, and 24/7 customer support.
                 </p>
                 <p className="text-marathi" style={{ color: 'rgba(255,255,255,0.5)', marginTop: '0.75rem', fontSize: '1rem' }}>"तुमची सुरक्षा, आमची जबाबदारी"</p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginTop: '3rem' }}>
@@ -257,7 +257,7 @@ export default function Home() {
             </FadeIn>
             <FadeIn direction="right" className="lg:col-span-5 lg:col-start-8 group">
               <div style={{ overflow: 'hidden', borderRadius: 'var(--radius-3xl)' }}>
-                <img src={getImage(5)} alt="Safe Gatigo Driver" style={{ width: '100%', objectFit: 'cover' }} className="h-96 md:h-[600px] transition-all duration-[2000ms] group-hover:scale-105" />
+                <img src={getImage(5)} alt="Safe GatiGo Driver" style={{ width: '100%', objectFit: 'cover' }} className="h-96 md:h-[600px] transition-all duration-[2000ms] group-hover:scale-105" />
               </div>
             </FadeIn>
           </div>
@@ -274,7 +274,7 @@ export default function Home() {
             <div style={{ background: 'var(--color-canvas-soft)', border: '1px solid rgba(26,26,26,0.1)', padding: 'clamp(4rem, 8vw, 8rem)', textAlign: 'center' }}>
               <h2 className="text-display-lg" style={{ color: 'var(--color-ink)' }}>Ready for a <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Safe Ride?</span></h2>
               <p style={{ marginTop: '2rem', fontSize: '1.125rem', color: 'var(--color-body)', maxWidth: 500, margin: '2rem auto 0' }}>
-                Download the Gatigo app to book your ride safely and conveniently.
+                Download the GatiGo app to book your ride safely and conveniently.
               </p>
               <p className="text-marathi" style={{ marginTop: '0.75rem', color: 'var(--color-body)' }}>"आजच तुमचे ॲप डाउनलोड करा"</p>
               <div style={{ display: 'flex', justifyContent: 'center', gap: '1.5rem', marginTop: '3.5rem', flexWrap: 'wrap' }}>

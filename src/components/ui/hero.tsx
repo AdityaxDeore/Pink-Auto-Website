@@ -23,7 +23,7 @@ export default function Hero() {
               PA
             </div>
             <span className="font-semibold text-lg sm:text-2xl tracking-[-1px] sm:tracking-[-1.5px] truncate">
-              Gatigo
+              GatiGo
             </span>
           </a>
 
@@ -107,7 +107,7 @@ export default function Hero() {
 
               {/* Description */}
               <p className="text-base sm:text-lg md:text-xl text-slate-600 leading-relaxed max-w-[520px] mx-auto md:mx-0 mb-8 sm:mb-9">
-                Gatigo is a women-focused mobility platform helping women, students,
+                GatiGo is a women-focused mobility platform helping women, students,
                 families, and senior citizens travel safely through verified drivers,
                 real-time safety features, and dependable transportation.
               </p>
@@ -161,7 +161,7 @@ export default function Hero() {
                         <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg bg-pink-600 flex items-center justify-center text-white text-[9px] sm:text-[10px] font-bold">
                           PA
                         </div>
-                        <span className="font-semibold text-xs sm:text-sm">Gatigo</span>
+                        <span className="font-semibold text-xs sm:text-sm">GatiGo</span>
                       </div>
                       <div className="text-[9px] sm:text-[10px] text-slate-500">Maharashtra</div>
                     </div>

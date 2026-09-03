@@ -12,7 +12,7 @@ export function Logo({ className, showWordmark = false, wordmarkClassName }: Log
     <>
       <img
         src={logoSrc}
-        alt="Gatigo"
+        alt="GatiGo"
         className={cn("object-contain shrink-0", className)}
       />
       {showWordmark && (
@@ -22,7 +22,7 @@ export function Logo({ className, showWordmark = false, wordmarkClassName }: Log
             wordmarkClassName
           )}
         >
-          Gatigo
+          GatiGo
         </span>
       )}
     </>

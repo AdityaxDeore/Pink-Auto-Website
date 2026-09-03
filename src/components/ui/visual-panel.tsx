@@ -13,7 +13,7 @@ export function AboutVisual({ className }: { className?: string }) {
       <div className="surface-card overflow-hidden p-0">
         <BrandImage
           src={ABOUT_IMAGE}
-          alt="Gatigo community transport"
+          alt="GatiGo community transport"
           className="w-full aspect-[4/3] object-cover"
         />
       </div>
@@ -26,7 +26,7 @@ export function SafetyVisual({ className }: { className?: string }) {
     <div className={cn("surface-card overflow-hidden p-0 min-h-[320px]", className)}>
       <BrandImage
         src={BRAND_IMAGES.pin1}
-        alt="Safe Gatigo rides"
+        alt="Safe GatiGo rides"
         className="w-full h-full min-h-[320px] object-cover"
       />
     </div>

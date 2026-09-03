@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { WhatsAppIcon } from '../ui/Icons';
 
 const navItems = [
   { label: 'Home', path: '/' },
@@ -38,8 +37,8 @@ export default function Navbar() {
       <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
         <div className="nav-inner">
           <Link to="/" className="nav-logo">
-            <img src="/logo.png" alt="Gatigo" />
-            <span>Gatigo</span>
+            <img src="/logo.png" alt="GatiGo" />
+            <span>GatiGo</span>
           </Link>
 
           <ul className="nav-links">
