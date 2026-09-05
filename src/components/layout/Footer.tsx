@@ -78,7 +78,6 @@ export default function Footer() {
                 <li key={link.path + link.label}><Link to={link.path}>{link.label}</Link></li>
               ))}
               <li><Link to="/driver-registration">Become a Driver</Link></li>
-              <li><Link to="/testimonials">Testimonials</Link></li>
             </ul>
           </div>
 

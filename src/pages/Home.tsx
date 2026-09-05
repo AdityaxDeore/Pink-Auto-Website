@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { DownloadButtons } from '../components/ui/download-buttons';
+import TestimonialV2 from '../components/ui/testimonial-v2';
 import FadeIn from '../components/ui/FadeIn';
 import {
   ShieldCheckIcon, CheckCircleIcon, SparklesIcon, WalletIcon,
@@ -16,7 +17,6 @@ import imgWomen from '../assets/images/women_only.jpg';
 import imgSenior from '../assets/images/granny.png';
 import imgEvent from '../assets/images/event.jpg';
 import Counter from '../components/ui/Counter';
-import { TestimonialsMarquee } from '../components/ui/testimonials-marquee';
 import DownloadAppSection from '../components/ui/DownloadAppSection';
 import Typewriter from '../components/ui/Typewriter';
 
@@ -227,8 +227,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
-      <TestimonialsMarquee />
 
       {/* ── Safety Preview ── */}
       <section className="section" style={{ background: 'var(--color-ink)', color: 'var(--color-canvas)' }}>
@@ -263,6 +261,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ── Testimonials Section ── */}
+      <TestimonialV2 />
 
       {/* ── Download App Section ── */}
       <DownloadAppSection />

@@ -13,7 +13,6 @@ import Services from './pages/Services';
 import Safety from './pages/Safety';
 import Gallery from './pages/Gallery';
 import DriverRegistration from './pages/DriverRegistration';
-import Testimonials from './pages/Testimonials';
 import MediaEvents from './pages/MediaEvents';
 import Contact from './pages/Contact';
 
@@ -36,7 +35,6 @@ function AnimatedRoutes() {
         <Route path="/safety" element={<PageTransition><Safety /></PageTransition>} />
         <Route path="/gallery" element={<PageTransition><Gallery /></PageTransition>} />
         <Route path="/driver-registration" element={<PageTransition><DriverRegistration /></PageTransition>} />
-        <Route path="/testimonials" element={<PageTransition><Testimonials /></PageTransition>} />
         <Route path="/media-events" element={<PageTransition><MediaEvents /></PageTransition>} />
         <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
       </Routes>
