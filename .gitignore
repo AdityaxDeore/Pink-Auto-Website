@@ -25,3 +25,5 @@ terminals/
 *.sln
 *.sw?
 drive-download-*.zip
+desktop.ini
+*.zip

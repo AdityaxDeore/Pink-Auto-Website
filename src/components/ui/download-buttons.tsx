@@ -6,7 +6,7 @@ type DownloadButtonsProps = {
   variant?: "dark" | "light" | "glass"
 }
 
-export function DownloadButtons({ className, size = "md", variant = "dark" }: DownloadButtonsProps) {
+export function DownloadButtons({ className, size = "md" }: DownloadButtonsProps) {
   const isSm = size === "sm"
   const isLg = size === "lg"
 
