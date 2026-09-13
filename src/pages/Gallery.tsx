@@ -2,6 +2,8 @@ import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Play, ChevronLeft, ChevronRight, X } from 'lucide-react';
 import FadeIn from '../components/ui/FadeIn';
+import imgEvent2 from '../assets/images/events 2.png';
+import imgDailyRides from '../assets/images/dalily rides.png';
 
 // All gallery items — real photos from Material folder + WhatsApp images + videos
 const galleryItems = [
@@ -14,8 +16,8 @@ const galleryItems = [
   { src: '/gallery/img-5815.jpg', type: 'photo' as const, title: 'Community Rides' },
   { src: '/gallery/img-5816.jpg', type: 'photo' as const, title: 'GatiGo Experience' },
   // WhatsApp images
-  { src: '/gallery/wa-image-1.jpeg', type: 'photo' as const, title: 'Happy Passengers' },
-  { src: '/gallery/wa-image-2.jpeg', type: 'photo' as const, title: 'Ride in Style' },
+  { src: imgEvent2, type: 'photo' as const, title: 'Happy Passengers' },
+  { src: imgDailyRides, type: 'photo' as const, title: 'Ride in Style' },
   { src: '/gallery/wa-image-3.jpeg', type: 'photo' as const, title: 'Safe Travel' },
   // Videos
   { src: '/gallery/wa-video-1.mp4', type: 'video' as const, title: 'GatiGo in Action' },
@@ -70,11 +72,11 @@ export default function Gallery() {
             <span className="eyebrow block tracking-widest uppercase text-sm mb-4" style={{ color: 'var(--color-accent)' }}>
               Our Visual Story
             </span>
-            <h1 className="text-white mb-4" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 500, lineHeight: 1.1 }}>
+            <h1 className="text-white mb-4" style={{ fontFamily: 'var(--font-heading)', fontSize: 'clamp(2.5rem, 6vw, 4.5rem)', fontWeight: 500, lineHeight: 1.1, color: '#fff' }}>
               The GatiGo{' '}
               <em style={{ color: 'var(--color-accent)', fontStyle: 'italic' }}>Experience</em>
             </h1>
-            <p className="text-white/70 text-lg font-light leading-relaxed max-w-xl mx-auto mt-4">
+            <p className="text-lg font-light leading-relaxed max-w-xl mx-auto mt-4" style={{ color: 'rgba(255, 255, 255, 0.7)' }}>
               Our fleet, our drivers, our passengers — moments that define safe &amp; dignified travel.
             </p>
           </motion.div>
@@ -87,7 +89,7 @@ export default function Gallery() {
           <FadeIn>
             <div className="text-center mb-14">
               <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Gallery</span>
-              <h2 className="text-display-md mt-3">
+              <h2 className="text-display-md mt-3 text-white">
                 Moments from the <span style={{ fontStyle: 'italic' }}>Road</span>
               </h2>
             </div>

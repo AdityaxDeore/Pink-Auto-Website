@@ -27,7 +27,7 @@ export default function Safety() {
         <div className="container">
           <div style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
             <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Safety & Trust</span>
-            <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Your Safety is Our <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Top Priority</span></h2>
+            <h1 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Your Safety is Our <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Top Priority</span></h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem' }}>
               Multiple layers of safety measures ensure every GatiGo ride is secure, comfortable, and trustworthy.
             </p>

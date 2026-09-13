@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import FadeIn from '../components/ui/FadeIn';
 import { ShieldIcon, ZapIcon, UsersIcon, StarIcon, LeafIcon, TargetIcon, EyeIcon, MessageCircleIcon } from '../components/ui/Icons';
-import videoShotImage from '../assets/images/Videoshot_20260728_124328.jpg';
+import videoShotImage from '../assets/images/brand img.png';
 
 
 const values = [
@@ -23,7 +23,7 @@ export default function About() {
             <FadeIn direction="left">
               <div>
                 <span className="eyebrow" style={{ color: 'var(--color-accent)', fontSize: '1.125rem' }}>About GatiGo</span>
-                <h2 className="text-display-lg" style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>Who We <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Are?</span></h2>
+                <h1 className="text-display-lg" style={{ marginTop: '1rem', marginBottom: '1.5rem' }}>Who We <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Are?</span></h1>
                 <p style={{ marginTop: '1.5rem', color: 'var(--text-secondary)', fontSize: '1.5rem', lineHeight: 1.6, fontWeight: 500 }}>
                   More Than Just a Ride Service
                 </p>

@@ -10,12 +10,12 @@ import {
 } from '../components/ui/Icons';
 import { getImage } from '../utils/images';
 const heroImage = '/images/hero.JPG';
-import imgDaily from '../assets/images/Videoshot_20260728_124537.jpg';
+import imgDaily from '../assets/images/dalily rides.png';
 import imgOffice from '../assets/images/office.png';
 import imgSchool from '../assets/images/School_new.png';
 import imgWomen from '../assets/images/women_only.jpg';
 import imgSenior from '../assets/images/granny.png';
-import imgEvent from '../assets/images/event.jpg';
+import imgEvent from '../assets/images/events 2.png';
 import Counter from '../components/ui/Counter';
 import DownloadAppSection from '../components/ui/DownloadAppSection';
 import Typewriter from '../components/ui/Typewriter';

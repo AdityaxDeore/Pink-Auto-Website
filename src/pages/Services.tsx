@@ -1,12 +1,12 @@
 import { Link } from 'react-router-dom';
 import FadeIn from '../components/ui/FadeIn';
 import { MapPinIcon, BriefcaseIcon, GraduationCapIcon, UserIcon, HeartIcon, CalendarIcon, WalletIcon } from '../components/ui/Icons';
-import imgDaily from '../assets/images/Videoshot_20260728_124537.jpg';
+import imgDaily from '../assets/images/dalily rides.png';
 import imgOffice from '../assets/images/office.png';
 import imgSchool from '../assets/images/School_new.png';
 import imgWomen from '../assets/images/women_only.jpg';
 import imgSenior from '../assets/images/granny.png';
-import imgEvent from '../assets/images/event.jpg';
+import imgEvent from '../assets/images/events 2.png';
 import imgPackages from '../assets/images/IMG_20260728_122118.jpg';
 
 const services = [
@@ -26,7 +26,7 @@ export default function Services() {
         <div className="container">
           <div style={{ marginBottom: '4rem' }}>
             <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Our Services</span>
-            <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Premium Transportation Services for <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Everyone</span></h2>
+            <h1 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>Premium Transportation Services for <span style={{ fontStyle: 'italic', color: 'var(--color-accent)' }}>Everyone</span></h1>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem', maxWidth: '800px' }}>
               From daily commutes to special events, GatiGo offers reliable and safe auto-rickshaw services tailored to your needs.
             </p>
@@ -34,31 +34,33 @@ export default function Services() {
               "प्रत्येक गरजेसाठी विश्वासार्ह सेवा"
             </p>
           </div>
-          <div className="mobile-carousel md:!flex md:!flex-col md:!gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((s, i) => (
-              <FadeIn key={i} delay={0.05} className="min-w-[85vw] md:min-w-0 shrink-0 snap-center">
-                <div className="card grid grid-cols-1 md:grid-cols-2 overflow-hidden h-full">
-                  <div className={`h-60 sm:h-72 md:h-full md:min-h-[300px] overflow-hidden order-first ${i % 2 === 0 ? 'md:order-first' : 'md:order-last'}`}>
-                    <img src={s.image} alt={s.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <FadeIn key={i} delay={i * 0.08}>
+                <div className="card group flex flex-col h-full" style={{ padding: '0', borderRadius: 'var(--radius-2xl)', border: 'none', background: 'white' }}>
+                  <div style={{ overflow: 'hidden', borderRadius: 'var(--radius-2xl) var(--radius-2xl) 0 0', position: 'relative' }}>
+                    <img src={s.image} alt={s.title} style={{ width: '100%', height: '240px', objectFit: 'cover' }} className="transition-all duration-[2000ms] group-hover:scale-105" />
                   </div>
-                  <div style={{ padding: 'clamp(2rem, 4vw, 3rem)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
-                      <div style={{ width: 48, height: 48, borderRadius: 'var(--radius-md)', background: 'var(--color-gray-100)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <s.Icon size={24} color="var(--color-black)" />
+                  <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
+                      <span style={{ color: 'var(--color-accent)' }}><s.Icon size={20} /></span>
+                      <h3 style={{ fontSize: '1.25rem', fontWeight: 500, fontFamily: 'var(--font-heading)' }}>{s.title}</h3>
+                    </div>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.25rem' }}>{s.desc}</p>
+                    
+                    <div style={{ flexGrow: 1 }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.5rem', marginBottom: '1.25rem' }}>
+                        {s.benefits.map((b, j) => (
+                          <div key={j} style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
+                            <span style={{ color: 'var(--color-accent)', fontWeight: 700 }}>✓</span> {b}
+                          </div>
+                        ))}
                       </div>
-                      <h3 className="text-h3">{s.title}</h3>
                     </div>
-                    <p style={{ color: 'var(--text-secondary)', fontSize: '1rem', lineHeight: 1.7, marginBottom: '1.25rem' }}>{s.desc}</p>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', marginBottom: '1.25rem' }}>
-                      {s.benefits.map((b, j) => (
-                        <div key={j} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', color: 'var(--text-secondary)' }}>
-                          <span style={{ color: 'var(--color-black)', fontWeight: 700 }}>✓</span> {b}
-                        </div>
-                      ))}
-                    </div>
-                    <p className="text-marathi" style={{ color: 'var(--color-gray-500)', fontSize: '0.95rem', marginBottom: '1rem' }}>"{s.marathi}"</p>
-                    <div>
-                      <a href="#download" className="btn btn-primary btn-sm">Download App to Book</a>
+
+                    <p className="text-marathi" style={{ color: 'var(--color-gray-500)', fontSize: '0.9rem', marginBottom: '1rem', fontStyle: 'italic' }}>"{s.marathi}"</p>
+                    <div style={{ marginTop: 'auto' }}>
+                      <a href="#download" className="btn btn-primary btn-sm w-full" style={{ textAlign: 'center', display: 'block' }}>Download App to Book</a>
                     </div>
                   </div>
                 </div>

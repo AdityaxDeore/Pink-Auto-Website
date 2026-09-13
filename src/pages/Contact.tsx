@@ -24,7 +24,7 @@ export default function Contact() {
             <FadeIn direction="left">
               <div>
                 <span className="eyebrow" style={{ color: 'var(--color-accent)' }}>Contact Us</span>
-                <h2 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>We're Here to Help</h2>
+                <h1 className="text-h2" style={{ marginTop: '1rem', marginBottom: '1rem' }}>We're Here to Help</h1>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '1.125rem', lineHeight: 1.7, marginBottom: '0.75rem' }}>
                   Have a question about our services, want to book a ride, or partner with us? Reach out today.
                 </p>

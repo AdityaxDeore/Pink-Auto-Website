@@ -575,6 +575,14 @@ button {
   opacity: 1;
 }
 
+.navbar.navbar-dark:not(.scrolled) .nav-logo {
+  color: #fff;
+}
+
+.navbar.navbar-dark:not(.scrolled) .nav-link {
+  color: #fff;
+}
+
 .nav-cta {
   margin-left: 1rem;
 }

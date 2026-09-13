@@ -32,9 +32,11 @@ export default function Navbar() {
     return () => { document.body.style.overflow = ''; };
   }, [mobileOpen]);
 
+  const isGallery = location.pathname === '/gallery';
+
   return (
     <>
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <nav className={`navbar ${scrolled ? 'scrolled' : ''} ${isGallery ? 'navbar-dark' : ''}`}>
         <div className="nav-inner">
           <Link to="/" className="nav-logo">
             <img src="/logo.png" alt="GatiGo" />
